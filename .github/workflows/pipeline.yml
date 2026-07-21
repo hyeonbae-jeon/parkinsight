@@ -1,0 +1,86 @@
+name: Update Papers Pipeline
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # 매일 낮 12시 KST (UTC 03:00) — Gemini 일일 한도가 자정(UTC) 기준으로 초기화되므로 그 이후 시간대로 설정
+  workflow_dispatch:        # 수동 실행 버튼
+    inputs:
+      limit:
+        description: '이번 실행에서 AI 분석할 논문 건수 (일일 한도 이하로 자동 조정됨, 기본 100)'
+        required: false
+        default: '100'
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: papers-pipeline
+      cancel-in-progress: false
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      # ── Step 1: Collect papers from OpenAlex ──
+      - name: Run Collector
+        run: python collector.py
+        env:
+          OPENALEX_EMAIL: ${{ secrets.OPENALEX_EMAIL }}
+
+      # ── Step 2: Enrich with AI analysis (Gemini) ──
+      - name: Run Enricher
+        run: python enricher.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
+          GEMINI_RPD_LIMIT: ${{ secrets.GEMINI_RPD_LIMIT }}
+          ENRICH_LIMIT: ${{ github.event.inputs.limit || '100' }}
+
+      # ── Step 3: Build index ──
+      - name: Run Indexer
+        run: python indexer.py
+
+      # ── Commit & push ──
+      - name: Commit updated papers
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add papers.json raw_papers.json fetch_state.json enrich_state.json
+          if git diff --staged --quiet; then
+            echo "변경 사항 없음 — 커밋 생략"
+            exit 0
+          fi
+          git commit -m "chore: update papers [$(date -u +%Y-%m-%d)]"
+
+          # 다른 실행(스케줄/수동)과 겹쳐서 push가 거부될 경우를 대비해
+          # 최신 원격 커밋을 rebase로 받아온 뒤 재시도합니다.
+          pushed=0
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "push 성공"
+              pushed=1
+              break
+            fi
+            echo "push 실패 — 원격 변경분을 받아온 뒤 재시도합니다 ($i/5)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            sleep $((i * 5))
+          done
+
+          if [ "$pushed" -ne 1 ]; then
+            echo "::error::5회 재시도에도 push에 실패했습니다."
+            echo "가장 흔한 원인: 저장소 Settings → Actions → General → Workflow permissions에서"
+            echo "'Read and write permissions'이 선택되어 있는지 확인하세요."
+            echo "(기본값이 'Read repository contents permission'이면 Actions가 push할 수 없습니다.)"
+            echo "브랜치 보호 규칙(Branch protection rules)이 기본 브랜치 직접 push를 막고 있는지도 확인하세요."
+            exit 1
+          fi
