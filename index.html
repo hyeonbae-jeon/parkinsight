@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>국립공원 실무 AI 지식 플랫폼</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --primary: #1d4ed8;
+  --primary-dim: #dbeafe;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --header: #0f172a;
+  --text: #0f172a;
+  --muted: #64748b;
+  --light: #94a3b8;
+  --border: #e2e8f0;
+  --border-2: #f1f5f9;
+  --s5bg:#dcfce7; --s5tx:#166534;
+  --s4bg:#bbf7d0; --s4tx:#15803d;
+  --s3bg:#fef9c3; --s3tx:#854d0e;
+  --s2bg:#fed7aa; --s2tx:#c2410c;
+  --s1bg:#fee2e2; --s1tx:#991b1b;
+}
+body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg); color: var(--text); height: 100vh; display: flex; flex-direction: column; overflow: hidden; font-size: 15px; }
+
+/* ── Header ─────────────────────────── */
+.hd { height: 54px; background: var(--header); color: #f8fafc; display: flex; align-items: center;
+  padding: 0 18px; gap: 20px; flex-shrink: 0; border-bottom: 1px solid #1e293b; }
+.hd-logo { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; white-space: nowrap; }
+.hd-logo em { color: #60a5fa; font-style: normal; }
+.hd-stats { display: flex; gap: 14px; margin-left: auto; font-size: 13px; color: #94a3b8; flex-wrap: wrap; }
+.hd-stats strong { color: #e2e8f0; }
+
+/* ── Layout ──────────────────────────── */
+.layout { display: flex; flex: 1; overflow: hidden; }
+
+/* ── Sidebar ─────────────────────────── */
+.sb { width: 252px; flex-shrink: 0; background: var(--card); border-right: 1px solid var(--border);
+  overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 14px; }
+.sb::-webkit-scrollbar { width: 4px; }
+.sb::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.search-wrap { position: relative; }
+.search-wrap input { width: 100%; padding: 7px 10px 7px 30px; border: 1px solid var(--border);
+  border-radius: 6px; font-size: 14px; outline: none; font-family: inherit; background: var(--bg); }
+.search-wrap input:focus { border-color: var(--primary); background: #fff; }
+.search-icon { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--light);
+  font-size: 15px; pointer-events: none; }
+
+.fl-title { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.06em; margin-bottom: 8px; }
+.fl-divider { border: none; border-top: 1px solid var(--border-2); }
+
+/* Score filter buttons */
+.score-btns { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.score-btn { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer;
+  font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; transition: border-color .15s; }
+.score-btn:hover { opacity: 0.85; }
+.score-btn.active { border-color: currentColor !important; box-shadow: 0 0 0 2px rgba(0,0,0,.08); }
+.score-btn-reset { font-size: 12px; padding: 3px 8px; border: 1px solid var(--border); border-radius: 4px;
+  cursor: pointer; color: var(--muted); background: white; margin-left: 2px; }
+.score-btn-reset:hover { background: var(--border-2); }
+
+/* Checkbox filter */
+.cb-row { display: flex; align-items: center; gap: 7px; padding: 3px 0; cursor: pointer; }
+.cb-row input { cursor: pointer; accent-color: var(--primary); }
+.cb-row label { font-size: 13px; cursor: pointer; flex: 1; line-height: 1.3; }
+.cb-count { font-size: 12px; color: var(--light); }
+
+/* Tag cloud */
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
+.t-chip { font-size: 12px; padding: 2px 8px; background: var(--border-2); border: 1px solid var(--border);
+  border-radius: 4px; cursor: pointer; color: var(--muted); line-height: 1.5; }
+.t-chip:hover, .t-chip.on { background: var(--primary-dim); color: var(--primary); border-color: #93c5fd; }
+
+/* ── Paper List ─────────────────────── */
+.pl { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; }
+.pl-toolbar { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--card); }
+.pl-toolbar select { font-size: 13px; padding: 3px 6px; border: 1px solid var(--border); border-radius: 4px;
+  background: white; cursor: pointer; color: var(--text); }
+.pl-count { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.pl-cards { flex: 1; min-height: 0; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 7px; }
+.pl-cards::-webkit-scrollbar { width: 5px; }
+.pl-cards::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+.pl-pagination { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; padding: 8px 12px; border-top: 1px solid var(--border); background: var(--card); }
+.pl-page-size { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.pl-page-size select { font-size: 13px; padding: 3px 6px; border: 1px solid var(--border); border-radius: 4px;
+  background: white; cursor: pointer; color: var(--text); }
+.pl-page-nav { display: flex; align-items: center; gap: 4px; }
+.pl-page-btn { font-size: 13px; padding: 4px 9px; border: 1px solid var(--border); border-radius: 4px;
+  background: white; cursor: pointer; color: var(--text); }
+.pl-page-btn:hover:not(:disabled) { border-color: #93c5fd; color: var(--primary); }
+.pl-page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.pl-page-btn.cur { background: var(--primary); color: white; border-color: var(--primary); }
+.pl-page-info { font-size: 13px; color: var(--muted); white-space: nowrap; }
+
+.pc { background: var(--card); border: 1px solid var(--border); border-radius: 7px; padding: 12px 14px;
+  cursor: pointer; transition: border-color .15s, box-shadow .15s; }
+.pc:hover { border-color: #93c5fd; box-shadow: 0 2px 10px rgba(37,99,235,.07); }
+.pc.sel { border-color: var(--primary); background: #eff6ff; }
+
+.pc-scores { display: flex; gap: 5px; margin-bottom: 7px; flex-wrap: wrap; align-items: center; }
+.sb-badge { display: inline-flex; align-items: center; gap: 3px; padding: 1px 7px; border-radius: 4px;
+  font-size: 12px; font-weight: 600; white-space: nowrap; }
+.sb-badge .n { font-size: 13px; }
+.s5 { background: var(--s5bg); color: var(--s5tx); }
+.s4 { background: var(--s4bg); color: var(--s4tx); }
+.s3 { background: var(--s3bg); color: var(--s3tx); }
+.s2 { background: var(--s2bg); color: var(--s2tx); }
+.s1 { background: var(--s1bg); color: var(--s1tx); }
+.no-ai { background: var(--border-2); color: var(--muted); padding: 1px 8px; border-radius: 4px; font-size: 12px; }
+
+.pc-title { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 5px; color: var(--text); }
+.pc-meta { font-size: 12px; color: var(--muted); margin-bottom: 6px; line-height: 1.5; }
+.pc-sum { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 6px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.pc-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+.pc-tag { font-size: 11px; padding: 1px 6px; background: var(--border-2); border-radius: 3px; color: var(--light); }
+
+.empty { padding: 32px 16px; text-align: center; color: var(--muted); font-size: 14px; line-height: 1.8; }
+
+/* ── Detail Panel ───────────────────── */
+.dp { width: 700px; flex-shrink: 0; background: var(--card); border-left: 1px solid var(--border);
+  overflow-y: auto; display: flex; flex-direction: column; }
+.dp::-webkit-scrollbar { width: 5px; }
+.dp::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.dp-empty { flex: 1; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 14px; text-align: center; line-height: 1.7; padding: 24px; }
+
+/* Detail header */
+.dh { padding: 18px; border-bottom: 1px solid var(--border); }
+.dh-title { font-size: 16px; font-weight: 700; line-height: 1.45; margin-bottom: 10px; }
+.dh-title-orig { font-size: 13px; color: var(--muted); line-height: 1.4; margin: -6px 0 10px; }
+.dh-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+.dh-meta-item { display: flex; align-items: center; gap: 3px; }
+.dh-scores { display: flex; gap: 8px; margin-bottom: 12px; }
+.dsc { flex: 1; padding: 9px 11px; border-radius: 6px; border: 1px solid var(--border); }
+.dsc-lbl { font-size: 11px; color: var(--muted); margin-bottom: 3px; font-weight: 500; }
+.dsc-num { font-size: 21px; font-weight: 800; line-height: 1; }
+.dsc-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+.dsc.app { background: #f0fdf4; }
+.dsc.app .dsc-num { color: #16a34a; }
+.dsc.util { background: #eff6ff; }
+.dsc.util .dsc-num { color: var(--primary); }
+.star-row { display: flex; gap: 2px; margin-top: 5px; }
+.star { width: 10px; height: 10px; border-radius: 2px; background: var(--border); }
+.star.f5,.star.f4 { background: #22c55e; }
+.star.f3 { background: #ca8a04; }
+.star.f2 { background: #f97316; }
+.star.f1 { background: #dc2626; }
+.dh-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.dh-link { font-size: 12px; padding: 4px 11px; border-radius: 4px; text-decoration: none;
+  border: 1px solid var(--border); color: var(--muted); }
+.dh-link:hover { background: var(--border-2); }
+.dh-link.pri { background: var(--primary); color: white; border-color: var(--primary); }
+.oa-badge { font-size: 11px; padding: 2px 7px; border-radius: 3px; background: #dcfce7; color: #16a34a;
+  border: 1px solid #86efac; font-weight: 600; }
+
+/* Analysis body */
+.ab { padding: 0 18px 18px; }
+.as { margin-top: 14px; }
+.as-title { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+  letter-spacing: 0.07em; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 1px solid var(--border-2); }
+
+/* Summary box */
+.sum-box { background: #f8fafc; border-left: 3px solid var(--primary); padding: 10px 12px;
+  border-radius: 0 6px 6px 0; counter-reset: sl; }
+.sum-line { font-size: 13px; line-height: 1.65; padding: 2px 0; display: flex; gap: 6px; }
+.sum-line::before { counter-increment: sl; content: counter(sl); color: var(--primary); font-weight: 700;
+  font-size: 12px; flex-shrink: 0; padding-top: 2px; }
+
+.purpose { font-size: 13px; line-height: 1.7; color: var(--text); }
+
+/* Bullet list */
+.blist { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.blist li { font-size: 13px; line-height: 1.55; padding-left: 14px; position: relative; }
+.blist li::before { content: "▸"; position: absolute; left: 0; color: var(--primary); font-size: 10px; top: 3px; }
+
+/* Checklist */
+.cklist { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.cklist li { display: flex; gap: 7px; font-size: 13px; line-height: 1.55; }
+.cklist li::before { content: "☐"; flex-shrink: 0; color: var(--muted); font-size: 14px; }
+
+/* Badge rows */
+.badge-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.w-badge { font-size: 12px; padding: 2px 9px; background: #eff6ff; color: #1e40af; border-radius: 4px; }
+.l-badge { font-size: 12px; padding: 2px 9px; background: #faf5ff; color: #6b21a8; border-radius: 4px; }
+
+/* App reason */
+.app-reason { font-size: 13px; line-height: 1.65; background: #f0fdf4; padding: 9px 11px; border-radius: 6px; }
+
+/* Caution */
+.caution { font-size: 13px; line-height: 1.55; padding: 7px 11px; background: #fffbeb;
+  border-left: 3px solid #f59e0b; border-radius: 0 6px 6px 0; margin-bottom: 5px; }
+
+/* Tag list */
+.tg-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.tg { font-size: 12px; padding: 2px 9px; background: var(--border-2); color: var(--muted);
+  border: 1px solid var(--border); border-radius: 4px; }
+.tg.blue { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
+
+/* Followup */
+.fu { font-size: 13px; line-height: 1.55; padding: 7px 10px; background: var(--border-2);
+  border-radius: 6px; margin-bottom: 5px; }
+
+.ai-foot { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border-2);
+  font-size: 11px; color: var(--light); }
+
+/* Abstract fallback */
+.abs-box { margin-top: 12px; }
+.abs-box p { font-size: 13px; line-height: 1.7; color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd-logo">국립공원 <em>실무 AI 지식 플랫폼</em></div>
+  <div class="hd-stats" id="hd-stats">로딩 중…</div>
+</header>
+
+<div class="layout">
+
+  <!-- ── Sidebar ── -->
+  <aside class="sb">
+
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="q" placeholder="제목·저자·키워드 검색…" autocomplete="off">
+    </div>
+
+    <hr class="fl-divider">
+
+    <div>
+      <div class="fl-title">국립공원 적용 가능성</div>
+      <div class="score-btns" id="app-btns"></div>
+    </div>
+
+    <div>
+      <div class="fl-title">실무 활용도</div>
+      <div class="score-btns" id="util-btns"></div>
+    </div>
+
+    <hr class="fl-divider">
+
+    <div>
+      <div class="fl-title">관련 업무 분야</div>
+      <div id="work-fl"></div>
+    </div>
+
+    <hr class="fl-divider">
+
+    <div>
+      <div class="fl-title">출판 연도</div>
+      <div id="year-fl"></div>
+    </div>
+
+    <hr class="fl-divider">
+
+    <div>
+      <div class="fl-title">인기 태그</div>
+      <div class="tag-cloud" id="tag-cloud"></div>
+    </div>
+
+  </aside>
+
+  <!-- ── Paper List ── -->
+  <main class="pl" id="pl">
+    <div class="pl-toolbar" id="pl-toolbar"></div>
+    <div class="pl-cards" id="pl-cards">
+      <div class="empty">논문 데이터를 불러오는 중…</div>
+    </div>
+    <div class="pl-pagination" id="pl-pagination"></div>
+  </main>
+
+  <!-- ── Detail Panel ── -->
+  <aside class="dp" id="dp">
+    <div class="dp-empty">논문을 선택하면<br>AI 실무 분석 결과가 표시됩니다</div>
+  </aside>
+
+</div>
+
+<script>
+/* ══════════════════════════════════════
+   State
+══════════════════════════════════════ */
+let ALL = [], FILTERED = [], tagIdx = {}, workIdx = {};
+const F = { q: '', app: new Set(), util: new Set(), work: new Set(), year: new Set(), tags: new Set() };
+let selId = null;
+let pageSize = 10;
+let curPage = 1;
+let sortBy = 'default';   // 기본: AI 분석된 논문 우선 + 최신 논문(연도) 순
+
+function sortPapers(list) {
+  const arr = list.slice();
+  switch (sortBy) {
+    case 'year':
+      arr.sort((a,b) => (b.year||0) - (a.year||0));
+      break;
+    case 'app':
+      arr.sort((a,b) => (((b.ai_analysis||{}).korea_np_applicability_score)||0) - (((a.ai_analysis||{}).korea_np_applicability_score)||0));
+      break;
+    case 'util':
+      arr.sort((a,b) => (((b.ai_analysis||{}).practical_utility_score)||0) - (((a.ai_analysis||{}).practical_utility_score)||0));
+      break;
+    case 'cited':
+      arr.sort((a,b) => (b.cited_by_count||0) - (a.cited_by_count||0));
+      break;
+    default:   // AI 분석된 논문 우선 + 최신 논문(연도) 순
+      arr.sort((a,b) => {
+        const aAn = a.ai_analysis ? 1 : 0, bAn = b.ai_analysis ? 1 : 0;
+        if (aAn !== bAn) return bAn - aAn;
+        return (b.year||0) - (a.year||0);
+      });
+  }
+  return arr;
+}
+
+function changeSortBy(v) {
+  sortBy = v;
+  curPage = 1;
+  FILTERED = sortPapers(FILTERED);
+  renderList();
+}
+
+/* ══════════════════════════════════════
+   Load
+══════════════════════════════════════ */
+fetch('papers.json?v=' + Date.now(), { cache: 'no-store' })
+  .then(r => r.json())
+  .then(data => {
+    ALL     = data.papers || [];
+    tagIdx  = data.tag_index || {};
+    workIdx = data.work_area_index || {};
+    renderStats(data.meta || {});
+    buildSidebar();
+    applyFilter();
+  })
+  .catch(() => {
+    document.getElementById('pl-cards').innerHTML =
+      '<div class="empty">papers.json을 불러올 수 없습니다.<br>' +
+      '로컬에서는 <code>python -m http.server 8000</code> 후<br>' +
+      '<a href="http://localhost:8000">localhost:8000</a> 에서 확인하세요.</div>';
+  });
+
+/* ══════════════════════════════════════
+   Header stats
+══════════════════════════════════════ */
+function renderStats(m) {
+  document.getElementById('hd-stats').innerHTML =
+    `총 <strong>${m.total||0}</strong>편 &nbsp;·&nbsp; ` +
+    `AI 분석 <strong>${m.analyzed||0}</strong>편 &nbsp;·&nbsp; ` +
+    `평균 적용 가능성 <strong>${m.avg_applicability||'-'}</strong> &nbsp;·&nbsp; ` +
+    `고적용(4~5점) <strong>${m.high_applicability_count||0}</strong>편`;
+}
+
+/* ══════════════════════════════════════
+   Sidebar builders
+══════════════════════════════════════ */
+function sClass(s) { return s ? `s${Math.min(5,Math.max(1,s))}` : ''; }
+function sColor(s) {
+  return {1:'#dc2626',2:'#f97316',3:'#ca8a04',4:'#22c55e',5:'#16a34a'}[s]||'#94a3b8';
+}
+function sBg(s) {
+  return {1:'#fee2e2',2:'#fed7aa',3:'#fef9c3',4:'#bbf7d0',5:'#dcfce7'}[s]||'#f1f5f9';
+}
+
+function buildScoreBtns(cid, fset) {
+  const el = document.getElementById(cid);
+  el.innerHTML = '';
+  for (let s = 5; s >= 1; s--) {
+    const b = document.createElement('button');
+    b.className = 'score-btn';
+    b.textContent = s;
+    b.style.background = sBg(s);
+    b.style.color = sColor(s);
+    b.title = `${s}점`;
+    b.addEventListener('click', () => {
+      fset.has(s) ? fset.delete(s) : fset.add(s);
+      b.classList.toggle('active', fset.has(s));
+      applyFilter();
+    });
+    el.appendChild(b);
+  }
+  const rst = document.createElement('button');
+  rst.className = 'score-btn-reset';
+  rst.textContent = '전체';
+  rst.addEventListener('click', () => {
+    fset.clear();
+    el.querySelectorAll('.score-btn').forEach(b => b.classList.remove('active'));
+    applyFilter();
+  });
+  el.appendChild(rst);
+}
+
+function buildSidebar() {
+  buildScoreBtns('app-btns',  F.app);
+  buildScoreBtns('util-btns', F.util);
+
+  /* Work areas */
+  const wc = document.getElementById('work-fl');
+  wc.innerHTML = Object.entries(workIdx).slice(0,12).map(([a,n]) =>
+    `<div class="cb-row" data-area="${esc(a)}">
+       <input type="checkbox" id="w-${esc(a)}">
+       <label for="w-${esc(a)}">${esc(a)}</label>
+       <span class="cb-count">${n}</span>
+     </div>`).join('');
+  wc.querySelectorAll('.cb-row').forEach(row => {
+    row.querySelector('input').addEventListener('change', e => {
+      e.target.checked ? F.work.add(row.dataset.area) : F.work.delete(row.dataset.area);
+      applyFilter();
+    });
+  });
+
+  /* Years */
+  const years = [...new Set(ALL.map(p => p.year).filter(Boolean))].sort((a,b) => b-a);
+  const yc = document.getElementById('year-fl');
+  yc.innerHTML = years.slice(0,8).map(y =>
+    `<div class="cb-row" data-year="${y}">
+       <input type="checkbox" id="y-${y}">
+       <label for="y-${y}">${y}년</label>
+     </div>`).join('');
+  yc.querySelectorAll('.cb-row').forEach(row => {
+    row.querySelector('input').addEventListener('change', e => {
+      const y = parseInt(row.dataset.year);
+      e.target.checked ? F.year.add(y) : F.year.delete(y);
+      applyFilter();
+    });
+  });
+
+  /* Tags */
+  const tc = document.getElementById('tag-cloud');
+  tc.innerHTML = Object.entries(tagIdx).slice(0,30).map(([t,n]) =>
+    `<span class="t-chip" data-tag="${esc(t)}">${esc(t)} (${n})</span>`).join('');
+  tc.querySelectorAll('.t-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const t = chip.dataset.tag;
+      F.tags.has(t) ? F.tags.delete(t) : F.tags.add(t);
+      chip.classList.toggle('on', F.tags.has(t));
+      applyFilter();
+    });
+  });
+}
+
+/* ══════════════════════════════════════
+   Filter
+══════════════════════════════════════ */
+function applyFilter() {
+  const q = F.q.toLowerCase();
+  FILTERED = ALL.filter(p => {
+    const ai = p.ai_analysis || {};
+    if (q) {
+      const hay = [p.title, ai.title_ko||'', ...(p.authors||[]), p.journal||'',
+        ...(ai.tags||[]), ...(ai.summary_3lines||[]),
+        ...(ai.related_work_areas||[])].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    if (F.app.size  && !F.app.has(ai.korea_np_applicability_score))  return false;
+    if (F.util.size && !F.util.has(ai.practical_utility_score))       return false;
+    if (F.work.size && ![...(ai.related_work_areas||[])].some(a => F.work.has(a))) return false;
+    if (F.year.size && !F.year.has(p.year)) return false;
+    if (F.tags.size && ![...(ai.tags||[])].some(t => F.tags.has(t)))  return false;
+    return true;
+  });
+  FILTERED = sortPapers(FILTERED);
+  curPage = 1;
+  renderList();
+}
+
+/* ══════════════════════════════════════
+   Paper list render
+══════════════════════════════════════ */
+function renderToolbar() {
+  const tbEl = document.getElementById('pl-toolbar');
+  const total = FILTERED.length;
+  const start = total ? (curPage - 1) * pageSize + 1 : 0;
+  const end   = Math.min(curPage * pageSize, total);
+
+  const sortOptions = [
+    ['default', '기본순 (분석 우선·최신)'],
+    ['year',    '연도순'],
+    ['app',     '적용순'],
+    ['util',    '활용순'],
+    ['cited',   '피인용순'],
+  ];
+
+  tbEl.innerHTML = `
+    <select onchange="changeSortBy(this.value)">
+      ${sortOptions.map(([v,l])=>`<option value="${v}"${v===sortBy?' selected':''}>${l}</option>`).join('')}
+    </select>
+    <span class="pl-count">전체 ${total.toLocaleString()}건 중 ${start.toLocaleString()}–${end.toLocaleString()}건</span>`;
+}
+
+function renderList() {
+  const listEl = document.getElementById('pl-cards');
+  const pagEl  = document.getElementById('pl-pagination');
+
+  if (!FILTERED.length) {
+    renderToolbar();
+    listEl.innerHTML = '<div class="empty">검색 결과가 없습니다</div>';
+    pagEl.innerHTML = '';
+    return;
+  }
+
+  const totalPages = Math.max(1, Math.ceil(FILTERED.length / pageSize));
+  if (curPage > totalPages) curPage = totalPages;
+  if (curPage < 1) curPage = 1;
+
+  renderToolbar();
+
+  const start = (curPage - 1) * pageSize;
+  const pageItems = FILTERED.slice(start, start + pageSize);
+
+  listEl.innerHTML = pageItems.map((p,i) => {
+    const ai   = p.ai_analysis || {};
+    const app  = ai.korea_np_applicability_score;
+    const util = ai.practical_utility_score;
+    const sum  = (ai.summary_3lines||[])[0] || '';
+    const tags = (ai.tags||[]).slice(0,4);
+    const authors = (p.authors||[]).slice(0,2).join(', ')+(p.authors&&p.authors.length>2?` 외 ${p.authors.length-2}명`:'');
+    return `<div class="pc${p.id===selId?' sel':''}" onclick="selectPaper('${p.id}')">
+      <div class="pc-scores">
+        ${app  ? `<span class="sb-badge ${sClass(app)}"><span>적용</span><span class="n">${app}</span></span>` : ''}
+        ${util ? `<span class="sb-badge ${sClass(util)}"><span>활용</span><span class="n">${util}</span></span>` : ''}
+        ${!app&&!util ? '<span class="no-ai">AI 분석 대기</span>' : ''}
+        ${p.is_oa ? '<span class="oa-badge">OA</span>' : ''}
+      </div>
+      <div class="pc-title">${esc(p.title)}</div>
+      <div class="pc-meta">${esc(authors)}${p.year?` · ${p.year}`:''}${p.journal?` · ${esc(p.journal)}`:''}${p.cited_by_count?` · 피인용 ${p.cited_by_count}회`:''}</div>
+      ${sum ? `<div class="pc-sum">${esc(sum)}</div>` : ''}
+      ${tags.length ? `<div class="pc-tags">${tags.map(t=>`<span class="pc-tag">${esc(t)}</span>`).join('')}</div>` : ''}
+    </div>`;
+  }).join('');
+
+  renderPagination(totalPages);
+}
+
+function renderPagination(totalPages) {
+  const pagEl = document.getElementById('pl-pagination');
+
+  // 페이지 번호 버튼: 현재 페이지를 중심으로 최대 10개를 항상 일관되게 표시
+  const WINDOW = 10;
+  let start = Math.max(1, curPage - Math.floor(WINDOW / 2));
+  let end   = Math.min(totalPages, start + WINDOW - 1);
+  start     = Math.max(1, end - WINDOW + 1);
+
+  const pageBtns = [];
+  for (let n = start; n <= end; n++) {
+    pageBtns.push(`<button class="pl-page-btn${n===curPage?' cur':''}" onclick="goPage(${n})">${n}</button>`);
+  }
+
+  pagEl.innerHTML = `
+    <div class="pl-page-size">
+      전체 ${FILTERED.length}건 ·
+      <select onchange="changePageSize(this.value)">
+        ${[10,20,30,50].map(n=>`<option value="${n}"${n===pageSize?' selected':''}>${n}개씩</option>`).join('')}
+      </select>
+    </div>
+    <div class="pl-page-nav">
+      <button class="pl-page-btn" onclick="goPage(1)" ${curPage<=1?'disabled':''}>맨처음</button>
+      <button class="pl-page-btn" onclick="goPage(${curPage-1})" ${curPage<=1?'disabled':''}>이전</button>
+      ${pageBtns.join('')}
+      <button class="pl-page-btn" onclick="goPage(${curPage+1})" ${curPage>=totalPages?'disabled':''}>다음</button>
+      <button class="pl-page-btn" onclick="goPage(${totalPages})" ${curPage>=totalPages?'disabled':''}>맨끝</button>
+    </div>`;
+}
+
+function goPage(n) {
+  curPage = n;
+  renderList();
+  document.getElementById('pl-cards').scrollTop = 0;
+}
+
+function changePageSize(n) {
+  pageSize = parseInt(n, 10);
+  curPage = 1;
+  renderList();
+}
+
+/* ══════════════════════════════════════
+   Detail render
+══════════════════════════════════════ */
+function selectPaper(id) {
+  selId = id;
+  document.querySelectorAll('.pc').forEach(c => c.classList.toggle('sel', c.getAttribute('onclick').includes(`'${id}'`)));
+  const p = FILTERED.find(x => x.id === id);
+  if (p) renderDetail(p);
+}
+
+function stars(score) {
+  if (!score) return '';
+  return Array.from({length:5},(_,i)=>
+    `<div class="star${i<score?` f${score}`:''}"></div>`).join('');
+}
+
+function blist(items) {
+  if (!items||!items.length) return '<p style="font-size:13px;color:var(--muted)">정보 없음</p>';
+  return `<ul class="blist">${items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+}
+
+function renderDetail(p) {
+  const ai   = p.ai_analysis || {};
+  const app  = ai.korea_np_applicability_score;
+  const util = ai.practical_utility_score;
+  const authors = (p.authors||[]).slice(0,4).join(', ')+(p.authors&&p.authors.length>4?` 외 ${p.authors.length-4}명`:'');
+
+  let html = `
+  <div class="dh">
+    <div class="dh-title">${esc(ai.title_ko || p.title)}</div>
+    ${ai.title_ko?`<div class="dh-title-orig">${esc(p.title)}</div>`:''}
+    <div class="dh-meta">
+      ${authors?`<span class="dh-meta-item">저자 ${esc(authors)}</span>`:''}
+      ${p.year?`<span class="dh-meta-item">${p.year}년</span>`:''}
+      ${p.journal?`<span class="dh-meta-item">${esc(p.journal)}</span>`:''}
+      ${p.cited_by_count?`<span class="dh-meta-item">피인용 ${p.cited_by_count}회</span>`:''}
+    </div>`;
+
+  if (app || util) {
+    html += `<div class="dh-scores">
+      ${app?`<div class="dsc app"><div class="dsc-lbl">국립공원 적용 가능성</div>
+        <div class="dsc-num">${app}<span style="font-size:13px;font-weight:400;"> / 5</span></div>
+        <div class="star-row">${stars(app)}</div></div>`:''}
+      ${util?`<div class="dsc util"><div class="dsc-lbl">실무 활용도</div>
+        <div class="dsc-num">${util}<span style="font-size:13px;font-weight:400;"> / 5</span></div>
+        <div class="star-row">${stars(util)}</div></div>`:''}
+    </div>`;
+  }
+
+  html += `<div class="dh-links">
+    ${p.doi?`<a class="dh-link pri" href="https://doi.org/${p.doi}" target="_blank">논문 원문</a>`:''}
+    ${p.openalex_url?`<a class="dh-link" href="${p.openalex_url}" target="_blank">OpenAlex</a>`:''}
+    ${p.oa_url?`<a class="dh-link" href="${p.oa_url}" target="_blank">무료 PDF</a>`:''}
+    ${p.is_oa?'<span class="oa-badge">Open Access</span>':''}
+  </div></div>`;
+
+  if (!app && !util) {
+    html += `<div style="padding:18px;text-align:center;color:var(--muted);font-size:13px;line-height:1.8;">
+      AI 분석이 아직 완료되지 않았습니다.<br>
+      <code style="background:var(--border-2);padding:2px 6px;border-radius:3px;">python run_pipeline.py</code><br>를 실행하면 분석이 생성됩니다.
+      ${p.abstract?`<div class="abs-box"><div class="as-title" style="margin-top:14px;">초록</div><p>${esc(p.abstract.slice(0,600))}${p.abstract.length>600?'…':''}</p></div>`:''}
+    </div>`;
+  } else {
+    html += `<div class="ab">
+
+      <div class="as">
+        <div class="as-title">3줄 핵심 요약</div>
+        <div class="sum-box">
+          ${(ai.summary_3lines||[]).map(l=>`<div class="sum-line">${esc(l)}</div>`).join('')}
+        </div>
+      </div>
+
+      <div class="as">
+        <div class="as-title">국립공원 적용 가능성 — 적용 근거</div>
+        <div class="app-reason">${esc(ai.korea_np_applicability_reason||'정보 없음')}</div>
+      </div>
+
+      <div class="as">
+        <div class="as-title">실무 적용 방안</div>
+        ${blist(ai.practical_applications)}
+      </div>
+
+      ${ai.abstract_ko?`<div class="as">
+        <div class="as-title">초록 (한글 번역)</div>
+        <p class="purpose">${esc(ai.abstract_ko)}</p>
+      </div>`:''}
+
+      <div class="as">
+        <div class="as-title">연구 목적</div>
+        <p class="purpose">${esc(ai.research_purpose||'정보 없음')}</p>
+      </div>
+
+      <div class="as">
+        <div class="as-title">핵심 연구 결과</div>
+        ${blist(ai.key_findings)}
+      </div>
+
+      <div class="as">
+        <div class="as-title">관련 업무 분야</div>
+        <div class="badge-row">
+          ${(ai.related_work_areas||[]).map(a=>`<span class="w-badge">${esc(a)}</span>`).join('')||'<span style="font-size:13px;color:var(--muted)">정보 없음</span>'}
+        </div>
+      </div>
+
+      <div class="as">
+        <div class="as-title">관련 법령</div>
+        <div class="badge-row">
+          ${(ai.related_laws||[]).map(l=>`<span class="l-badge">${esc(l)}</span>`).join('')||'<span style="font-size:13px;color:var(--muted)">정보 없음</span>'}
+        </div>
+      </div>
+
+      <div class="as">
+        <div class="as-title">현장 점검 체크리스트</div>
+        ${(ai.field_checklist||[]).length
+          ? `<ul class="cklist">${(ai.field_checklist||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`
+          : '<p style="font-size:13px;color:var(--muted)">정보 없음</p>'}
+      </div>
+
+      <div class="as">
+        <div class="as-title">적용 시 주의사항</div>
+        ${(ai.cautions||[]).map(c=>`<div class="caution">${esc(c)}</div>`).join('')||'<p style="font-size:13px;color:var(--muted)">정보 없음</p>'}
+      </div>
+
+      <div class="as">
+        <div class="as-title">관련 태그</div>
+        <div class="tg-list">${(ai.tags||[]).map(t=>`<span class="tg">${esc(t)}</span>`).join('')}</div>
+      </div>
+
+      <div class="as">
+        <div class="as-title">후속 연구 필요 내용</div>
+        ${(ai.recommended_followup_research||[]).map(r=>`<div class="fu">${esc(r)}</div>`).join('')||'<p style="font-size:13px;color:var(--muted)">정보 없음</p>'}
+      </div>
+
+      <div class="as">
+        <div class="as-title">AI 추천 연구 키워드</div>
+        <div class="tg-list">${(ai.ai_recommended_topics||[]).map(t=>`<span class="tg blue">${esc(t)}</span>`).join('')}</div>
+      </div>
+
+      ${ai.analyzed_at?`<div class="ai-foot">AI 분석: ${ai.model||'Gemini'} · ${ai.analyzed_at.slice(0,10)}</div>`:''}
+    </div>`;
+  }
+
+  document.getElementById('dp').innerHTML = html;
+}
+
+/* ══════════════════════════════════════
+   Util
+══════════════════════════════════════ */
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+document.getElementById('q').addEventListener('input', e => { F.q = e.target.value; applyFilter(); });
+</script>
+</body>
+</html>
