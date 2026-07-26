@@ -81169,5 +81169,88 @@
     ],
     "openalex_url": "https://openalex.org/W2013289455",
     "ai_analysis": null
+  },
+  {
+    "id": "W3208509675",
+    "source": "openalex",
+    "title": "Degradation of a protected mountain area by tourist traffic: case study of the Tatra National Park, Poland",
+    "abstract": "Abstract Mountain protected areas are characterized by high biodiversity, which makes it a great challenge for managers to maintain a balance between their use and the stability of natural ecosystems. Maintaining that balance is particularly difficult in areas with high tourism pressure. The expected volume of tourist traffic should be considered at the planning stage of the tourist infrastructure development process. Insufficient capacity of tourist infrastructure can lead to environmental degradation, which is hard, or at times impossible, to repair. In our research, we identified patterns of tourist footpath and road functioning in an environmentally protected area with high volumes of tourist traffic. Data from geomorphologic mapping was analyzed in order to identify tourist footpath and road structures in the Tatra National Park (TNP). Fieldwork was conducted in several stages between 1995 and 2019. Orthophotomaps from the years 1977, 2009, 2017 and 2019 were used to identify and compare degraded zones along selected tourist footpaths. Degraded zones were defined as areas surrounding a footpath or tourist road with a mean width larger than or equal to 10 meters, with heavily damaged or completely removed vegetation and exposed, weathered cover, where geomorphic processes that would not take place under normal conditions are readily observable. The examined tourist footpaths and roads vary in terms of their morphometric parameters. Research has shown important differences between mean and maximum footpath width as well as maximum incision depth for the forest zone versus the subalpine and alpine zones. A lack of differences in these parameters was noted between the alpine and subalpine zones. Research has shown that an increase in the surface area of degraded zones found adjacent to tourist footpaths occurred in all the studied geo-ecological zones in the study period. However, the largest increase occurred atop wide ridgelines found in the alpine zone. Degraded zones may be an indication of exceeding the tourist carrying capacity of a mountain tourist area. Mass tourism in TNP contributes to the formation of degraded zones adjacent to footpaths, whose continuous evolution may lead to irreversible changes in local relief.",
+    "authors": [
+      "Joanna Fidelus‐Orzechowska",
+      "Elżbieta Gorczyca",
+      "Marcin Bukowski",
+      "Kazimierz Krzemień"
+    ],
+    "year": 2021,
+    "journal": "Journal of Mountain Science",
+    "cited_by_count": 32,
+    "doi": "https://doi.org/10.1007/s11629-020-6611-4",
+    "is_oa": true,
+    "oa_url": "https://link.springer.com/content/pdf/10.1007/s11629-020-6611-4.pdf",
+    "concepts": [
+      "Tourism",
+      "National park",
+      "Geography",
+      "Montane ecology",
+      "Protected area",
+      "Biodiversity"
+    ],
+    "openalex_url": "https://openalex.org/W3208509675",
+    "ai_analysis": null
+  },
+  {
+    "id": "W153073038",
+    "source": "openalex",
+    "title": "Monitoring and Assessment of Wolf-Ungulate Interactions andPopulation Trends within the Greater Yellowstone Area,Southwestern Montana, and Montana Statewide",
+    "abstract": "The impacts of wolves on elk and other ungulates is perhaps one of the most controversial wildlife-related issues faced by people that co-inhabit landscapes with these species. This is certainly true in Montana, where the issue often involves widely disparate opinions and values. In the Greater Yellowstone Area (GYA) and southwest Montana in particular, public interest is heightened in this issue. The GYA and southwest Montana generate approximately half of the Montana statewide elk hunter days afield and elk harvest annually. The impacts of wolves on elk populations are front and center in the minds of many elk hunters and elk enthusiasts in the region. The region is also close to Yellowstone National Park, where wolf conservation efforts were bolstered in 1995-96 with the experimental restoration of wolves to an ecosystem that had been without wolves for much of the previous century. The region holds particular significance for wolf conservation enthusiasts, and the impacts of wolves on elk are fresh in their minds as well. Montana Fish, Wildlife, and Parks (MFWP) is entrusted to conserve and manage wildlife in the GYA and in southwest Montana. The state of Montana has been successful in efforts toward this endeavor since statehood was enacted in 1889. With the reestablishment of wolves in the region around the turn of the 21st century, however, wildlife managers were faced with a new challenge. Before this occurred, wildlife conservation and management programs were implemented without a thought given to wolves or their impacts on the ungulate populations the agency managed. Facts and data about the impacts of wolves on elk in the region were sorely needed for wildlife conservation and management programs to adapt and remain successful. With the intense public interest and the data needs of wildlife managers in mind, MFWP began a wolf-ungulate research project in 2001 to fill some large gaps in our knowledge base. This was a collaborative project with the Ecology Department at Montana State University, with involvement from Drs. Bob Garrott and Scott Creel. The project was designed to incorporate both intensive and extensive data collection efforts. Intensive study sites were identified, and individual project cooperators ran efforts at these sites. Data collection at the intensive study sites was intended to provide the detailed comparisons needed to understand the range of effects that wolves can have on elk population dynamics and behavior. Additionally, as a part of this overall effort, MFWP agreed to bolster ungulate monitoring efforts in a more extensive region in southwest Montana, as well as to continue monitoring programs elsewhere in the state to provide insights regarding the effects of wolves on ungulate populations over a larger area. Due to the immediate need for information to inform the public conversation, scientific debates, and wildlife management programs, much of what has been learned from this research effort was published during the course of the project, in scientific journals and in agency annual reports. A list of scientific publications resulting from this project is contained in this final report. Further, Hamlin et al. (2008) summarizes much of the knowledge gained via comparisons between data collected at the intensive study sites through 2007. This report updates these comparisons with more recent data, and provides a more in-depth look at wolf-elk interactions in the Northern Yellowstone elk herd, which was lacking in previous publications and reports. This report also provides summaries from more extensive data collection efforts and MFWP monitoring programs, which have been absent from previous publications and reports, including summaries of data collected for deer and moose populations. The major, overriding result from this research effort has been that one-size-fitsall explanations of wolf-elk interactions across large areas do not exist. However, we have learned that elk populations tend to become limited by predators when high ratios of predators to elk are reached, and this typically has occurred when multiple predator species are numerous within the range of one elk population. This limitation of elk populations in areas with numerous predators appears to become manifest through direct impacts on elk calf survival and recruitment. The research presented in this report results from an active MFWP applied wildlife research program. Montana’s wildlife management programs have long been built upon the scientific investigations of a dependable team of research scientists working in close conjunction with very talented and dedicated staff wildlife biologists and managers. This particular research project is no exception to that trend, and it will undoubtedly serve as the basis of wildlife management programs and decisions well into the future.",
+    "authors": [
+      "Kenneth L. Hamlin",
+      "Julie A. Cunningham",
+      "Kurt Alt"
+    ],
+    "year": 2009,
+    "journal": "Lincoln (University of Nebraska)",
+    "cited_by_count": 19,
+    "doi": "",
+    "is_oa": true,
+    "oa_url": "http://digitalcommons.unl.edu/cgi/viewcontent.cgi?article=1027&context=wolfrecovery",
+    "concepts": [
+      "Ungulate",
+      "Geography",
+      "Archaeology",
+      "Forestry",
+      "Ecology",
+      "Habitat"
+    ],
+    "openalex_url": "https://openalex.org/W153073038",
+    "ai_analysis": null
+  },
+  {
+    "id": "W4297880205",
+    "source": "openalex",
+    "title": "A before−after assessment of the response of mammals to tourism in a Brazilian national park",
+    "abstract": "Abstract Worldwide, nature-based tourism is becoming more popular and important economically. However, there is still debate regarding its impact on wildlife in protected areas. We conducted a quasi-experimental study to investigate the effects of tourism on the mammal community of Cavernas do Peruaçu National Park, a priority area for conservation in Brazil. We used camera traps to survey tourist and non-tourist trails during 2011–2017, encompassing periods before and after tourism started in the Park. We used four metrics for assessment: species richness, probability of using trails, activity levels and daily activity patterns. After tourism began in the Park there was no significant change in species richness and the probability of using tourist trails either increased or remained stable for five of the six species assessed. The rock cavy Kerodon rupestris was the only species to be displaced from tourist areas and to show reduced overall activity on tourist trails after tourism began. The ocelot Leopardus pardalis showed reduced diurnal activity on tourist trails, an indication of temporal adjustment. Overall, our results show that the initial years of visitation at the Park had limited negative impacts on the target mammal species, supporting the possibility of accommodating tourism activity and effective conservation of wildlife in the region. However, it is essential to continue monitoring in the Park because of the expected growth in tourism and potential time lags in responses of species.",
+    "authors": [
+      "Daniele Cristina Barcelos",
+      "Emerson Monteiro Vieira",
+      "Marcell Soares Pinheiro",
+      "Guilherme Braga Ferreira"
+    ],
+    "year": 2022,
+    "journal": "Oryx",
+    "cited_by_count": 27,
+    "doi": "https://doi.org/10.1017/s0030605321001472",
+    "is_oa": true,
+    "oa_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E600A01A5A9208EFADB687A6FCCAF498/S0030605321001472a.pdf/div-class-title-a-before-after-assessment-of-the-response-of-mammals-to-tourism-in-a-brazilian-national-park-div.pdf",
+    "concepts": [
+      "Tourism",
+      "National park",
+      "Wildlife",
+      "Species richness",
+      "Geography",
+      "Mammal"
+    ],
+    "openalex_url": "https://openalex.org/W4297880205",
+    "ai_analysis": null
   }
 ]
