@@ -6,9 +6,9 @@ on:
   workflow_dispatch:        # 수동 실행 버튼
     inputs:
       limit:
-        description: '이번 실행에서 AI 분석할 논문 건수 (일일 한도 이하로 자동 조정됨, 기본 100)'
+        description: '이번 실행에서 AI 분석할 논문 건수 (일일 한도 이하로 자동 조정됨, 기본 200)'
         required: false
-        default: '100'
+        default: '200'
 
 jobs:
   pipeline:
@@ -44,7 +44,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
           GEMINI_RPD_LIMIT: ${{ secrets.GEMINI_RPD_LIMIT }}
-          ENRICH_LIMIT: ${{ github.event.inputs.limit || '100' }}
+          LAW_API_OC: ${{ secrets.LAW_API_OC }}
+          ENRICH_LIMIT: ${{ github.event.inputs.limit || '200' }}
 
       # ── Step 3: Build index ──
       - name: Run Indexer
