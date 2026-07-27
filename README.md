@@ -56,6 +56,15 @@ Settings → Secrets and variables → Actions → New repository secret
 | `GEMINI_API_KEY` | Google Gemini API 키 (필수 — 초록 번역·AI 분석에 사용) |
 | `GEMINI_MODEL` | 사용할 모델 id (선택 — 기본값 `gemini-flash-lite-latest`) |
 | `OPENALEX_EMAIL` | 이메일 주소 (선택 — API 요청 속도 향상) |
+| `LAW_API_OC` | 국가법령정보 Open API 계정 아이디 (선택 — 관련 법령 정확도 검증에 사용) |
+
+> **국가법령정보 Open API 신청**: https://open.law.go.kr 에서 회원가입 후
+> "OPEN API 활용신청"을 하면, 신청할 때 쓴 아이디가 그대로 `OC` 값입니다.
+> 이 값을 `LAW_API_OC` 시크릿에 등록하면, AI가 생성한 "관련 법령" 목록을 실제
+> 현행 법령 DB와 대조합니다. 실제 존재하는 법령이면 정확한 현행 법령명으로
+> 정리하고, 매칭되지 않으면 `⚠ 확인 필요:` 표시를 붙여서 AI가 지어낸(환각)
+> 법령명을 걸러낼 수 있게 합니다. 이 시크릿을 등록하지 않으면 이 검증 단계는
+> 그냥 건너뛰고 기존처럼 AI가 생성한 법령명을 그대로 씁니다.
 
 > **Gemini API 키 발급**: https://aistudio.google.com/apikey
 > **모델**: 기본값은 `gemini-flash-lite-latest`입니다. 이건 구글이 관리하는 "별칭"으로,

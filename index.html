@@ -50,7 +50,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 .search-icon { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--light);
   font-size: 15px; pointer-events: none; }
 
-.fl-title { font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+.fl-title { font-size: 14px; font-weight: 700; color: var(--muted); text-transform: uppercase;
   letter-spacing: 0.06em; margin-bottom: 8px; }
 .fl-divider { border: none; border-top: 1px solid var(--border-2); }
 
@@ -82,16 +82,14 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--card); }
 .pl-toolbar select { font-size: 13px; padding: 3px 6px; border: 1px solid var(--border); border-radius: 4px;
   background: white; cursor: pointer; color: var(--text); }
+.pl-toolbar-right { display: flex; align-items: center; gap: 8px; }
 .pl-count { font-size: 13px; color: var(--muted); white-space: nowrap; }
 .pl-cards { flex: 1; min-height: 0; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 7px; }
 .pl-cards::-webkit-scrollbar { width: 5px; }
 .pl-cards::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-.pl-pagination { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between;
+.pl-pagination { flex-shrink: 0; display: flex; align-items: center; justify-content: center;
   gap: 10px; padding: 8px 12px; border-top: 1px solid var(--border); background: var(--card); }
-.pl-page-size { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
-.pl-page-size select { font-size: 13px; padding: 3px 6px; border: 1px solid var(--border); border-radius: 4px;
-  background: white; cursor: pointer; color: var(--text); }
 .pl-page-nav { display: flex; align-items: center; gap: 4px; }
 .pl-page-btn { font-size: 13px; padding: 4px 9px; border: 1px solid var(--border); border-radius: 4px;
   background: white; cursor: pointer; color: var(--text); }
@@ -165,7 +163,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 /* Analysis body */
 .ab { padding: 0 18px 18px; }
 .as { margin-top: 14px; }
-.as-title { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+.as-title { font-size: 14px; font-weight: 700; color: var(--muted); text-transform: uppercase;
   letter-spacing: 0.07em; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 1px solid var(--border-2); }
 
 /* Summary box */
@@ -191,6 +189,7 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 .badge-row { display: flex; flex-wrap: wrap; gap: 5px; }
 .w-badge { font-size: 12px; padding: 2px 9px; background: #eff6ff; color: #1e40af; border-radius: 4px; }
 .l-badge { font-size: 12px; padding: 2px 9px; background: #faf5ff; color: #6b21a8; border-radius: 4px; }
+.l-badge-warn { background: #fffbeb; color: #b45309; }
 
 /* App reason */
 .app-reason { font-size: 13px; line-height: 1.65; background: #f0fdf4; padding: 9px 11px; border-radius: 6px; }
@@ -215,11 +214,61 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 /* Abstract fallback */
 .abs-box { margin-top: 12px; }
 .abs-box p { font-size: 13px; line-height: 1.7; color: var(--text); }
+/* ── Mobile responsive ─────────────────
+   기본(데스크톱)에서는 전부 숨겨두고, 아래 미디어쿼리에서만 보이게 함 ── */
+.hd-menu-btn { display: none; background: none; border: none; color: #f8fafc; font-size: 20px;
+  cursor: pointer; padding: 4px 8px; line-height: 1; }
+.sb-mobile-close { display: none; position: absolute; top: 8px; right: 8px; background: none;
+  border: none; font-size: 18px; color: var(--muted); cursor: pointer; padding: 4px 8px; z-index: 2; }
+.sb-backdrop { display: none; }
+.dp-mobile-close { display: none; }
+
+@media (max-width: 860px) {
+  .hd-menu-btn { display: block; order: -1; }
+  .hd { gap: 10px; padding: 0 12px; }
+  .hd-logo { font-size: 16px; }
+  .hd-stats { display: none; }
+
+  .sb {
+    position: fixed; top: 54px; left: 0; bottom: 0; width: 82%; max-width: 300px;
+    z-index: 60; transform: translateX(-100%); transition: transform 0.25s ease;
+    box-shadow: 2px 0 16px rgba(0,0,0,0.2);
+  }
+  .sb.sb-open { transform: translateX(0); }
+  .sb-mobile-close { display: block; }
+
+  .sb-backdrop {
+    display: block; position: fixed; top: 54px; left: 0; right: 0; bottom: 0;
+    background: rgba(15,23,42,0.45); z-index: 55; opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .sb-backdrop.show { opacity: 1; pointer-events: auto; }
+
+  .pl-toolbar { flex-wrap: wrap; }
+
+  .dp {
+    position: fixed; top: 54px; left: 0; right: 0; bottom: 0; width: 100%;
+    z-index: 65; border-left: none; transform: translateX(100%); transition: transform 0.25s ease;
+  }
+  .dp.dp-open { transform: translateX(0); }
+  .dp-mobile-close {
+    display: block; position: sticky; top: 0; z-index: 3; width: 100%; text-align: left;
+    background: var(--card); border: none; border-bottom: 1px solid var(--border);
+    color: var(--primary); font-size: 14px; font-weight: 600; padding: 12px 14px; cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  .dh { padding: 14px; }
+  .ab { padding: 0 14px 14px; }
+  .pl-cards { padding: 8px; }
+}
 </style>
 </head>
 <body>
 
 <header class="hd">
+  <button class="hd-menu-btn" id="menuBtn" onclick="toggleSidebar()" aria-label="필터 메뉴">☰</button>
   <div class="hd-logo">국립공원 <em>실무 AI 지식 플랫폼</em></div>
   <div class="hd-stats" id="hd-stats">로딩 중…</div>
 </header>
@@ -227,7 +276,8 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 <div class="layout">
 
   <!-- ── Sidebar ── -->
-  <aside class="sb">
+  <aside class="sb" id="sb">
+    <button class="sb-mobile-close" onclick="closeSidebar()" aria-label="필터 닫기">✕</button>
 
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
@@ -269,6 +319,8 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 
   </aside>
 
+  <div class="sb-backdrop" id="sbBackdrop" onclick="closeSidebar()"></div>
+
   <!-- ── Paper List ── -->
   <main class="pl" id="pl">
     <div class="pl-toolbar" id="pl-toolbar"></div>
@@ -280,7 +332,10 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 
   <!-- ── Detail Panel ── -->
   <aside class="dp" id="dp">
-    <div class="dp-empty">논문을 선택하면<br>AI 실무 분석 결과가 표시됩니다</div>
+    <button class="dp-mobile-close" onclick="closeDetail()" aria-label="목록으로">← 목록으로</button>
+    <div id="dp-content">
+      <div class="dp-empty">논문을 선택하면<br>AI 실무 분석 결과가 표시됩니다</div>
+    </div>
   </aside>
 
 </div>
@@ -493,7 +548,12 @@ function renderToolbar() {
     <select onchange="changeSortBy(this.value)">
       ${sortOptions.map(([v,l])=>`<option value="${v}"${v===sortBy?' selected':''}>${l}</option>`).join('')}
     </select>
-    <span class="pl-count">전체 ${total.toLocaleString()}건 중 ${start.toLocaleString()}–${end.toLocaleString()}건</span>`;
+    <div class="pl-toolbar-right">
+      <select onchange="changePageSize(this.value)">
+        ${[10,20,30,50].map(n=>`<option value="${n}"${n===pageSize?' selected':''}>${n}개씩</option>`).join('')}
+      </select>
+      <span class="pl-count">전체 ${total.toLocaleString()}건 중 ${start.toLocaleString()}–${end.toLocaleString()}건</span>
+    </div>`;
 }
 
 function renderList() {
@@ -555,18 +615,12 @@ function renderPagination(totalPages) {
   }
 
   pagEl.innerHTML = `
-    <div class="pl-page-size">
-      전체 ${FILTERED.length}건 ·
-      <select onchange="changePageSize(this.value)">
-        ${[10,20,30,50].map(n=>`<option value="${n}"${n===pageSize?' selected':''}>${n}개씩</option>`).join('')}
-      </select>
-    </div>
     <div class="pl-page-nav">
-      <button class="pl-page-btn" onclick="goPage(1)" ${curPage<=1?'disabled':''}>맨처음</button>
+      <button class="pl-page-btn" onclick="goPage(1)" ${curPage<=1?'disabled':''}>처음</button>
       <button class="pl-page-btn" onclick="goPage(${curPage-1})" ${curPage<=1?'disabled':''}>이전</button>
       ${pageBtns.join('')}
       <button class="pl-page-btn" onclick="goPage(${curPage+1})" ${curPage>=totalPages?'disabled':''}>다음</button>
-      <button class="pl-page-btn" onclick="goPage(${totalPages})" ${curPage>=totalPages?'disabled':''}>맨끝</button>
+      <button class="pl-page-btn" onclick="goPage(${totalPages})" ${curPage>=totalPages?'disabled':''}>끝</button>
     </div>`;
 }
 
@@ -590,6 +644,22 @@ function selectPaper(id) {
   document.querySelectorAll('.pc').forEach(c => c.classList.toggle('sel', c.getAttribute('onclick').includes(`'${id}'`)));
   const p = FILTERED.find(x => x.id === id);
   if (p) renderDetail(p);
+  document.getElementById('dp').classList.add('dp-open');   // 모바일: 상세 화면을 전체 오버레이로 표시
+  closeSidebar();                                            // 모바일: 필터 드로어가 열려 있었다면 닫기
+}
+
+function closeDetail() {
+  document.getElementById('dp').classList.remove('dp-open');
+}
+
+function toggleSidebar() {
+  document.getElementById('sb').classList.toggle('sb-open');
+  document.getElementById('sbBackdrop').classList.toggle('show');
+}
+
+function closeSidebar() {
+  document.getElementById('sb').classList.remove('sb-open');
+  document.getElementById('sbBackdrop').classList.remove('show');
 }
 
 function stars(score) {
@@ -650,7 +720,7 @@ function renderDetail(p) {
       <div class="as">
         <div class="as-title">3줄 핵심 요약</div>
         <div class="sum-box">
-          ${(ai.summary_3lines||[]).map(l=>`<div class="sum-line">${esc(l)}</div>`).join('')}
+          ${(ai.summary_3lines||[]).map(l=>`<div class="sum-line">${esc(l.replace(/^\s*\d+\s*줄\s*[:：]\s*/,''))}</div>`).join('')}
         </div>
       </div>
 
@@ -689,7 +759,7 @@ function renderDetail(p) {
       <div class="as">
         <div class="as-title">관련 법령</div>
         <div class="badge-row">
-          ${(ai.related_laws||[]).map(l=>`<span class="l-badge">${esc(l)}</span>`).join('')||'<span style="font-size:13px;color:var(--muted)">정보 없음</span>'}
+          ${(ai.related_laws||[]).map(l=>`<span class="l-badge${l.startsWith('⚠')?' l-badge-warn':''}">${esc(l)}</span>`).join('')||'<span style="font-size:13px;color:var(--muted)">정보 없음</span>'}
         </div>
       </div>
 
@@ -724,7 +794,7 @@ function renderDetail(p) {
     </div>`;
   }
 
-  document.getElementById('dp').innerHTML = html;
+  document.getElementById('dp-content').innerHTML = html;
 }
 
 /* ══════════════════════════════════════
