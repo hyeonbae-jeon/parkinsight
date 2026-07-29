@@ -82,7 +82,7 @@ def normalize(raw: dict) -> dict:
     }
 
 
-def fetch_query(query: str, email: str = "", limit: int = 100) -> list:
+def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float | None = None) -> list:
     papers, cursor = [], "*"
     select = (
         "id,title,abstract_inverted_index,authorships,"
@@ -90,6 +90,9 @@ def fetch_query(query: str, email: str = "", limit: int = 100) -> list:
         "concepts,open_access,doi"
     )
     while len(papers) < limit:
+        if deadline is not None and time.time() > deadline:
+            print(f"[Collector] 실행 시간 한도 도달 — '{query[:30]}' 검색을 중단합니다.")
+            break
         batch  = min(25, limit - len(papers))
         params = {
             "filter":   f"title_and_abstract.search:{query},has_abstract:true",
@@ -102,19 +105,30 @@ def fetch_query(query: str, email: str = "", limit: int = 100) -> list:
 
         r = None
         for attempt in range(5):
+            if deadline is not None and time.time() > deadline:
+                print(f"[Collector] 실행 시간 한도 도달 — '{query[:30]}' 재시도를 중단합니다.")
+                r = None
+                break
             try:
                 r = requests.get(f"{OPENALEX}/works", params=params, timeout=30)
                 if r.status_code == 429:
-                    wait = int(r.headers.get("Retry-After", 0)) or (2 ** attempt) * 3
-                    print(f"[Collector] 429 (요청 과다) — {wait}초 대기 후 재시도 "
+                    # Retry-After 값이 비정상적으로 크게 와도 최대 20초까지만 대기
+                    raw_wait = int(r.headers.get("Retry-After", 0)) or (2 ** attempt) * 3
+                    wait = min(raw_wait, 20)
+                    if deadline is not None:
+                        wait = min(wait, max(0, deadline - time.time()))
+                    print(f"[Collector] 429 (요청 과다) — {wait:.0f}초 대기 후 재시도 "
                           f"({attempt+1}/5) [{query[:30]}]")
                     time.sleep(wait)
                     continue
                 r.raise_for_status()
                 break
             except requests.exceptions.RequestException as exc:
-                print(f"[Collector] 오류 ({query[:30]}): {exc} — {2**attempt}초 후 재시도")
-                time.sleep(2 ** attempt)
+                wait = min(2 ** attempt, 20)
+                if deadline is not None:
+                    wait = min(wait, max(0, deadline - time.time()))
+                print(f"[Collector] 오류 ({query[:30]}): {exc} — {wait:.0f}초 후 재시도")
+                time.sleep(wait)
                 r = None
         if r is None or r.status_code != 200:
             print(f"[Collector] 포기 ({query[:30]}): 재시도 5회 모두 실패")
@@ -141,6 +155,15 @@ def fetch_query(query: str, email: str = "", limit: int = 100) -> list:
 
 def run():
     email = os.getenv("OPENALEX_EMAIL", "")
+    if not email:
+        print("[Collector] 경고: OPENALEX_EMAIL이 설정되지 않았습니다. "
+              "이메일 없이는 OpenAlex 속도 제한이 훨씬 낮아 429가 자주 발생하고 "
+              "실행 시간이 크게 늘어날 수 있습니다. 저장소 Secrets에 등록을 권장합니다.")
+
+    # 어떤 상황(연속된 429, 서버 지연 등)에서도 이 시간을 넘기면 남은 검색어는
+    # 건너뛰고 그때까지 모은 것으로 다음 단계(분석)로 넘어갑니다.
+    TIME_BUDGET_SEC = 12 * 60
+    start_time = time.time()
 
     existing: dict[str, dict] = {}
     if os.path.exists(RAW_FILE):
@@ -154,8 +177,12 @@ def run():
           f"(그중 AI 분석 완료 {before_analyzed}건) — 이 값이 매 실행마다 유지·증가해야 정상 누적입니다.")
 
     for q in QUERIES:
+        if time.time() - start_time > TIME_BUDGET_SEC:
+            print(f"[Collector] 실행 시간 한도({TIME_BUDGET_SEC//60}분) 도달 — "
+                  f"남은 검색어는 다음 실행에서 이어서 처리합니다.")
+            break
         print(f"[Collector] 검색: {q}")
-        for p in fetch_query(q, email=email):
+        for p in fetch_query(q, email=email, deadline=start_time + TIME_BUDGET_SEC):
             if p["id"] not in existing:
                 existing[p["id"]] = p
         time.sleep(1)
