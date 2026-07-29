@@ -1,16 +1,16 @@
 {
   "meta": {
-    "total": 2117,
-    "analyzed": 780,
+    "total": 2119,
+    "analyzed": 800,
     "avg_applicability": 3.9,
     "avg_utility": 3.9,
-    "high_applicability_count": 571,
+    "high_applicability_count": 586,
     "score_distribution": {
       "1": 1,
       "2": 25,
-      "3": 182,
-      "4": 427,
-      "5": 144
+      "3": 187,
+      "4": 437,
+      "5": 149
     },
     "year_distribution": {
       "1895": 1,
@@ -60,7 +60,7 @@
       "2008": 67,
       "2009": 71,
       "2010": 61,
-      "2011": 88,
+      "2011": 89,
       "2012": 70,
       "2013": 73,
       "2014": 94,
@@ -74,53 +74,54 @@
       "2022": 100,
       "2023": 81,
       "2024": 66,
-      "2025": 56,
+      "2025": 57,
       "2026": 13
     },
-    "updated_at": "2026-07-27T14:05:09.745036"
+    "updated_at": "2026-07-29T06:11:36.080593"
   },
   "tag_index": {
-    "국립공원관리": 73,
-    "탐방로관리": 55,
+    "국립공원관리": 75,
+    "탐방로관리": 57,
     "기후변화적응": 51,
     "기후변화": 50,
-    "생태관광": 42,
+    "생태관광": 44,
     "생물다양성보전": 39,
+    "탐방객관리": 37,
     "생태계모니터링": 34,
-    "탐방객관리": 33,
     "생물다양성": 32,
     "탐방로 관리": 31,
     "국립공원": 31,
-    "보호지역관리": 27,
+    "보호지역관리": 29,
     "국립공원 관리": 26,
     "토양침식": 23,
+    "탐방객 관리": 22,
+    "수용력": 21,
     "생태계 모니터링": 20,
+    "탐방객수용력": 19,
+    "주민참여": 19,
     "원격탐사": 19,
-    "수용력": 18,
-    "탐방객 관리": 18,
     "모니터링": 18,
-    "주민참여": 18,
     "야생동물관리": 17,
-    "탐방객수용력": 17,
     "지역사회참여": 17,
     "주민지원사업": 17,
     "보호구역관리": 15,
     "생태모니터링": 14,
     "적응적관리": 14,
     "생물다양성 보전": 14,
-    "탐방관리": 12,
-    "탐방객만족도": 12,
+    "탐방관리": 13,
+    "탐방객만족도": 13,
     "공원관리": 12,
     "탐방로침식": 12,
+    "보호지역": 12,
     "보호구역 관리": 11,
     "생태계관리": 11,
     "외래식물": 11,
     "생태계복원": 11,
-    "보호지역": 11,
     "탐방로훼손": 10,
     "지역사회 협력": 10,
     "서식지관리": 10,
     "생태계서비스": 9,
+    "탐방수용력": 9,
     "적응적 관리": 9,
     "탐방로 침식": 9,
     "완충지역": 9,
@@ -131,47 +132,46 @@
     "토양 침식": 8,
     "취약성평가": 8,
     "식생훼손": 8,
-    "탐방수용력": 8,
+    "관광수용력": 8,
     "갈등관리": 8,
     "탐방객안전": 8,
     "지역사회상생": 8,
     "대형포유류": 7,
     "자원관리": 7,
     "생태계교란생물": 7,
-    "멸종위기종": 7,
-    "탐방객행동": 7
+    "멸종위기종": 7
   },
   "work_area_index": {
-    "생태계 모니터링": 457,
-    "탐방로 관리": 374,
-    "지역사회 협력": 66,
+    "생태계 모니터링": 471,
+    "탐방로 관리": 389,
+    "지역사회 협력": 67,
     "자원보전": 61,
-    "탐방객 관리": 50,
-    "탐방객 수용력 관리": 46,
+    "탐방객 관리": 53,
+    "탐방객 수용력 관리": 50,
+    "자원보전 관리": 32,
     "자원보전 및 복원": 31,
-    "자원보전 관리": 31,
     "기후변화 적응": 31,
+    "탐방객 수용력 산정": 28,
     "공원계획": 28,
     "공원계획 수립": 26,
-    "탐방객 수용력 산정": 21,
-    "자원 보전 및 복원": 20,
+    "자원 보전 및 복원": 21,
     "재난 안전 관리": 19,
     "훼손지 복원": 17,
+    "자원 보전": 14,
     "탐방객 안전 관리": 14,
     "공원 시설물 유지보수": 14,
     "기후변화 대응": 14,
     "탐방 서비스 운영": 13,
     "탐방객 만족도 조사": 13,
     "공원 갈등 관리": 13,
-    "자원 보전": 12,
     "야생생물 보호": 11,
     "탐방 프로그램 운영": 11,
     "야생동물 보호": 11,
     "공원계획 및 구역관리": 11,
     "주민지원사업": 10,
     "멸종위기종 복원": 9,
-    "탐방객 모니터링": 8,
-    "서식지 관리": 8
+    "서식지 관리": 9,
+    "공원 구역 관리": 8
   },
   "papers": [
     {
@@ -3248,6 +3248,95 @@
           "Trans-Canada Highway wildlife permeability"
         ],
         "analyzed_at": "2026-07-26T10:45:42Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W4205779574",
+      "source": "openalex",
+      "title": "Estimation of Ecotourism Carrying Capacity for Sustainable Development of Protected Areas in Iran",
+      "abstract": "Estimating the ecotourism carrying capacity (ETCC) in protected areas (PAs) is essential for minimizing the negative impacts of ecotourism and sustainable environmental management. PAs are one of the prominent ecotourism locations and many of these areas have been created to protect biodiversity and improve human wellbeing. This study has identified and prioritized negative impacts of ecotourism in Lar national park, the Jajrud protected area with the sustainable use of natural resources, and Tangeh Vashi national natural monument. For this purpose, physical carrying capacity (PCC), real carrying capacity (RCC), and effective carrying capacity (ECC) were estimated using the ETCC model. The results indicated that due to these areas' ecological sensitivity, the most negative impacts of ecotourism are related to the environmental-physical dimensions. In contrast, the lowest impacts have been observed in the economic-institutional dimensions. Moreover, the results revealed that the highest PCC is related to Lar national park, and the lowest PCC is associated with Tangeh Vashi natural monument. There are more tourists in the Jajrud protected area with the sustainable use of natural resources than other areas in RCC and ECC due to low levels of restrictions and legal instructions. In contrast, in Lar national park and Tangeh Vashi natural monument, due to the short duration of ecotourism in these areas (from June to October), high level of restrictions, and ecological sensitivity, the number of tourists is less than the RCC and ECC. As these areas have a limited ability to attract visitors and ecotourism, the protection of these areas requires the implementation of sustainable management to control the negative impacts of ecotourism and estimate the number of visitors.",
+      "authors": [
+        "Parvaneh Sobhani",
+        "Hassan Esmaeilzadeh",
+        "Seyed Mohammad Moein Sadeghi",
+        "Marina Viorela Marcu"
+      ],
+      "year": 2022,
+      "journal": "International Journal of Environmental Research and Public Health",
+      "cited_by_count": 45,
+      "doi": "https://doi.org/10.3390/ijerph19031059",
+      "is_oa": true,
+      "oa_url": "https://www.mdpi.com/1660-4601/19/3/1059/pdf?version=1642588850",
+      "concepts": [
+        "Ecotourism",
+        "Carrying capacity",
+        "National park",
+        "Sustainable development",
+        "Natural resource",
+        "Environmental resource management"
+      ],
+      "openalex_url": "https://openalex.org/W4205779574",
+      "ai_analysis": {
+        "title_ko": "이란 보호지역의 지속가능한 발전을 위한 생태관광 수용력 산정",
+        "abstract_ko": "보호지역에서의 생태관광 수용력(ETCC) 산정은 생태관광의 부정적 영향을 최소화하고 지속가능한 환경 관리를 위해 필수적이다. 보호지역은 대표적인 생태관광지 중 하나이며, 이들 지역 중 상당수는 생물다양성을 보호하고 인간의 안녕을 향상시키기 위해 조성되었다. 본 연구는 자원의 지속가능한 이용이 이루어지는 이란의 라르 국립공원, 자주르드 보호지역, 그리고 탕에 바시 국립자연기념물에서 생태관광의 부정적 영향을 파악하고 우선순위를 정했다. 이를 위해 물리적 수용력(PCC), 실제 수용력(RCC), 유효 수용력(ECC)을 생태관광 수용력 모델을 사용하여 산정했다. 연구 결과, 이들 지역의 생태적 민감성으로 인해 생태관광의 가장 부정적인 영향은 환경적·물리적 차원과 관련된 것으로 나타났다. 반면, 가장 적은 영향은 경제적·제도적 차원에서 관찰되었다. 또한, 가장 높은 물리적 수용력은 라르 국립공원과 관련이 있고, 가장 낮은 물리적 수용력은 탕에 바시 자연기념물과 관련된 것으로 나타났다. 자주르드 보호지역은 규제와 법적 지침의 수준이 낮기 때문에 실제 수용력과 유효 수용력 측면에서 다른 지역보다 더 많은 관광객이 방문하고 있는 것으로 나타났다. 대조적으로 라르 국립공원과 탕에 바시 자연기념물은 짧은 생태관광 허용 기간(6월부터 10월까지), 높은 수준의 규제, 생태적 민감성으로 인해 관광객 수가 실제 수용력과 유효 수용력보다 적었다. 이들 지역은 방문객과 생태관광을 유치하는 능력이 제한적이므로, 보호지역의 보전을 위해서는 생태관광의 부정적 영향을 통제하고 방문객 수를 산정하기 위한 지속가능한 관리의 도입이 필요하다.",
+        "summary_3lines": [
+          "보호지역의 생태관광으로 인한 환경적 영향을 최소화하고 지속가능한 탐방 관리를 위해 물리적·실제적·유효 수용력을 산정하고자 했다.",
+          "이란의 3개 보호지역을 대상으로 수용력 모델을 적용한 결과, 생태적 민감성이 높은 지역일수록 환경·물리적 영향이 컸으며 실제 탐방객 수가 수용력을 초과하거나 미달하는 차이를 보였다.",
+          "현장 관리자는 보호지역의 생태적 특성과 법적 규제 수준을 반영한 수용력 산정을 통해 탐방객 총량제를 도입하고 체계적인 탐방 관리를 수행해야 한다."
+        ],
+        "research_purpose": "본 연구는 생태관광이 활발히 이루어지는 보호지역에서 탐방객으로 인한 생태계 훼손을 방지하고 지속가능한 이용을 도모하기 위해 생태관광 수용력(ETCC)을 정확히 산정하고 관리 방안을 제시하는 것을 목적으로 한다. 이를 위해 물리적 수용력(PCC), 실제 수용력(RCC), 유효 수용력(ECC) 모델을 적용하여 지역별 수용 한계를 진단하고 부정적 영향을 분석했다.",
+        "key_findings": [
+          "생태관광으로 인한 가장 큰 부정적 영향은 환경적·물리적 차원에서 발생했으며, 경제·제도적 영향은 상대적으로 미미함",
+          "지역별 생태적 민감성과 규제 수준에 따라 실제 방문객 수가 수용력(RCC, ECC)을 초과하거나 미달하는 현상이 나타남",
+          "규제가 느슨한 지역은 수용력을 초과하는 과도한 탐방객이 집중되는 반면, 엄격한 계절적 통제가 이루어지는 지역은 수용력 이내로 탐방객이 통제됨"
+        ],
+        "practical_applications": [
+          "국립공원 특별보호구 및 멸종위기종 서식지 주변 탐방로에 물리적·실제적·유효 수용력 모델을 적용하여 적정 탐방객 산정",
+          "탐방객 집중 지역에 대한 계절별 탐방 허용 기간 조정 및 사전예약제 등 총량 관리 수단 강화",
+          "생태적 민감도와 현장 규제 수준을 고려한 탐방 안내 체계 구축 및 모니터링 실시"
+        ],
+        "korea_np_applicability_score": 5,
+        "korea_np_applicability_reason": "한국 국립공원 역시 성수기 탐방객 집중으로 인한 훼손 문제가 지속되고 있으며, 탐방로 예약제 및 수용력 기반 관리 기법이 현업에 즉시 적용되어야 하는 핵심 과제이기 때문이다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "탐방객 수용력 산정",
+          "탐방예약제 운영"
+        ],
+        "related_laws": [
+          "자연공원법 제28조",
+          "자연공원법 제37조",
+          "야생생물 보호 및 관리에 관한 법률 제33조"
+        ],
+        "field_checklist": [
+          "해당 탐방로의 1일 최대 물리적 수용력(PCC) 산정 여부 확인",
+          "지형적·기후적 제약을 반영한 실제 수용력(RCC) 보정 완료 여부 확인",
+          "관리 인력 및 시설 용량을 고려한 유효 수용력(ECC) 산정 여부 확인",
+          "성수기 탐방객 수가 산정된 수용력을 초과하는지 여부 모니터링",
+          "생태적 민감 지역에 대한 출입 통제 및 계절별 관리 지침 준수 여부 점검"
+        ],
+        "practical_utility_score": 5,
+        "cautions": [
+          "수용력 산정 시 지역 주민의 생계 및 지역 경제에 미치는 영향을 함께 고려해야 함",
+          "계절적·기상학적 변수에 따라 수용력 수치가 변동될 수 있으므로 주기적인 재평가 필요"
+        ],
+        "tags": [
+          "생태관광수용력",
+          "탐방객관리",
+          "지속가능발전",
+          "보호지역관리",
+          "탐방총량제"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 탐방로 특성을 반영한 한국형 수용력 산정 공식 고도화 연구",
+          "탐방객 수용력 초과가 자생식물 및 야생동물 서식지에 미치는 구체적 영향 평가"
+        ],
+        "ai_recommended_topics": [
+          "Ecotourism carrying capacity protected areas",
+          "Visitor impact management national parks"
+        ],
+        "analyzed_at": "2026-07-29T06:11:16Z",
         "model": "gemini-flash-lite-latest"
       }
     },
@@ -9025,6 +9114,182 @@
       }
     },
     {
+      "id": "W2276457906",
+      "source": "openalex",
+      "title": "Transportation planning and social carrying capacity in the national parks",
+      "abstract": "The U.S. national park system accommodates nearly 300 million visits annually. Most visitors come to the national parks in automobiles, and this poses several management challenges. Delays at national park entrances caused by traffic congestion detract from the visitor experience. Inadequate parking facilities further compromise the visitor experience and lead people to park along roadsides, damaging park resources and causing traffic hazards. At times, visitors must be turned away from some national park areas because transportation infrastructure is not sufficient to meet visitor demand.",
+      "authors": [
+        "William Valliere",
+        "Robert E. Manning",
+        "Megha Budruk",
+        "Steven R. Lawson",
+        "Benjamin Wang"
+      ],
+      "year": 2002,
+      "journal": "",
+      "cited_by_count": 1,
+      "doi": "",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Visitor pattern",
+        "National park",
+        "Business",
+        "Environmental planning",
+        "Compromise",
+        "Traffic congestion"
+      ],
+      "openalex_url": "https://openalex.org/W2276457906",
+      "ai_analysis": {
+        "title_ko": "국립공원의 교통 계획과 사회적 수용력",
+        "abstract_ko": "미국 국립공원 시스템에는 연간 약 3억 명의 방문객이 찾아옵니다. 대부분의 방문객은 자동차를 타고 국립공원에 오며, 이는 여러 가지 관리상의 문제를 야기합니다. 교통 체증으로 인해 국립공원 입구에서 발생하는 지연은 방문객의 경험을 저해합니다. 부적절한 주차 시설은 방문객의 경험을 더욱 저해하고 사람들이 도로변에 주차하도록 유도하여 공원 자원을 손상시키고 교통 위험을 초래합니다. 때로는 교통 인프라가 방문객의 수요를 충족시키기에 충분하지 않기 때문에 방문객이 일부 국립공원 구역에서 발길을 돌려야 합니다.",
+        "summary_3lines": [
+          "미국 국립공원의 자동차 중심 방문객 집중으로 인한 교통 체증, 주차난, 자원 훼손 문제를 분석했다.",
+          "교통 인프라 부족이 방문객 경험 저해와 탐방객 입장 제한으로 이어짐을 확인했다.",
+          "국립공원 자원 보호와 쾌적한 탐방객 경험을 위해 체계적인 교통 계획과 사회적 수용력 관리의 필요성을 도출했다."
+        ],
+        "research_purpose": "본 연구는 미국 국립공원의 대규모 자동차 방문객 유입에 따른 교통 체증, 주차난, 자원 훼손 등 현장 관리의 문제점을 파악하고, 교통 계획과 사회적 수용력 관리가 탐방객 경험 및 자원 보호에 미치는 영향을 고찰하는 것을 목적으로 한다.",
+        "key_findings": [
+          "대부분의 탐방객이 자가용을 이용함에 따라 입구 및 주요 거점에서 심각한 교통 체증이 발생한다.",
+          "주차 공간 부족은 불법 갓길 주차를 유발하여 공원 생태계 자원을 훼손하고 안전사고 위험을 높인다.",
+          "인프라 수용 한계를 초과할 경우 탐방객 출입을 통제해야 하는 상황이 발생하여 탐방 만족도가 크게 저하된다."
+        ],
+        "practical_applications": [
+          "성수기 주말 주차장 포화 상태를 실시간으로 측정하여 거점 외곽 환승 주차장 유도 및 친환경 셔틀버스 운행 체계를 구축한다.",
+          "불법 갓길 주차 다발 지역에 무인 단속 카메라 설치 및 생태 복원용 방호울타리를 설치하여 자원 훼손을 방지한다.",
+          "공원 내 적정 수용력(Social Carrying Capacity) 산정을 위한 탐방객 밀집도 모니터링을 실시하고 예약제를 확대 도입한다."
+        ],
+        "korea_np_applicability_score": 5,
+        "korea_np_applicability_reason": "북한산, 설악산, 지리산 등 주요 국립공원 성수기 및 주말마다 반복되는 주차난과 갓길 주차, 교통 체증 문제는 한국 국립공원 현장에서도 직면하고 있는 핵심 과제이므로 직접적인 적용이 가능하다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "탐방객 수용력 관리",
+          "공원시설 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제2조",
+          "자연공원법 제23조",
+          "국립공원공단법 제7조"
+        ],
+        "field_checklist": [
+          "주말 및 성수기 공원 주요 진입부 차량 대기 시간 측정",
+          "공원 내 주차장 회전율 및 주차면수 대비 초과 차량 대수 확인",
+          "불법 갓길 주차로 인한 식생 훼손 및 로드킬 발생 위험 구역 점검",
+          "탐방객 수용력 초과로 인한 민원 발생 건수 및 현장 통제 횟수 기록",
+          "외곽 환승 주차장 및 셔틀버스 연계 시스템의 이용률 조사"
+        ],
+        "practical_utility_score": 5,
+        "cautions": [
+          "탐방객 통제 및 셔틀버스 도입 시 지역 상인 및 탐방객의 반발이 발생할 수 있어 사전 소통이 필요하다.",
+          "예산 확보와 지자체 등 유관기관과의 협력이 필수적으로 선행되어야 한다."
+        ],
+        "tags": [
+          "교통계획",
+          "사회적수용력",
+          "주차난",
+          "탐방객관리",
+          "지속가능탐방"
+        ],
+        "recommended_followup_research": [
+          "국립공원 탐방객의 대중교통 전환율 높이기 위한 인센티브 및 셔틀버스 운영 효과성 분석",
+          "탐방객 설문을 통한 공원 내 적정 사회적 수용력(Social Carrying Capacity) 산정 기법 연구"
+        ],
+        "ai_recommended_topics": [
+          "National park transportation planning",
+          "Social carrying capacity in protected areas"
+        ],
+        "analyzed_at": "2026-07-29T06:08:52Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W3128516377",
+      "source": "openalex",
+      "title": "CARRYING CAPACITY ASSESSMENT OF CIBEUREUM WATERFALLTOURISMINGUNUNG GEDE PANGRANGO NATIONAL PARK",
+      "abstract": "Waterfall has long been a popular tourist attraction with increasing number of visitors. High visitation would increase the risk of environmental damage, especially if the location of the tourism object is in a protected area that is still intact and rich in resources. One strategy to reduce the impact of recreational and nature tourism activities is through carrying capacity (CC) analysis. This study aims to 1) analyze the CC visitors of Cibeureum Waterfall and 2) provide a CC-based waterfall tourism management strategy. The research was conducted in October 2018 in Cibeureum Waterfall, TNGGP of West Java. The CC was estimated using the Cifuentes (1992) approach to calculate physical (PCC), real (RCC), and effective (ECC) CCs, by considering various correction factors. Interviews were also conducted with 100 visitors of Cibeureum Waterfall. In addition, interviews were also conducted with 5 key informants from the management side. The results showed that the daily PCC value was 800, exceeding the RCC (173) and ECC (86) values, indicating overcrowding. On the contrary, on weekdays, the number of visitors is below the RCC. These results indicated potential disturbance in Cibeureum Waterfall and its environment during holidays. Carrying capacity-based management alternatives that were recommended include increasing ticket prices on holidays and implement early booking system. From the managerial aspect, it is recommended to involve the NP partners during holidays for in-kind contributions.&#x0D; Keywords: carrying capacity, waterfall tourism, national park",
+      "authors": [
+        "Anindika Putri Lakspriyanti",
+        "Meti Ekayani",
+        "Arzyana Sunkar"
+      ],
+      "year": 2021,
+      "journal": "Media Konservasi",
+      "cited_by_count": 1,
+      "doi": "https://doi.org/10.29244/medkon.25.3.203-211",
+      "is_oa": true,
+      "oa_url": "https://doi.org/10.29244/medkon.25.3.203-211",
+      "concepts": [
+        "Waterfall",
+        "Waterfall model",
+        "Tourism",
+        "Recreation",
+        "Business",
+        "Overcrowding"
+      ],
+      "openalex_url": "https://openalex.org/W3128516377",
+      "ai_analysis": {
+        "title_ko": "구눙 게데 팡랑고 국립공원 치부레움 폭포 탐방객 수용력 평가",
+        "abstract_ko": "폭포는 탐방객이 증가하는 인기 있는 관광지입니다. 특히 온전하고 자원이 풍부한 보호구역 내에 위치한 경우, 높은 방문 빈도는 환경 훼손의 위험을 증가시킵니다. 휴양 및 자연 관광 활동의 영향을 줄이기 위한 한 가지 전략은 수용력(CC) 분석을 활용하는 것입니다. 본 연구의 목적은 1) 치부레움 폭포의 탐방객 수용력을 분석하고 2) 수용력 기반의 폭포 관광 관리 전략을 제시하는 것입니다. 연구는 2018년 10월 서자바주 TNGGP의 치부레움 폭포에서 수행되었습니다. 수용력은 다양한 보정 요인을 고려하여 물리적(PCC), 현실적(RCC), 유효(ECC) 수용력을 계산하는 Cifuentes(1992) 접근법을 사용하여 추정되었습니다. 또한 치부레움 폭포 방문객 100명을 대상으로 면접 조사를 실시했으며, 관리 측면의 주요 정보 제공자 5명과도 면접을 진행했습니다. 연구 결과, 일일 물리적 수용력(PCC)은 800명으로 현실적 수용력(173명)과 유효 수용력(86명)을 초과하여 과밀 상태를 나타냈습니다. 반면, 평일에는 방문객 수가 현실적 수용력 아래를 밑돌았습니다. 이러한 결과는 휴일에 치부레움 폭포와 그 주변 환경에 잠재적인 교란이 발생함을 나타냅니다. 권장되는 수용력 기반 관리 대안으로는 휴일 입장료 인상 및 사전 예약 시스템 도입이 있습니다. 관리적 측면에서는 휴일 현물 기여를 위해 국립공원 파트너를 참여시키는 것이 권장됩니다.",
+        "summary_3lines": [
+          "보호구역 내 인기 탐방지인 폭포의 환경 훼손을 막기 위해 시푸엔테스(Cifuentes) 접근법을 활용한 탐방객 수용력 산정 및 관리 전략 마련을 목적으로 함.",
+          "물리적 수용력은 800명으로 도출되었으나 실제 관리 환경을 고려한 유효 수용력은 86명에 불과하여 주말과 휴일의 심각한 과밀 상태를 확인함.",
+          "휴일 탐방객 집중을 막기 위해 주말 입장료 차등화, 사전예약제 도입, 지역 파트너십을 통한 현장 관리 인력 확충을 실무 대안으로 제안함."
+        ],
+        "research_purpose": "본 연구는 인도네시아 구눙 게데 팡랑고 국립공원 내 치부레움 폭포를 대상으로 탐방객 증가에 따른 생태계 훼손 위험을 진단하고, 적정 탐방객 수용력을 과학적으로 산정하기 위해 수행되었습니다. 물리적, 현실적, 유효 수용력을 단계적으로 분석하여 휴일 탐방객 과밀 문제를 파악하고, 이를 바탕으로 지속 가능한 공원 자원 관리를 위한 구체적인 운영 및 관리 전략을 도출하고자 하였습니다.",
+        "key_findings": [
+          "일일 물리적 수용력(PCC)은 800명으로 계산되었으나, 현실적(RCC) 및 유효(ECC) 수용력은 각각 173명과 86명으로 나타나 주말과 공휴일의 심각한 과밀 상태를 확인했습니다.",
+          "평일의 탐방객 수는 현실적 수용력 이하를 유지하여, 주중과 주말 간의 심각한 탐방 수요 불균형이 존재함을 밝혔습니다.",
+          "휴일 집중 현상으로 인해 폭포 주변 보호구역의 환경 훼손 및 생태계 교란 우려가 높은 것으로 분석되었습니다."
+        ],
+        "practical_applications": [
+          "성수기 및 주말·공휴일에 대비하여 탐방객 총량제를 위한 사전 예약 시스템을 도입합니다.",
+          "주말과 공휴일 등 특정 시기의 탐방객 분산을 유도하기 위해 차등 요금제(입장료 인상)를 적용합니다.",
+          "탐방객 밀집 시기에 자원보호 및 질서 유지를 위해 지역 주민 및 민간 파트너(NGO 등)를 현장 관리 지원 인력으로 참여시킵니다."
+        ],
+        "korea_np_applicability_score": 5,
+        "korea_np_applicability_reason": "한국 국립공원 내 주요 계곡 및 폭포 탐방로(예: 설악산, 북한산 등) 역시 성수기 및 주말에 극심한 탐방객 집중과 이로 인한 생태계 훼손·탐방객 갈등을 겪고 있으므로, 수용력 산정 및 예약제 도입 방안을 현장에 즉시 적용할 수 있습니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "탐방객 수용력 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제28조",
+          "자연공원법 제32조",
+          "야생생물 보호 및 관리에 관한 법률 제27조"
+        ],
+        "field_checklist": [
+          "주말 및 성수기 폭포·계곡 주변의 일일 최대 체류 탐방객 수가 유효 수용력을 초과하는지 모니터링",
+          "탐방로 구간별 물리적 특성과 환경 감응도를 반영한 보정 계수(지형, 기상 등) 조사 여부 확인",
+          "주중과 주말 간 탐방 수요 불균형 해소를 위한 사전 예약제 또는 분산 프로그램 운영 여부 점검",
+          "입장료 차등화나 이용 시간 제한 등 수요 조절 정책의 실효성 검토",
+          "자원봉사자 및 지역 파트너와 연계한 성수기 현장 질서 유지 및 환경정화 체계 구축 여부 확인"
+        ],
+        "practical_utility_score": 5,
+        "cautions": [
+          "수용력 산정 시 적용하는 보정 계수는 해당 국립공원의 생태적 민감도와 지형 여건에 맞게 현지화해야 합니다.",
+          "예약제 도입이나 요금 인상은 탐방객의 반발이나 지역 상권과의 마찰을 유발할 수 있으므로 사전 이해관계자 의견 수렴이 필수적입니다."
+        ],
+        "tags": [
+          "탐방객수용력",
+          "폭포관광",
+          "국립공원관리",
+          "사전예약제",
+          "탐방객분산"
+        ],
+        "recommended_followup_research": [
+          "국내 국립공원 계곡 및 폭포 자원의 생태적 특성을 반영한 한국형 수용력 산정 모델 개발 연구",
+          "탐방객 수용력 초과가 수생태계 및 식생에 미치는 구체적인 환경 영향 평가 연구"
+        ],
+        "ai_recommended_topics": [
+          "Recreation carrying capacity in national parks",
+          "Visitor management in protected areas waterfall"
+        ],
+        "analyzed_at": "2026-07-29T06:11:05Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
       "id": "W1737471164",
       "source": "openalex",
       "title": "Visitors' Satisfaction of Recreational Trail Conditions in Thingvellir National Park, Iceland",
@@ -12215,6 +12480,179 @@
           "Trail degradation soil physical properties"
         ],
         "analyzed_at": "2026-07-26T10:22:06Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2921757370",
+      "source": "openalex",
+      "title": "Sustainable planning of outdoor recreation in the Triglav National Park with emphasis on social carrying capacity",
+      "abstract": "The article presents the aspects of sustainable planning of outdoor recreation in the protected areas with the emphasis on social carrying capacity. The starting points for the design of measures in the process of sustainable planning of outdoor recreation are presented and promote regular monitoring and directing of outdoor recreation in the protected areas in Slovenia and abroad, especially on the example of Triglav National Park. In the article we are trying to define which forms of outdoor recreation are from the local‘s and visitor‘s perspective recognised as sustainable.",
+      "authors": [
+        "Renata Mavri"
+      ],
+      "year": 2018,
+      "journal": "Dela",
+      "cited_by_count": 2,
+      "doi": "https://doi.org/10.4312/dela.50.129-148",
+      "is_oa": true,
+      "oa_url": "https://revije.ff.uni-lj.si/Dela/article/download/8422/8529",
+      "concepts": [
+        "Recreation",
+        "Visitor pattern",
+        "Environmental planning",
+        "Sustainable development",
+        "Environmental resource management",
+        "National park"
+      ],
+      "openalex_url": "https://openalex.org/W2921757370",
+      "ai_analysis": {
+        "title_ko": "사회적 수용력을 중심으로 한 트리글라브 국립공원 야외 휴양의 지속 가능한 계획",
+        "abstract_ko": "이 논문은 사회적 수용력에 중점을 두고 보호지역 내 야외 휴양의 지속 가능한 계획 측면을 다룹니다. 보호지역에서의 야외 휴양 계획 과정에서 대책을 마련하기 위한 기초를 제시하며, 특히 슬로베니아 트리글라브 국립공원의 사례를 중심으로 국내외 보호지역 내 야외 휴양의 지속적인 모니터링과 유도를 촉진합니다. 본 논문에서는 현지 주민과 방문객의 관점에서 어떤 형태의 야외 휴양 활동이 지속 가능한 것으로 인식되는지 정의하고자 합니다.",
+        "summary_3lines": [
+          "보호지역 내 탐방객 증가에 따른 갈등을 예방하기 위해 사회적 수용력 개념을 도입한 지속 가능한 야외 휴양 계획 수립 방식을 연구했다.",
+          "슬로베니아 트리글라브 국립공원 사례를 바탕으로 지역주민과 방문객이 공감하는 지속 가능한 탐방 형태와 관리 기준을 분석했다.",
+          "국립공원 관리청은 탐방객 수를 지속적으로 모니터링하고 탐방 행태를 유도하는 체계적인 관리 정책을 현장에 도입해야 한다."
+        ],
+        "research_purpose": "보호지역 내 야외 휴양 활동이 증가함에 따라 발생할 수 있는 환경 훼손과 사회적 갈등을 최소화하기 위해 '사회적 수용력' 개념을 적용한 지속 가능한 탐방 계획 수립 방안을 모색하고자 한다. 특히 슬로베니아 트리글라브 국립공원 사례를 분석하여 현지 주민과 방문객 모두가 수용할 수 있는 친환경적이고 지속 가능한 탐방 형태의 기준을 정의하는 것을 목적으로 한다.",
+        "key_findings": [
+          "보호지역의 지속 가능한 관리를 위해서는 생태적 수용력뿐만 아니라 방문객과 지역주민의 심리적·사회적 수용력 고려가 필수적이다.",
+          "트리글라브 국립공원 사례 분석 결과, 지역주민과 방문객은 자연환경을 훼손하지 않고 소규모로 이루어지는 저영향 야외 휴양을 지속 가능한 것으로 인식한다.",
+          "탐방객의 무분별한 유입을 막고 지속 가능성을 확보하기 위해서는 정기적인 모니터링과 체계적인 동선 유도 대책이 효과적이다."
+        ],
+        "practical_applications": [
+          "북한산, 설악산 등 성수기 탐방객 집중 구역에 대한 '사회적 수용력' 산정 조사 실시",
+          "탐방객 밀집도 모니터링 시스템을 구축하여 실시간 혼잡도 안내 및 우회 탐방로 유도",
+          "지역주민과 탐방객이 참여하는 설문조사를 통해 해당 국립공원에 적합한 친환경 탐방 프로그램 발굴"
+        ],
+        "korea_np_applicability_score": 5,
+        "korea_np_applicability_reason": "한국의 주요 국립공원 역시 주말 및 성수기 탐방객 집중으로 인한 자연훼손과 탐방객 간 갈등 문제가 심각하므로, 사회적 수용력 개념을 도입한 탐방 관리 방안이 현업에 즉시 적용될 수 있다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "탐방객 수용력 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제28조(공원의 보전 및 이용)",
+          "자연공원법 제29조(탐방로의 지정 등)"
+        ],
+        "field_checklist": [
+          "주말 및 성수기 주요 탐방로 구간별 탐방객 밀집도 측정",
+          "탐방객 및 지역주민 대상 수용력 설문조사 실시",
+          "자연훼손 우려 지역 내 실시간 모니터링 장비 작동 여부 점검",
+          "우회 탐방로 안내판 및 유도 시설 정비 상태 확인",
+          "현장 관리자와 지역주민 간 상시 소통 채널 운영 여부 확인"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "사회적 수용력 조사는 계절별, 탐방로 특성별로 결과가 다를 수 있어 충분한 조사 기간이 필요함",
+          "탐방객 통제 시 지역 상권과의 이해관계 조정 과정에서 반발이 발생할 수 있으므로 사전 협의가 중요함"
+        ],
+        "tags": [
+          "사회적수용력",
+          "지속가능탐방",
+          "야외휴양",
+          "탐방객관리",
+          "보호지역"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 특성을 반영한 사회적 수용력 산정 지표 개발 연구",
+          "탐방객 혼잡도 관리가 지역경제와 생태계 보전에 미치는 영향 분석"
+        ],
+        "ai_recommended_topics": [
+          "Social carrying capacity in national parks",
+          "Sustainable outdoor recreation management"
+        ],
+        "analyzed_at": "2026-07-29T06:07:26Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2969573601",
+      "source": "openalex",
+      "title": "VISITOR CARRYING CAPACITY FOR RECREATION TREKKING ROUTES IN PROTECTED SITES: ULUDAĞ NATIONAL PARK SAMPLE",
+      "abstract": "This paper suggests an approach for calculating the visitor carrying capacity in protected sites with the example of Uludağ National Park (UNP) which is one of the major touristic and recreation destination in Turkey. First phase of the approach includes landscape character analysis and assessment work. Secondly, visitor carrying capacity calculation was carried on an ecological basis.<br> Bursa city was founded on the mountainside of Uludağ, with a height of 2543 m., which was declared as a national park in 1961. There are numerous projects with the aim developing touristic activities in Uludağ implemented by local and central administration in recent years. These projects have been initiated with the idea of opening UNP to use not only in winter, but throughout the year. Also there is a long term protection plan of the UNP with three different protection categories such as absolute protection zone, limited development zone and controlled development zone; and trekking routes are within the limited development zone area. The present study examines the use of one of the eight different trekking routes (TG-2.Sarıçayır Peak - German Meadow Location- Çobankaya - Softaboğan Location) defined in long term development plan. The result shows that real visitor carrying capacity of the studied trekking route is 38% less than actual physical carrying capacity due to the limitations indicated by the landscapes characteristics. It can be assumed that the studied 4.5 km trekking route is faced with landscape deterioration problems due to trekking activities in future, and requires landscape management and monitoring resolutions. This paper contributes that, the estimations for visitor carrying capacity should be based on landscape character analysis and assessment with the purpose of preventing ecological deteriorations in trekking routes used for recreation.",
+      "authors": [
+        "Gül Atanur",
+        "Şükran Şahin",
+        "Volkan Müftüoğlu",
+        "Öner Demirel"
+      ],
+      "year": 2019,
+      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
+      "cited_by_count": 2,
+      "doi": "https://doi.org/10.5281/zenodo.3360341",
+      "is_oa": true,
+      "oa_url": "https://zenodo.org/record/3360341",
+      "concepts": [
+        "Visitor pattern",
+        "Recreation",
+        "National park",
+        "Sample (material)",
+        "Geography",
+        "Environmental planning"
+      ],
+      "openalex_url": "https://openalex.org/W2969573601",
+      "ai_analysis": {
+        "title_ko": "보호지역 휴양 탐방로 방문객 수용력 산정: 울루다ğ 국립공원 사례",
+        "abstract_ko": "본 논문은 터키의 주요 관광 및 휴양지 중 하나인 울루다ğ 국립공원(UNP)을 사례로 보호지역 내 방문객 수용력을 산정하는 접근법을 제안합니다. 이 접근법의 첫 번째 단계는 경관 특성 분석 및 평가 작업이며, 두 번째 단계는 생태학적 기반 위에서 방문객 수용력을 산정하는 것입니다. 1961년에 국립공원으로 지정된 울루다ğ는 해발 2,543m의 산악 지대에 위치하며, 최근 중앙 및 지방 정부에 의해 겨울철뿐만 아니라 연중 내내 공원을 이용할 수 있도록 하는 다양한 관광 개발 프로젝트가 추진되었습니다. 또한 UNP에는 절대보호구역, 제한개발구역, 통제개발구역의 세 가지 보호 용도지구가 포함된 장기보전계획이 존재하며, 탐방로는 제한개발구역에 속해 있습니다. 본 연구는 장기개발계획에 정의된 8개의 탐방로 중 하나(TG-2.사르느차이르 봉건 - 독일 목초지 - 초반카야 - 소프타보안 위치)를 대상으로 분석을 수행했습니다. 연구 결과, 경관 특성이 부과하는 제약 조건으로 인해 해당 탐방로의 실제 방문객 수용력은 물리적 수용력보다 38% 낮은 것으로 나타났습니다. 이는 조사 대상인 4.5km 탐방로가 향후 탐방 활동으로 인한 경관 훼손 문제에 직면할 수 있음을 의미하며, 경관 관리 및 모니터링 대책이 필요합니다. 본 논문은 휴양 목적으로 사용되는 탐방로의 생태적 훼손을 방지하기 위해 방문객 수용력 추정이 경관 특성 분석 및 평가를 바탕으로 이루어져야 한다는 점을 시사합니다.",
+        "summary_3lines": [
+          "터키 울루다ğ 국립공원을 대상으로 경관 특성과 생태적 기준을 반영한 탐방로 방문객 수용력 산정 방안을 연구했습니다.",
+          "경관 특성을 고려한 분석 결과, 실제 탐방로의 수용력은 단순 물리적 수용력보다 38% 낮게 나타나 철저한 관리가 필요한 것으로 확인되었습니다.",
+          "탐방로 관리 시 단순 이용객 수를 넘어 경관 훼손 방지를 위한 생태적·경관적 특성 기반의 수용력 산정 도입이 필수적입니다."
+        ],
+        "research_purpose": "본 연구는 사계절 탐방객 증가로 인해 압박을 받는 국립공원 탐방로의 생태적 훼손을 막기 위해, 단순 물리적 수용력이 아닌 경관 특성과 생태적 제약을 반영한 현실적인 방문객 수용력 산정 모델을 제시하는 것을 목적으로 합니다.",
+        "key_findings": [
+          "경관 특성 및 제약 요인을 반영한 실제 탐방로 수용력은 단순 물리적 수용력 대비 38% 낮음",
+          "대상 4.5km 탐방로는 현재 탐방 집중으로 인해 장기적인 경관 훼손 및 생태계 악화 위험에 직면함",
+          "방문객 수용력 산정 시 용도지구별(제한개발구역 등) 특성과 경관 분석이 선행되어야 함"
+        ],
+        "practical_applications": [
+          "국립공원 내 고지대 및 제한개발구역 탐방로 지정 시 생태·경관적 제약 요인을 반영한 적정 수용력 산정 기법 현장 도입",
+          "물리적 한계치를 초과하는 탐방객 집중 구간에 대한 예약제 또는 총량제 운영 근거로 활용",
+          "탐방로 훼손 모니터링 체계를 구축하여 수용력 초과 시 즉각적인 탐방로 휴식년제(년차별 로테이션) 적용"
+        ],
+        "korea_np_applicability_score": 5,
+        "korea_np_applicability_reason": "한국 국립공원 역시 북한산, 설악산 등 주요 탐방로에 탐방객이 집중되어 훼손이 발생하고 있으며, 공원계획상 용도지구(자연보존지구, 자연환경지구 등)별 관리 체계가 유사하여 즉시 적용이 가능합니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "공원계획 및 용도지구 관리",
+          "탐방수요 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제20조(공원구역의 용도지구 지정)",
+          "자연공원법 제28조(탐방로의 지정 및 관리)",
+          "야생생물 보호 및 관리에 관한 법률 제33조"
+        ],
+        "field_checklist": [
+          "조사 대상 탐방로의 물리적 폭 및 경사도 등 지형적 특성 측정 여부",
+          "탐방로 주변 식생 훼손도 및 토양 침식 상태 정기 조사 여부",
+          "용도지구별(특별보호구역 및 공원자연환경지구 등) 허용 탐방 강도 검토 여부",
+          "계절별·주말별 탐방객 밀집도 및 분산 대책 수립 여부",
+          "경관 가치 훼손 위험 구간에 대한 모니터링 포인트 설정 여부"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "탐방객 수용력 축소에 따른 지역 상인 및 탐방객들의 민원 발생 가능성 대비 필요",
+          "정확한 경관 및 생태 분석을 위해 전문 인력과 예산이 선행 투입되어야 함"
+        ],
+        "tags": [
+          "방문객수용력",
+          "탐방로관리",
+          "경관분석",
+          "용도지구",
+          "생태계훼손방지"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 지형 특성에 맞는 생태·경관 기반 수용력 산정 지표 표준화 연구",
+          "탐방로 수용력 초과에 따른 토양 침식 및 식생 파괴 정량적 상관관계 분석"
+        ],
+        "ai_recommended_topics": [
+          "Visitor carrying capacity protected areas",
+          "Trail degradation landscape analysis"
+        ],
+        "analyzed_at": "2026-07-29T06:08:21Z",
         "model": "gemini-flash-lite-latest"
       }
     },
@@ -22903,6 +23341,93 @@
       }
     },
     {
+      "id": "W1984782007",
+      "source": "openalex",
+      "title": "Nature‐based rural tourism and its economic benefits: a case study of Kinabalu National Park",
+      "abstract": "Purpose It has been acknowledged that tourism can play a role in employment creation and in raising the rural community's standard of living. This paper aims to examine the economic benefits emanating from tourism development for a local community in the area of Kinabalu National Park, Sabah. Design/methodology/approach Qualitative data was used to provide an in‐depth analysis of the findings on willingness of residents to participate in tourism activities. Findings The local community of Kinabalu National Park perceive the tourism sector to have greatly contributed to their economic growth. However, the community has raised other issues in ensuring the sustainability of the park, especially in terms of the provision of facilities. Practical implications The relevant stakeholders need to carefully plan appropriate policies and regulations to ensure maximum economic benefit is gained by local community participation in tourism development within the limited carrying capacity of Kinabalu National Park. Originality/value This study provides an understanding of the economic impact of tourism on the local community in Kinabalu National Park. It calls for government action to look into the carrying capacity of the Kinabalu National Park in the near future.",
+      "authors": [
+        "Mastura Jaafar",
+        "Kalsom Kayat",
+        "Tania Maria Tangit",
+        "Mohd Firdous Yacob"
+      ],
+      "year": 2013,
+      "journal": "Worldwide Hospitality and Tourism Themes",
+      "cited_by_count": 50,
+      "doi": "https://doi.org/10.1108/whatt-03-2013-0016",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Tourism",
+        "National park",
+        "Sustainability",
+        "Local community",
+        "Originality",
+        "Business"
+      ],
+      "openalex_url": "https://openalex.org/W1984782007",
+      "ai_analysis": {
+        "title_ko": "자연기반 농촌 관광과 그 경제적 편익: 키나발루 국립공원 사례 연구",
+        "abstract_ko": "목적: 관광이 고용 창출과 지역사회 생활 수준 향상에 기여할 수 있음은 잘 알려져 있습니다. 본 논문은 사바주 키나발루 국립공원 지역의 지역사회를 위해 관광 개발에서 비롯되는 경제적 편익을 조사하는 것을 목적으로 합니다. 방법: 주민들의 관광 활동 참여 의향에 대한 연구 결과를 심층적으로 분석하기 위해 질적 데이터를 사용했습니다. 결과: 키나발루 국립공원의 지역사회는 관광 부문이 경제 성장에 크게 기여했다고 인식하고 있습니다. 그러나 주민들은 공원의 지속가능성 보장, 특히 편의시설 제공과 관련하여 다른 문제들도 제기했습니다. 실무적 시사점: 관련해 이해관계자들은 키나발루 국립공원의 제한된 수용력(carrying capacity) 내에서 지역사회의 관광 개발 참여를 통해 최대의 경제적 편익을 얻을 수 있도록 적절한 정책과 규정을 신중하게 계획해야 합니다. 독창성/가치: 본 연구는 키나발루 국립공원 지역사회에 미치는 관광의 경제적 영향에 대한 이해를 제공하며, 가까운 시일 내에 키나발루 국립공원의 수용력을 검토하기 위한 정부의 조치를 촉구합니다.",
+        "summary_3lines": [
+          "키나발루 국립공원의 사례를 통해 자연기반 관광이 지역사회 경제 성장에 미치는 영향과 경제적 편익을 분석하고자 했습니다.",
+          "주민 면담 등 질적 분석 결과, 지역주민은 관광이 경제에 크게 기여한다고 보았으나 공원 내 편의시설 등 지속가능성 문제도 함께 제기했습니다.",
+          "지역사회 참여를 유도하되 국립공원의 환경 수용력을 엄격히 고려한 관광 정책 및 시설 확충 계획 수립이 필수적입니다."
+        ],
+        "research_purpose": "본 연구는 국립공원 주변 지역사회에서 전개되는 자연기반 관광이 지역 경제에 미치는 긍정적 영향과 경제적 편익을 파악하는 것을 목적으로 합니다. 또한, 관광 개발이 지역주민의 생활 수준 향상에 기여하는 바를 분석하고, 공원의 환경적 지속가능성과 수용력 관리의 중요성을 함께 고찰하고자 합니다.",
+        "key_findings": [
+          "지역주민들은 국립공원 관광 부문이 지역 경제 성장에 크게 기여하고 있다고 인식하고 있습니다.",
+          "주민들은 경제적 소득 증대에 만족하면서도, 관광객 증가에 따른 공원 내 편의시설 부족과 인프라 미비를 주요 문제로 지적했습니다.",
+          "지역사회의 적극적인 관광 참여를 보장하는 동시에 공원의 생태적 수용력을 고려한 관리 정책 마련이 시급한 것으로 나타났습니다."
+        ],
+        "practical_applications": [
+          "국립공원 탐방객 증가에 따른 공원 자원 훼손을 방지하기 위해 탐방로 및 주요 거점별 적정 수용력(Carrying Capacity)을 재산정합니다.",
+          "지역주민이 공원 관리나 탐방 프로그램 운영에 직접 참여할 수 있는 소득 창출형 협력 사업 모델을 발굴합니다.",
+          "탐방객 편의시설 확충 시 자연생태계에 미치는 영향을 최소화하는 친환경 공법을 적용하고 사전 환경성 검토를 철저히 시행합니다."
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국의 국립공원 역시 탐방객 집중으로 인한 지역 경제 활성화 효과와 공원 자원 보호(수용력 관리) 사이의 조화가 중요한 과제이므로, 지역 상생형 탐방 정책 수립에 직접적으로 참고할 수 있습니다.",
+        "related_work_areas": [
+          "탐방객 관리",
+          "지역사회 협력",
+          "공원시설 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제18조(공원구역의 변경 및 행위제한)",
+          "국립공원공단법 제7조(사업)"
+        ],
+        "field_checklist": [
+          "주요 탐방 거점 및 주차장의 일일·월별 최대 수용 인원을 초과하는지 확인",
+          "지역주민이 운영하는 탐방 프로그램이나 지역 특산물 판매장의 운영 실태 점검",
+          "탐방객 증가에 따른 화장실, 쓰레기 수거장 등 편의시설의 포화 상태 여부 점검",
+          "공원 내 시설 확충 시 생태계 훼손 우려 지역이 포함되어 있는지 사전 검토",
+          "지역사회 협의체 운영을 통한 주민 애로사항 및 건의사항 수렴 여부 확인"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "지나친 지역 경제 활성화 추구는 공원 생태계 보 이라는 본래의 목적을 훼손할 우려가 있으므로 철저한 균형 유지가 필요합니다.",
+          "시설 확충 시 예산 확보 및 관련 법령에 따른 행위 허가 절차를 준수해야 합니다."
+        ],
+        "tags": [
+          "국립공원관광",
+          "지역사회경제",
+          "수용력관리",
+          "주민참여",
+          "탐방인프라"
+        ],
+        "recommended_followup_research": [
+          "국립공원 탐방객 유형별 소비 성향과 지역 경제 파급효과 정량 분석 연구",
+          "국립공원 생태적 수용력 산정을 위한 과학적 방법론 고도화 연구"
+        ],
+        "ai_recommended_topics": [
+          "nature-based tourism carrying capacity",
+          "protected area local community economic benefit"
+        ],
+        "analyzed_at": "2026-07-29T06:08:31Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
       "id": "W1965621155",
       "source": "openalex",
       "title": "The Transport of Nonindigenous Microorganisms Into Caves by Human Visitation: A Case Study at Carlsbad Caverns National Park",
@@ -24039,6 +24564,94 @@
           "downscaling climate projections for conservation"
         ],
         "analyzed_at": "2026-07-27T13:52:32Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2095305475",
+      "source": "openalex",
+      "title": "A Tourism Carrying Capacity Indicator for Protected Areas",
+      "abstract": "ABSTRACT The aim of this article is to develop a tourism (Carrying Capacity Indicator) for protected areas that could assist regional planners and park managers to promote an equitable form of the spatial distribution of visitors environmentally sensitive area, various indicators have been proposed, with regard to ecologically sustainable tourism. In this paper, we examine the unequal distribution of visitors to a protected area that causes significant additional environmental pressure on some sub-areas. This additional pressure, which may exceed the landscape's carrying capacity, cannot be measured by the commonly used indices that represent an average for the whole area. Our objective is to depict the variability of pressure intensity within a protected area. For this purpose we introduce an indicator adjusted to the Gini co-efficient resulting from the Lorenz curve, used by economists to measure the unequal distribution of income. The proposed indicator is applied to the Mount Olympus National Park, Greece.",
+      "authors": [
+        "Stella Kostopoulou",
+        "I. Kyritsis"
+      ],
+      "year": 2006,
+      "journal": "Anatolia",
+      "cited_by_count": 47,
+      "doi": "https://doi.org/10.1080/13032917.2006.9687024",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Carrying capacity",
+        "Tourism",
+        "Distribution (mathematics)",
+        "Environmental resource management",
+        "Geography",
+        "Sustainable development"
+      ],
+      "openalex_url": "https://openalex.org/W2095305475",
+      "ai_analysis": {
+        "title_ko": "보호지역을 위한 관광 수용력 지표 개발",
+        "abstract_ko": "본 논문의 목적은 지역 계획가와 공원 관리자가 생태적으로 민감한 지역 내에서 방문객을 공평하게 공간적으로 분산시킬 수 있도록 돕는 보호지역용 관광 수용력 지표를 개발하는 것이다. 본 논문에서는 보호지역 내 방문객의 불균등한 분포가 일부 하위 지역에 상당한 추가적 환경 압력을 유발하는 현상을 조사한다. 전체 지역의 평균을 나타내는 기존의 일반적인 지소로는 경관의 수용력을 초과할 수 있는 이러한 추가적 압력을 측정할 수 없다. 우리의 목표는 보호지역 내 압력 강도의 변동성을 시각화하는 것이다. 이를 위해 경제학자들이 소득의 불균등 분포를 측정하는 데 사용하는 로렌츠 곡선에서 유도된 지니계수에 맞춘 지표를 도입한다. 제안된 지표는 그리스 올림푸스산 국립공원에 적용되었다.",
+        "summary_3lines": [
+          "보호지역 내 특정 구역에 집중되는 탐방객의 불균등한 압력을 정확히 측정하기 위해 경제학의 지니계수를 응용한 새로운 수용력 지표를 개발하고자 함.",
+          "로렌츠 곡선과 지니계수를 활용하여 올림푸스산 국립공원의 공간별 탐방객 집중도를 분석한 결과, 전체 평균 수용력으로는 파악하기 힘든 국지적 환경 압력을 성공적으로 도출함.",
+          "전체 평균 위주의 단순한 탐방객 총량 관리에서 벗어나 구역별 탐방객 분포 편차를 정량화함으로써 민감 지역 보호를 위한 맞춤형 공간 분산 정책 수립에 기여할 수 있음."
+        ],
+        "research_purpose": "이 연구는 보호지역 전체 평균 수용력 산정 방식의 한계를 극복하고, 특정 탐방로와 거점에 탐방객이 과도하게 몰리는 현상을 정밀하게 측정할 수 있는 새로운 공간 분산 지표를 개발하는 것을 목적으로 한다. 이를 통해 공원 관리자가 생태적으로 취약한 하위 구역의 국지적 훼손을 사전에 방지하고 탐방객을 공평하게 분산 유도할 수 있는 의사결정 도구를 제공하고자 한다.",
+        "key_findings": [
+          "보호지역 전체 평균을 기준으로 한 기존 수용력 산정 방식은 국지적인 과밀 섭동과 환경 훼손 압력을 감지하지 못함.",
+          "경제학의 지니계수 및 로렌츠 곡선 개념을 공간 탐방객 분포 분석에 성공적으로 접목하여 불균등 집중도를 수치화함.",
+          "그리스 올림푸스산 국립공원 사례 적용을 통해 특정 하위 구역에 탐방객이 편중되는 현상을 시각적·정량적으로 증명함."
+        ],
+        "practical_applications": [
+          "북한산, 설악산 등 주요 국립공원의 탐방로별·거점별 탐방객 체류 및 통행량 편차를 지니계수로 산출하여 관리 등급 설정에 활용",
+          "탐방객이 과도하게 집중되는 민감 생태 지역에 대한 예약제 도입, 우회탐방로 안내 등 공간 분산 정책의 과학적 근거로 활용",
+          "공원 탐방 관리 계획 수립 시 전체 총량 규제와 더불어 지역별 편차 해소를 위한 세부 실행 목표 설정"
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국 국립공원 역시 주말이나 성수기에 일부 유명 탐방로(예: 북한산 백운대, 설악산 대청봉 등)로 탐방객이 극심하게 편중되는 현상이 나타나므로, 본 논문의 공간 집중도 측정 지표는 현장 탐방 관리 및 수용력 산정에 매우 유용하게 적용될 수 있음.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "탐방객 수용력 산정",
+          "탐방객 통계 및 분석"
+        ],
+        "related_laws": [
+          "자연공원법 제28조 (탐방로의 지정 및 관리)",
+          "자연공원법 제32조 (자연공원의 보전·관리)",
+          "야생생물 보호 및 관리에 관한 법률 제12조 (서식지 보호)"
+        ],
+        "field_checklist": [
+          "주요 탐방로 및 거점별 일별·월별 탐방객 자동계수기 데이터 확보 여부 확인",
+          "생태적으로 민감한 하위 구역과 일반 구역 간 탐방객 밀도 편차 산출",
+          "로렌츠 곡선 및 지니계수 공식을 활용한 탐방객 분포 불균등 지수 계산",
+          "수용력 초과 위험이 있는 국지적 훼손 우려 지역 선정",
+          "탐방객 분산을 위한 우회로 안내, 예약제 운영 등 저감 대책 수립 여부 점검"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "정확한 지니계수 산산을 위해 모든 주요 지점의 탐방객 계수 데이터가 신뢰성 있게 구축되어야 함",
+          "계절적 요인이나 기상 상황에 따른 탐방객 변동 폭을 보정하지 않으면 편차가 왜곡될 수 있음"
+        ],
+        "tags": [
+          "관광수용력",
+          "지니계수",
+          "로렌츠곡선",
+          "탐방객분산",
+          "보호지역관리"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 대표 탐방로의 지니계수 적용을 통한 공간 불균등성 실증 분석 연구",
+          "탐방객 공간 집중도 지표와 실제 식생 훼손도 간의 상관관계 분석"
+        ],
+        "ai_recommended_topics": [
+          "Visitor carrying capacity protected areas",
+          "Gini coefficient spatial distribution tourists",
+          "Trail congestion management national parks"
+        ],
+        "analyzed_at": "2026-07-29T06:07:48Z",
         "model": "gemini-flash-lite-latest"
       }
     },
@@ -47665,6 +48278,269 @@
       }
     },
     {
+      "id": "W2796469463",
+      "source": "openalex",
+      "title": "The Determination of Recreational Canoe Carrying Capacity of Lake Mert within Igneada Floodplain National Park Boundaries",
+      "abstract": "Certain limitations have been imposed on the use of these areas in order to reveal the adverse effects of increasing recreational activity on the protected areas, to minimize these effects and to benefit from these areas in a sustainable way. Various activities take place in the lakes within the protected areas and it is necessary to control the effects of the pressures created by these activities. The aim of this study is to determine the ideal transport capacity for canoe tours to be carried out at Mert Lake in the İğneada Longoz Forests National Park with the least pressure of the lake. In this context, many factors have been considered together to form standards and the canoe carrying capacity of the lake has been determined.",
+      "authors": [
+        "Cansu DUMLU",
+        "Filiz İHTİYAR"
+      ],
+      "year": 2017,
+      "journal": "TURKISH JOURNAL OF FOREST SCIENCE",
+      "cited_by_count": 2,
+      "doi": "https://doi.org/10.32328/turkjforsci.319045",
+      "is_oa": true,
+      "oa_url": "https://dergipark.org.tr/en/download/article-file/357216",
+      "concepts": [
+        "Recreation",
+        "Floodplain",
+        "National park",
+        "Context (archaeology)",
+        "Carrying capacity",
+        "Geography"
+      ],
+      "openalex_url": "https://openalex.org/W2796469463",
+      "ai_analysis": {
+        "title_ko": "이네아다 범람원 국립공원 내 메르트 호수의 레저 카누 적정 수용력 산정",
+        "abstract_ko": "보호지역 내에서 증가하는 레저 활동의 부정적 영향을 파악하고, 이를 최소화하며 지속가능한 방식으로 혜택을 누릴 수 있도록 해당 지역 이용에 일정 제한을 두고 있습니다. 보호지역 내 호수에서는 다양한 활동이 이루어지며, 이러한 활동으로 인한 압박 효과를 통제할 필요가 있습니다. 본 연구의 목적은 이네아다 롱고즈 삼림 국립공원 내 메르트 호수에서 진행될 카누 투어의 이상적인 수용력을 산정하여 호수에 가해지는 환경적 압박을 최소화하는 것입니다. 이를 위해 다양한 요소를 종합적으로 고려하여 기준을 마련하고 호수의 카누 수용력을 결정했습니다.",
+        "summary_3lines": [
+          "보호지역 내 증가하는 레저 활동으로 인한 환경 영향을 최소화하고 지속가능한 탐방 관리를 위해 메르트 호수의 카누 적정 수용력을 산정하고자 했습니다.",
+          "호수 생태계에 미치는 압박 요인을 분석하고 다양한 환경 기준을 종합하여 카누 투어의 이상적인 적정 수용력(carrying capacity)을 도출했습니다.",
+          "이번 산정 결과는 수면을 이용하는 수상 레저 프로그램 운영 시 생태계 훼손을 방지하고 적정 탐방객을 통제하는 실무 지침으로 활용할 수 있습니다."
+        ],
+        "research_purpose": "본 연구는 보호지역인 이네아다 롱고즈 삼림 국립공원 내 메르트 호수를 대상으로, 증가하는 수상 레저 활동(카누)이 호수 생태계에 미치는 부정적 영향을 줄이고 지속가능한 이용을 도모하기 위한 적정 수용력 산정을 목적으로 합니다. 레저 활동으로 인한 환경적 압박 요인을 분석하고, 생태적 건전성을 유지하면서 허용할 수 있는 최대 탐방객(카누) 규모를 객관적으로 도출하고자 했습니다.",
+        "key_findings": [
+          "호수 내 카누 활동은 생태계에 물리적·환경적 압박을 가하므로 적정 수준의 이용 통제가 필수적입니다.",
+          "호수의 면적, 수심, 생태적 민감도 등 복합적인 환경 요소를 고려하여 카누 투어의 수용력 기준이 마련되었습니다.",
+          "적정 수용력 산정을 통해 환경 훼손을 예방하면서도 레저 수요를 충족할 수 있는 관리 기준을 제시했습니다."
+        ],
+        "practical_applications": [
+          "국립공원 내 호수나 저수지 등 수변 지역에서 수상 레저 프로그램 허용 시 적정 수용력(대수 및 인원) 산정 기법을 현장에 도입합니다.",
+          "계절별·시간대별 카누 운행 쿼터제를 운영하여 생태계 교란을 사전에 예방합니다.",
+          "탐방객 모니터링을 통해 현장 수용력 초과 여부를 주기적으로 점검하고 허가 대수를 조정합니다."
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국 국립공원 내 습지 및 호수(예: 주왕산 주산지, 순천만, 람사르 습지 등)에서 수상 레저 및 생태 탐방 프로그램을 운영할 때 생태계 보전과 탐방 관리를 조화시키기 위한 실무적 기준 및 방법론으로 직접 적용하기에 매우 적합합니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "공원 자원 보호"
+        ],
+        "related_laws": [
+          "자연공원법 제23조(행위허가 등)",
+          "자연공원법 제28조(자연공원의 보전·관리)",
+          "야생생물 보호 및 관리에 관한 법률 제12조(서식지 보호)"
+        ],
+        "field_checklist": [
+          "호수 및 수변 구역의 생태적 민감도(멸종위기종 서식 여부 등) 확인",
+          "수상 레저 활동(카누 등)으로 인한 수질 및 수생태계 영향 측정",
+          "동일 시간대 수면에 동시 체류 가능한 최대 선박(카누) 대수 산정",
+          "탐방객 및 레저 이용객의 불법 이탈 및 수변 훼손 여부 점검",
+          "수용력 초과 방지를 위한 사전 예약제 및 쿼터제 운영 현황 확인"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "현지 생태계 특성과 수위 변동 등 계절적 요인을 반영하여 수용력을 유연하게 조정해야 합니다.",
+          "지역 주민의 소득 사업이나 레저 업체의 이해관계와 상충될 수 있으므로 사전에 충분한 협의가 필요합니다."
+        ],
+        "tags": [
+          "적정수용력",
+          "수상레저",
+          "습지보호",
+          "탐방관리",
+          "생태관광"
+        ],
+        "recommended_followup_research": [
+          "국내 국립공원 내 수면 탐방 활동에 따른 수질 및 수생태계 영향 장기 모니터링 연구",
+          "지역 주민과 연계한 지속가능한 수상 레저 탐방 프로그램 운영 모델 개발"
+        ],
+        "ai_recommended_topics": [
+          "Recreational carrying capacity lake",
+          "Wetland national park visitor management"
+        ],
+        "analyzed_at": "2026-07-29T06:09:14Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W3164885129",
+      "source": "openalex",
+      "title": "Potential carrying capacity of marine ecotourism in Sub-region III of Seribu Islands Marine National Park",
+      "abstract": "Abstract The carrying capacity analysis needs to be approved to control the impacts caused by marine tourism activities. Before the management related to limiting the number of tourists is carried out, an analysis of the carrying capacity potential is accepted to determine the maximum number of tourists who can conduct marine ecotourism. This paper aimed to analyze the potential carrying capacity and allocation of marine tourism tourists in sub-region III, the Taman Nasional Laut Kepulauan Seribu (TNLKpS – Seribu Islands Marine National Park). The research method used is tourism suitability analysis, carrying capacity analysis and Geographic Information System (GIS) analysis. Marine ecotourism in sub-region III TNLKpS is divided into two activities based on the distribution of coral reef resources used; snorkeling and diving. The area of coral reefs for snorkeling activities is 1,008,433.24 m 2 , while the area of coral reefs for diving activities is 2,766,593.80 m 2 scattered in the waters of sub-region III TNLKpS. The potential carrying capacity for snorkeling and diving tourism activities is 3,752 and 9,814 people/day, respectively. This paper concludes that marine ecotourism in sub-region III TNLKpS can still be developed by applying the carrying capacity principle and setting spot tourism allocation per trip per day.",
+      "authors": [
+        "Fredinan Yulianda",
+        "Amalia Febryane Adhani Mazaya"
+      ],
+      "year": 2021,
+      "journal": "IOP Conference Series Earth and Environmental Science",
+      "cited_by_count": 2,
+      "doi": "https://doi.org/10.1088/1755-1315/744/1/012106",
+      "is_oa": true,
+      "oa_url": "https://iopscience.iop.org/article/10.1088/1755-1315/744/1/012106/pdf",
+      "concepts": [
+        "Carrying capacity",
+        "Ecotourism",
+        "Tourism",
+        "Coral reef",
+        "Geography",
+        "Limiting"
+      ],
+      "openalex_url": "https://openalex.org/W3164885129",
+      "ai_analysis": {
+        "title_ko": "천서리부 제도 해양국립공원 제3구역의 해양 생태관광 잠재 수용력 산정",
+        "abstract_ko": "해양 관광 활동으로 인한 환경 영향을 통제하기 위해서는 수용력 분석이 필수적입니다. 관광객 수를 제한하는 관리 정책을 시행하기 앞서, 해양 생태관광을 즐길 수 있는 최대 관광객 수를 산정하기 위해 잠재 수용력 분석이 선행되어야 합니다. 본 연구는 세리부 제도 해양국립공원(TNLKpS) 제3구역을 대상으로 해양 관광객의 잠재 수용력과 공간 배분을 분석하는 것을 목적으로 하였습니다. 연구 방법으로는 관광 적합성 분석, 수용력 분석, 그리고 지리정보시스템(GIS) 분석을 활용했습니다. TNLKpS 제3구역의 해양 생태관광은 산호초 자원의 분포에 따라 스노클링과 다이빙의 두 가지 활동으로 구분됩니다. 스노클링 구역의 산호초 면적은 1,008,433.24㎡이며, 다이빙 구역의 면적은 2,766,593.80㎡로 제3구역 해역 전반에 분포하고 있습니다. 스노클링과 다이빙 관광 활동의 잠재 수용력은 각각 하루 3,752명과 9,814명으로 산정되었습니다. 결론적으로 TNLKpS 제3구역의 해양 생태관광은 수용력 원칙을 적용하고 회당 및 일일 탐방객 할당제를 설정함으로써 지속 가능한 개발이 가능함을 보여줍니다.",
+        "summary_3lines": [
+          "인도네시아 세리부 제도 해양국립공원의 특정 해역을 대상으로 해양 생태관광의 적합성과 일일 최대 수용력을 산정하고자 했습니다.",
+          "관광 적합성 평가와 GIS 분석을 통해 스노클링과 다이빙 구역의 가용 면적을 산출하고, 각각 하루 3,752명과 9,814명의 수용력을 도출했습니다.",
+          "해양 국립공원 내 과도한 탐방객 집중을 막고 생태계 훼손을 방지하기 위해 현장별 일일 탐방객 할당제와 수용력 기반 관리 도입이 필요합니다."
+        ],
+        "research_purpose": "본 연구는 해양 생태관광 활성화 지역의 환경 훼손을 예방하기 위해, 산호초 분포 현황을 기반으로 한 해양 레저 활동의 물리적·생태적 최대 수용력을 과학적으로 산정하고자 하였습니다. 특히 특정 해역(제3구역)을 대상으로 스노클링과 다이빙 등 세부 활동별 가용 면적을 산출하고, 이에 따른 일일 적정 탐방객 허용 인원을 도출하여 지속 가능한 공원 관리 방안을 마련하는 데 목적이 있습니다.",
+        "key_findings": [
+          "제3구역 내 스노클링 가용 산호초 면적은 약 100만 ㎡이며, 일일 최대 수용력은 3,752명으로 산정됨",
+          "다이빙 가용 산호초 면적은 약 277만 ㎡이며, 일일 최대 수용력은 9,814명으로 산정됨",
+          "GIS 공간 분석과 관광 적합성 평가를 결합하여 해양 레저 활동별 공간 배분 및 수용력 산호초 분포의 상관관계를 입증함"
+        ],
+        "practical_applications": [
+          "한려해상 및 다도해해상 국립공원 내 해중경관지구 및 해양 탐방 구역의 일일 최대 탐방 허용 인원 산정에 본 연구의 수용력 공식 적용",
+          "GIS 기반의 산호초 및 해양 생태계 분포 지도와 연계하여 스노클링·다이빙 허용 구역(Zone) 설정",
+          "회당 및 일일 탐방객 할당제를 도입하여 해양 탐방 예약제 운영 시 기초 정원 데이터로 활용"
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국의 해상·해안 국립공원(한려해상, 다도해해상, 태안해안 등)에서도 스노클링, 스킨스쿠버 등 해양 레저 탐방객이 급증하고 있어 생태계 보호와 탐방 관리를 위한 수용력 산정 기법의 현장 적용성이 매우 높음",
+        "related_work_areas": [
+          "해양공원 관리",
+          "탐방로 및 탐방 구역 관리",
+          "생태계 모니터링",
+          "자원 보전"
+        ],
+        "related_laws": [
+          "자연공원법 제22조(공원구역 안에서의 행위제한)",
+          "자연공원법 제28조(공원시설의 설치 및 관리)",
+          "야생생물 보호 및 관리에 관한 법률 제14조(멸종위기 야생생물의 포획·채취 등 금지)"
+        ],
+        "field_checklist": [
+          "해양 레저 활동 지역(스노클링, 다이빙 등)의 서식지 면적 및 생태 건강성 정밀 조사 완료 여부",
+          "GIS 기반의 해양 생태계 분포 지도 및 탐방 적합성 구역 지정 여부",
+          "활동별(스노클링/다이빙) 일일 최대 수용 인원 및 시간대별 분산 대책 수립 여부",
+          "탐방객 초과 입장을 통제하기 위한 사전 예약제 또는 현장 발권 할당제 운영 여부",
+          "해양 레저 활동으로 인한 산호초 및 저서생물 훼손 모니터링 체계 구축 여부"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "계절적 요인(해수온, 태풍, 기상 악화)에 따라 실제 가용 수용력이 변동될 수 있으므로 연중 고정값 적용에 주의 필요",
+          "지역 어민과의 어업권 마찰 및 상업적 해양 관광 사업자들과의 협의 과정에 대한 행정적 준비 선행 필요"
+        ],
+        "tags": [
+          "해양생태관광",
+          "수용력",
+          "산호초",
+          "GIS분석",
+          "해상국립공원"
+        ],
+        "recommended_followup_research": [
+          "기후변화에 따른 산호초 백화현상을 반영한 동적 수용력 산정 모델 연구",
+          "해양 레저 탐방객의 행태가 저서생물 군락에 미치는 직접적인 스트레스 요인 분석"
+        ],
+        "ai_recommended_topics": [
+          "Marine ecotourism carrying capacity",
+          "Coral reef tourism management GIS",
+          "해양국립공원 탐방 수용력",
+          "해중경관지구 적정 방문객 산정"
+        ],
+        "analyzed_at": "2026-07-29T06:09:26Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2365745184",
+      "source": "openalex",
+      "title": "ASSESSMENT OF THE FOREST PARK'S TOURISM ENVIRONMENTAL CARRYING CAPACITY——A Case Study of Chongqing Huangshui National Forest Park",
+      "abstract": "Assessment of the forest park's tourism environmental carrying capacity is of crucial importance for its efficient operation.On the one hand estimate of tourism carrying capacity is a complex systematic matter which is affected by many factors such as natural environmental characteristics,composition structure,economic social background,the behavior characteristics of tourists and demographic features,and at the same time researchers must put the influence caused by seasonal fluctuation of forest park into consideration,on the other hand,only reasonable assessment of the forest park's tourism environmental carrying capacity can help to provide theoretical support and policy guidance for the forest park's planning design and management.Selecting Chongqing Huangshui National Forest Park as a typical case for empirical research,this paper firstly makes analysis and assessment of single constraint index,and then screens out some index which maybe restrict Huangshui national forest park's tourism environmental carrying capacity by questionnaire and interviews in this area.Secondly,with the method of ADIHP,this paper confirms the influence weight which can exhibit how the different single carrying capacity press on the whole tourism environmental carrying capacity and then makes comprehensive analysis of the forest park's tourism environmental carrying capacity by taking the structuring of carrying capacity index,the division of forest park's space and seasonal fluctuation of forest park into account.This paper finally provides not only specific optimized design scheme,but also comparatively accurate data scientifically,and practical reference value for the forest park's optimized design and development,and entirely promotion of forest park's leisure and recreational function.",
+      "authors": [
+        "Lei Ying"
+      ],
+      "year": 2013,
+      "journal": "",
+      "cited_by_count": 2,
+      "doi": "",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Carrying capacity",
+        "Tourism",
+        "National park",
+        "Environmental resource management",
+        "Index (typography)",
+        "Promotion (chess)"
+      ],
+      "openalex_url": "https://openalex.org/W2365745184",
+      "ai_analysis": {
+        "title_ko": "삼림공원 관광환경수용력 평가 연구: 충칭 후앙수이 국가삼림공원 사례를 중심으로",
+        "abstract_ko": "삼림공원의 효율적인 운영을 위해서는 관광환경수용력 평가가 매우 중요하다. 한편으로는 자연환경 특성, 구성 구조, 경제·사회적 배경, 탐방객의 행동 특성, 인구통계학적 특성 등 다양한 요인의 영향을 받는 관광수용력을 복합적으로 추정하는 동시에 삼림공원의 계절적 변동에 따른 영향도 고려해야 하며, 다른 한편으로는 합리적인 수용력 평가만을 통해 삼림공원의 계획·설계 및 관리에 대한 이론적 지원과 정책적 지침을 제공할 수 있다. 본 연구는 충칭 후앙수이 국가삼림공원을 전형적인 사례로 선정하여 실증연구를 진행했으며, 첫째로 단일 제약 지표를 분석 및 평가한 후 해당 지역의 설문조사와 면담을 통해 후앙수이 국가삼림공원의 관광환경수용력을 제약할 수 있는 일부 지표를 선별했다. 둘째로 ADIHP(계층분석적 의사결정법) 방식을 활용하여 각 단일 수용력이 전체 관광환경수용력에 미치는 영향 가중치를 산정했으며, 수용력 지표 구조, 공원 공간 구획, 계절별 변동성을 고려하여 삼림공원의 관광환경수용력을 종합적으로 분석했다. 마지막으로 이 논체는 구체적인 최적화 설계 안뿐만 아니라 과학적으로 비교적 정확한 데이터를 제공하며, 삼림공원의 최적화 설계 및 개발, 그리고 여가 및 레크리에이션 기능의 전반적인 향상을 위한 실질적인 참고 가치를 제공한다.",
+        "summary_3lines": [
+          "삼림공원의 효율적 운영과 지속 가능한 탐방 관리를 위해 다양한 환경적·사회적 제약 요인을 반영한 관광환경수용력 평가 체계를 구축하고자 했다.",
+          "충칭 후앙수이 국가삼림공원을 사례로 설문조사와 면담을 통해 제약 지표를 도출하고, ADIHP 기법을 활용하여 공간 구획과 계절별 변동을 고려한 종합 수용력 가중치를 분석했다.",
+          "공간별·계절별 맞춤형 수용력 산정 데이터를 활용하여 탐방객 밀집도를 조절하고 휴양 기능을 최적화하는 실무적 설계 방안을 도출했다."
+        ],
+        "research_purpose": "본 연구는 삼림공원의 지속 가능한 운영과 효율적인 관리를 위해 자연환경, 탐방객 행동, 계절적 변동 등 다양한 요인을 고려한 종합적인 관광환경수용력 산정 모델을 개발하는 것을 목적으로 한다. 단일 제약 지표 분석과 현장 조사를 바탕으로 핵심 제약 요인을 도출하고, 다기준 의사결정 기법을 적용하여 공간별·계절별 정량적 수용력 평가 기준을 제시하고자 했다.",
+        "key_findings": [
+          "자연환경 특성, 탐방객 행동 패턴, 계절적 변동성이 삼림공원 관광수용력에 복합적인 영향을 미치는 주요 제약 요인으로 확인됨.",
+          "ADIHP(계층분석적 의사결정법)를 활용하여 각 단일 수용력 지표가 전체 환경수용력에 미치는 영향 가중치를 정량적으로 산정함.",
+          "공간 구획과 계절별 탐방객 변동을 반영한 종합 수용력 평가 결과는 공원 설계 및 탐방객 분산 정책 수립에 과학적 기준을 제공함."
+        ],
+        "practical_applications": [
+          "국립공원 탐방로 및 주요 거점별 일일 최대 수용 인원을 산정하고 탐방 예약제 운영의 기초 자료로 활용",
+          "성수기와 비수기의 계절적 편차를 반영한 탄력적 탐방객 분산 유도 프로그램 및 공간별 출입 통제 기준 마련",
+          "현장 설문조사 및 면담 기법을 도입하여 탐방객 만족도와 생태계 민감도를 동시에 고려한 공원 관리 계획 수립"
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국 국립공원 역시 탐방객 집중 현상과 계절별 탐방객 변동(단풍철, 성수기 등) 문제를 겪고 있으며, 생태적 건전성 유지와 탐방 수용력 관리가 핵심 과제이므로 본 연구의 수용력 평가 및 공간 구획 방법론을 현장에 직접 적용하기에 매우 적합하다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "탐방객 수용력 산정",
+          "생태계 모니터링",
+          "공원 구획 및 이용 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제28조(탐방로의 지정 및 관리)",
+          "자연공원법 제32조(공원의 보전 및 이용)",
+          "야생생물 보호 및 관리에 관한 법률 제12조(서식지 보호)"
+        ],
+        "field_checklist": [
+          "주요 탐방로 및 거점별 일일/시간당 최대 적정 탐방객 수(수용력)가 산정되어 있는가?",
+          "계절별(성수기·비수기) 탐방객 변동 추이가 데이터로 구축되어 있는가?",
+          "탐방객 집중으로 인한 식생 훼손 및 토양 침식 여부가 주기적으로 모니터링되고 있는가?",
+          "공간 구획(자연보존지구, 자연환경지구 등)별 이용 강도 규정이 준수되고 있는가?",
+          "탐방객 만족도 및 의견 수렴을 위한 설문조사나 인터뷰 체계가 마련되어 있는가?"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "현장 조사를 통한 지표 선정 시 지역 주민 및 탐방객의 특수성을 고려해야 하며 일회성 조사에 그치지 않아야 함.",
+          "계절별 변동성이 큰 한국 국립공원의 특성상 기상 악화나 돌발 상황에 따른 수용력의 실시간 조정 체계가 병행되어야 함."
+        ],
+        "tags": [
+          "관광환경수용력",
+          "삼림공원",
+          "ADIHP",
+          "탐방객 관리",
+          "공간 구획"
+        ],
+        "recommended_followup_research": [
+          "기후변화에 따른 국립공원 계절별 탐방수용력 변동성에 관한 연구",
+          "ICT 기반 실시간 탐방객 밀집도 측정 및 동적 수용력 관리 시스템 개발"
+        ],
+        "ai_recommended_topics": [
+          "Tourism environmental carrying capacity",
+          "Forest park management",
+          "AHP in park management",
+          "Visitor use management in national parks"
+        ],
+        "analyzed_at": "2026-07-29T06:10:54Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
       "id": "W114527054",
       "source": "openalex",
       "title": "Research to guide trail management at Acadia National Park, Maine",
@@ -48804,6 +49680,439 @@
           "Resource stewardship strategy in protected areas"
         ],
         "analyzed_at": "2026-07-27T13:49:53Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2739626376",
+      "source": "openalex",
+      "title": "Social carrying capacity of ecotourism National Park Kuala Tahan",
+      "abstract": "Increasing recreational activities in National Park potentially affect the recreational quality. Carrying capacities for protected area such as National Park are highly essential factor for tourism management.The use of carrying capacity as predominant method synthetically presented in this study is focused on National Park Kuala Tahan, Pahang (NPKT).This study explores the concept of social carrying capacity (SCC) where concentration on the factors of individuals which park visitors becomes uncomfortable - satisfaction perception. For the SCC, 300 interviews were conducted at the study area exploring social attributes of tourism development and collected data subjected to a series of descriptive analysis methods.Output from factor analysis and mean scores confirmed that the ecotourism potentially provides a sustainable approach to tourism development in Malaysia. This study identifies the positives and negatives social effects of ecotourism development in NPKT from the perspectives of tourist’s satisfaction.",
+      "authors": [
+        "Mohd Muzzammil Ismail",
+        "Mastura Jaafar",
+        "Diana Mohamad",
+        "Mohd Amirul Nizam Paijo"
+      ],
+      "year": 2016,
+      "journal": "Universiti Utara Malaysia Institutional Repository (Universiti Utara Malaysia)",
+      "cited_by_count": 1,
+      "doi": "",
+      "is_oa": true,
+      "oa_url": "http://repo.uum.edu.my/20355/1/ICOGPA%202016%201%205%20A.pdf",
+      "concepts": [
+        "Recreation",
+        "National park",
+        "Ecotourism",
+        "Tourism",
+        "Environmental planning",
+        "Geography"
+      ],
+      "openalex_url": "https://openalex.org/W2739626376",
+      "ai_analysis": {
+        "title_ko": "쿠알라 타한 국립공원 생태관광의 사회적 수용력",
+        "abstract_ko": "국립공원 내 증가하는 휴양 활동은 탐방 품질에 잠재적인 영향을 미칩니다. 국립공원과 같은 보호구역에서 수용력은 관광 관리를 위한 매우 필수적인 요소입니다. 본 연구는 말레이시아 파항주 쿠알라 타한 국립공원(NPKT)을 중심으로 수용력 산정 방식을 종합적으로 제시합니다. 본 연구는 공원 방문객이 불편함을 느끼는 개인적 요인, 즉 만족도 인식에 초점을 맞춘 사회적 수용력(SCC) 개념을 탐구합니다. 사회적 수용력을 파악하기 위해 연구 지역에서 300명의 방문객을 대상으로 관광 개발의 사회적 속성을 탐색하는 인터뷰를 진행하였으며, 수집된 데이터는 일련의 기술 통계 분석 방법에 적용되었습니다. 요인 분석과 평균 점수의 결과는 생태관광이 말레이시아의 지속 가능한 관광 개발을 위한 접근법을 제공할 수 있음을 확인시켜 주었습니다. 본 연구는 탐방객 만족도의 관점에서 쿠알라 타한 국립공원 생태관광 개발의 긍정적 및 부정적 사회적 영향을 규명합니다.",
+        "summary_3lines": [
+          "말레이시아 쿠알라 타한 국립공원을 대상으로 탐방객의 만족도 인식을 기반으로 한 사회적 수용력(SCC)의 개념과 영향을 분석함.",
+          "300명의 탐방객 인터뷰와 요인 분석을 통해 생태관광이 지속 가능한 발전 가능성을 지님과 동시에 긍정적·부정적 사회적 영향을 미친다는 것을 확인함.",
+          "탐방객의 과도한 밀집으로 인한 불편 요소를 파악하여 향후 국립공원의 적정 탐방객 관리 및 질적 향상을 위한 기초 자료로 활용할 수 있음."
+        ],
+        "research_purpose": "본 연구는 국립공원 내 증가하는 탐방객과 휴양 활동이 탐방 품질에 미치는 영향을 분석하고, 이를 관리하기 위한 핵심 도구로서 사회적 수용력(Social Carrying Capacity) 개념을 탐구하는 것을 목적으로 합니다. 특히 탐방객이 불만을 느끼거나 불편함을 인지하는 요인들을 분석하여, 생태관광이 지속 가능한 방식으로 운영될 수 있는 기반을 마련하고자 합니다.",
+        "key_findings": [
+          "생태관광은 적절히 관리될 경우 말레이시아 국립공원에서 지속 가능한 관광 개발의 효과적인 접근법이 될 수 있음.",
+          "탐방객의 만족도 인식 조사를 통해 관광 개발이 가져오는 긍정적 측면과 부정적 측면(혼잡도 증가 등)이 동시에 식별됨.",
+          "사회적 수용력 분석은 보호구역 내 방문객 관리와 탐방 질 유지에 필수적인 판단 기준을 제공함."
+        ],
+        "practical_applications": [
+          "주말이나 성수기 북문 및 주요 탐방로의 적정 탐방 인원(사회적 수용력)을 산정하여 예약제 도입 기초 자료로 활용",
+          "탐방객 만족도 설문조사를 정례화하여 탐방객이 느끼는 혼잡도와 불편 요인을 실시간으로 파악하고 대응",
+          "탐방로 구간별 수용력 초과 시 우회탐방로 안내 및 휴식년제 적용 구역 설정의 근거로 활용"
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "북한산, 설악산 등 주요 국립공원의 주말 탐방객 집중 및 혼잡도 관리 문제는 한국 국립공원 관리공단이 직면한 주요 현안이므로 탐방객 만족도 기반의 사회적 수용력 연구는 직접적인 적용 가치가 높음.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "탐방객 수용력 산정",
+          "탐방서비스 운영"
+        ],
+        "related_laws": [
+          "자연공원법 제28조(탐방로의 지정 및 관리)",
+          "자연공원법 제32조(자연공원의 보전 및 이용)",
+          "야생생물 보호 및 관리에 관한 법률 제9조(서식지 보호)"
+        ],
+        "field_checklist": [
+          "주요 탐방로의 시간대별·요일별 탐방객 밀집도 측정 여부 확인",
+          "탐방객 대상 불편 사항(소음, 쓰레기, 혼잡 등) 설문조사 문항 구비",
+          "지정된 탐방로 외 샛길 이용 및 불법 야영 등 훼손 행위 모니터링",
+          "휴식년제 또는 예약제 도입을 위한 지역 주민 및 탐방객 의견 수렴 절차 마련",
+          "탐방 만족도 지표 변화 추이를 반영한 연간 탐방 관리 계획 수정 여부 검토"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "탐방객 수용력 산정 시 생태적 수용력뿐만 아니라 지역 사회의 경제적 이해관계도 함께 고려해야 함.",
+          "일률적인 인원 제한은 탐방객의 반발을 불러올 수 있으므로 사전 홍보와 단계적 적용이 필수적임."
+        ],
+        "tags": [
+          "사회적수용력",
+          "생태관광",
+          "탐방객만족도",
+          "국립공원관리",
+          "혼잡도관리"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 탐방로 유형별 사회적 수용력 산정 기법 개발 연구",
+          "탐방객 밀집도가 생태계 교란 및 체감 만족도에 미치는 상관관계 분석"
+        ],
+        "ai_recommended_topics": [
+          "Social Carrying Capacity National Park",
+          "Visitor Satisfaction Ecotourism Management",
+          "Protected Area Visitor Crowding"
+        ],
+        "analyzed_at": "2026-07-29T06:08:42Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2639159191",
+      "source": "openalex",
+      "title": "Recreational Carrying Capacity of Khao Chamao Khao Wong National Park",
+      "abstract": "This research studies the character of recreation use at Khao Chamao - Khao Wong National Park and assesses the Park’s physical and psychological carrying capacities. Data collection, in the form of questionnaire survey, was gathered from a sample population of 400 who were visitors to the National Park. The number of visitors to the site was also recorded: on weekdays once a day and at weekends once a month. The research was carried out between April and June, 2007. The results from the questionnaire survey on recreation use found that the majority of visitors to Khao Chamao - Khao Wong National Park were day trippers wanting to swim and sightsee, relax in a quiet environment, and take photographs at 73.3 percent, 67.3 percent, and 53.3 percent respectively; while actual activities were swimming (82.5 percent), sightseeing (75.8 percent), and relaxing in a quiet environment (64.8 percent). Most visitors’ recreational experience was ‘high’ (mean = 3.41). Evaluation of management practices and services found that both were appropriate at ‘moderate’. Physical carrying capacities were attained from level of use compared with carrying capacity at four levels: ‘Below CC’, ‘At & Approaching CC’, ‘Exceeding CC’, and ‘Over CC’. The results showed that recreational areas, the visitors’ centre, and shower rooms were over their carrying capacity. The food shop exceeded its carrying capacity, but restrooms were at and approaching carrying capacity. Other facilities such as nature trails, picnic areas, car parks, and garbage bins were below carrying capacity. Study of psychological carrying capacities found that below carrying capacity is desirable for recreational areas and an acceptable number of visitors is 100. The results of this study can be used for the administration and management of protected areas of Khao Chamao - Khao Wong National Park. They can also be applied to the study of the carrying capacity of other protected areas throughout Thailand.",
+      "authors": [
+        "บรรลือศักด์ิ วงษ์ภักดี",
+        "สมนิมิตร พุกงาม",
+        "นภวรรณ ฐานะกาญจน์"
+      ],
+      "year": 2009,
+      "journal": "",
+      "cited_by_count": 1,
+      "doi": "",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Recreation",
+        "National park",
+        "Carrying capacity",
+        "Geography",
+        "Population",
+        "Environmental protection"
+      ],
+      "openalex_url": "https://openalex.org/W2639159191",
+      "ai_analysis": {
+        "title_ko": "카오차마오-카오웡 국립공원의 휴양 수용력 연구",
+        "abstract_ko": "본 연구는 카오차마오-카오웡 국립공원의 휴양 이용 특성을 파악하고, 공원의 물리적·심리적 수용력을 평가하기 위해 수행되었습니다. 국립공원 방문객 400명을 대상으로 설문조사를 실시하고, 2007년 4부터 6월까지 주중과 주말의 방문객 수를 기록했습니다. 조사 결과, 방문객의 주된 방문 목적은 물놀이, 관광, 조용한 환경에서의 휴식, 사진 촬영 순이었으며, 실제 참여 활동도 물놀이, 관광, 휴식 순으로 나타났습니다. 방문객의 휴양 만족도는 '높음'이었으나, 관리 및 서비스 평가는 '보통' 수준이었습니다. 물리적 수용력 평가 결과, 휴양 구역, 방문객 센터, 샤워실은 수용력을 초과했고, 매점은 수용력 한계에 달했으며, 화장실은 임계점에 도달한 것으로 나타났습니다. 반면 자연탐방로, 피크닉 구역, 주차장, 쓰레기통 등의 시설은 수용력 여유가 있었습니다. 심리적 수용력 측면에서 휴양 구역의 적정 방문객 수는 100명으로 분석되었습니다. 본 연구 결과는 보호지역의 행정 및 관리 개선에 활용될 수 있으며, 태국의 다른 보호지역 수용력 연구에도 적용될 수 있습니다.",
+        "summary_3lines": [
+          "태국 카오차마오-카오웡 국립공원을 대상으로 방문객의 이용 특성을 파악하고 물리적·심리적 수용력을 평가함",
+          "설문조사와 이용객 계측 결과, 물놀이 구역 및 방문객 센터 등 주요 시설은 수용력을 초과한 반면 탐방로 등은 여유가 있는 것으로 나타남",
+          "본 연구의 수용력 평가 방법론은 국립공원 내 고밀도 이용 구역의 시설 개선 및 적정 탐방객 관리 실무에 직접 활용 가능함"
+        ],
+        "research_purpose": "본 연구는 카오차마오-카오웡 국립공원 탐방객들의 이용 행태와 선호도를 분석하고, 공원 내 주요 시설과 공간의 물리적 및 심리적 수용력을 과학적으로 평가하는 것을 목적으로 합니다. 이를 통해 과밀 이용으로 인한 환경 훼손을 방지하고 보호지역의 지속 가능한 관리 체계를 구축하기 위한 기초 자료를 제공하고자 합니다.",
+        "key_findings": [
+          "방문객의 주요 이용 목적은 물놀이(73.3%), 관광(67.3%), 조용한 휴식(53.3%) 순으로 나타남",
+          "휴양 구역, 방문객 센터, 샤워실 등의 주요 시설은 물리적 수용력을 초과하여 과부하 상태를 보임",
+          "심리적 수용력 분석 결과, 휴양 구역의 쾌적한 이용을 위한 적정 방문객 수는 100명으로 도출됨"
+        ],
+        "practical_applications": [
+          "탐방객 밀집 구역(물놀이장, 방문객 센터 등)에 대한 실시간 총량제 또는 예약제 도입 검토",
+          "수용력이 초과된 샤워실 및 매점 등의 편의시설 확충 또는 동선 분산 유도",
+          "여유가 있는 자연탐방로와 피크닉 구역으로 탐방객을 분산시키기 위한 홍보 및 안내판 정비"
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국 국립공원 내 계곡부, 탐방지원센터, 야영장 등 특정 거점 지구의 과밀 이용 문제를 해결하고 적정 수용력을 산정하는 실무에 직접적으로 응용할 수 있습니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "공원시설 유지관리",
+          "탐방객 수용력 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제28조(공원시설의 설치 및 유지관리)",
+          "자연공원법 제32조(출입의 금지 또는 제한)"
+        ],
+        "field_checklist": [
+          "성수기 주요 물놀이 구역 및 탐방지원센터의 일일 방문객 수가 적정 수용력을 초과하는지 확인",
+          "샤워실, 화장실 등 편의시설의 대기 시간 및 파손 빈도 모니터링",
+          "탐방로와 피크닉 구역의 공간별 이용 밀도 및 잔여 수용력 측정",
+          "방문객 대상 만족도 조사를 통해 시설 서비스 수준 평가",
+          "심리적 쾌적성을 저해하는 과밀 지역 파악 및 분산 대책 수립 여부 점검"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "태국 국립공원의 환경과 한국 국립공원의 계절별 탐방객 특성에 차이가 있으므로 수용력 산정 시 국내 실정에 맞게 보정 필요",
+          "방문객 통제 및 인원 제한 시 지역 상인 및 탐방객과의 마찰에 대비한 사전 홍보 필수"
+        ],
+        "tags": [
+          "수용력",
+          "탐방객 관리",
+          "시설 포화도",
+          "이용 행태",
+          "보호지역 관리"
+        ],
+        "recommended_followup_research": [
+          "국내 국립공원 계곡부 탐방객의 심리적 수용력(사회적 운반 능력) 임계값 산정 연구",
+          "계절별·요일별 탐방객 변동을 고려한 동적 수용력 관리 시스템 구축 방안 연구"
+        ],
+        "ai_recommended_topics": [
+          "Recreational carrying capacity protected areas",
+          "국립공원 탐방객 수용력 산정"
+        ],
+        "analyzed_at": "2026-07-29T06:09:36Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W4403435139",
+      "source": "openalex",
+      "title": "Mathematical Modeling and Enhancing the Carrying Capacity of National Parks in the United States",
+      "abstract": "A rapid growth in the number of visitors has been observed for many national parks in the United States, examples include Yellowstone National Park, Yosemite National Park, Rocky Mountain National Park and Arches National Park. As a result, public transit and parking resources have been stretched closer and closer to their capacities in these parks. In response, some National Park Services (NPS) have started to implement crowd control measurements, such as the timed entry reservation systems, where visitors have to reserve their slots to visit the park during certain time periods of the year. However, such policy does not touch on the fundamental issue of the subject, that is, the carrying capacity of the park. In this paper, we demonstrate that there will be even greater growth in the number of visitors in the near future, which means that a capacity boost is inevitable. Fortunately, we also observe that if we can fix some key bottlenecks, then we can dramatically increase the capacity of the park without destroying more natural land.",
+      "authors": [
+        "Qichuan Xia"
+      ],
+      "year": 2024,
+      "journal": "Journal of Biosensors and Bioelectronics Research",
+      "cited_by_count": 1,
+      "doi": "https://doi.org/10.47363/jbber/2024(2)125",
+      "is_oa": true,
+      "oa_url": "https://doi.org/10.47363/jbber/2024(2)125",
+      "concepts": [
+        "Carrying capacity",
+        "Geography",
+        "Environmental science",
+        "Ecology",
+        "Biology"
+      ],
+      "openalex_url": "https://openalex.org/W4403435139",
+      "ai_analysis": {
+        "title_ko": "미국 국립공원의 수용력 수학적 모델링 및 증대 방안",
+        "abstract_ko": "옐로스톤, 요세미티, 록키산맥, 아ches 등 미국의 많은 국립공원에서 방문객 수가 급격히 증가하고 있으며, 이로 인해 공원의 대중교통과 주차 자원이 한계에 다다르고 있습니다. 이에 대응하여 일부 국립공원관리청(NPS)은 방문객이 특정 시간대에 방문을 예약해야 하는 시간제 입장 예약제와 같은 군중 통제 조치를 도입하기 시작했습니다. 그러나 이러한 정책은 공원의 수용력이라는 근본적인 문제를 해결하지 못합니다. 본 논문에서는 가까운 미래에 방문객 수가 훨씬 더 크게 증가할 것이며, 이는 수용력의 확충이 불가피함을 보여줍니다. 다행히도, 추가적인 자연 훼손 없이 핵심 병목 현상만 해결한다면 공원의 수용력을 극적으로 증가시킬 수 있음을 확인했습니다.",
+        "summary_3lines": [
+          "미국 국립공원의 급증하는 탐방객과 주차·교통 인프라 포화 문제에 대응하여 근본적인 수용력 증대 방안을 모색함",
+          "단순한 예약제 운영을 넘어 자연 훼손 없이 핵심 병목 구간을 해소함으로써 탐방 수용력을 획기적으로 늘릴 수 있음을 수학적 모델링을 통해 증명함",
+          "한국 국립공원 탐방로 및 주차장 병목 구간 분석을 통한 효율적 수용력 증대 전략 마련에 시사점을 제공함"
+        ],
+        "research_purpose": "미국 주요 국립공원의 탐방객 급증에 따른 인프라 포화 문제를 진단하고, 단순한 입장 제한(시간제 예약제)을 넘어 자연환경을 훼손하지 않고 공원의 근본적인 탐방 수용력을 극대화할 수 있는 수학적 모델링 기반의 병목 해소 방안을 도출하는 데 목적이 있습니다.",
+        "key_findings": [
+          "미국 주요 국립공원(옐로스톤, 요세미티 등)은 방문객 급증으로 대중교통 및 주차 자원이 한계에 직면함",
+          "시간제 입장 예약제 등 기존의 군중 통제 정책은 탐방객 분산 효과는 있으나 근본적인 수용력 증대 한계가 있음",
+          "자연 훼손을 최소화하면서 공원 내 핵심 병목 구간을 개선할 경우, 대규모 자연 훼손 없이도 수용력을 대폭 증가시킬 수 있음"
+        ],
+        "practical_applications": [
+          "탐방객 밀집 지역의 병목 구간(주차장, 셔틀버스 승하차장, 탐방로 입구 등)을 정밀 진단하여 구조적 개선",
+          "자연공원 훼손을 최소화하는 범위 내에서 기존 인프라의 효율성을 극대화하는 수용력(Carrying Capacity) 산정 모델 도입",
+          "단순한 출입 통제 위주에서 벗어나 시설 용량 확충과 병목 해소를 결합한 종합 탐방 관리 계획 수립"
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "북한산, 설악산 등 성수기 탐방객 집중으로 주차 및 탐방로 혼잡을 겪는 한국 국립공원의 탐방 수용력 관리 및 병목 현상 해소 정책에 직접적으로 응용할 수 있습니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "탐방객 수용력 산정",
+          "공원 시설물 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제23조(허가사항)",
+          "자연공원법 제28조(자연공원의 보전·관리)",
+          "국립공원공단법 제7조(사업)"
+        ],
+        "field_checklist": [
+          "주말 및 성수기 주요 주차장의 포화 시간대 및 대기열 길이 측정",
+          "주요 탐방로 입구 및 병목 지점의 시간당 통행량 조사",
+          "대중교통(셔틀버스 등) 운행 간격과 수용 인원 실태 점검",
+          "기존 탐방 인프라 확충 시 예상되는 환경 훼손 면적 최소화 방안 검토",
+          "탐방 예약제 및 분산 정책의 실제 수용력 제고 효과 분석"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "병목 구간 개선 시 공원 내 자연환경 및 생태계에 미치는 영향에 대한 사전 검토 필수",
+          "시설 확충과 예산 확보 과정에서 관련 법령에 따른 환경영향평가 및 공원계획 변경 절차 준수 필요"
+        ],
+        "tags": [
+          "탐방수용력",
+          "수학적모델링",
+          "병목현상",
+          "탐방객관리",
+          "국립공원인프라"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 주요 탐방로 및 주차장의 병목 지점 정량적 평가 모델 개발",
+          "생태적 건전성을 유지하면서 탐방객 수용력을 극대화하는 인프라 최적 배치 연구"
+        ],
+        "ai_recommended_topics": [
+          "National Park Carrying Capacity Modeling",
+          "Visitor Flow Bottleneck Management in Protected Areas"
+        ],
+        "analyzed_at": "2026-07-29T06:10:17Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2296453310",
+      "source": "openalex",
+      "title": "Formation-development and modelling process of carrying capacity theory in the national parks.",
+      "abstract": "Impacts of recreational activities on natural reserves have reached a worrying level. As the result of this worrisome, it is suggested that use of these reserves, especially national parks, should not go beyond a certain level. Carrying capacity defining this situation is stated as the degree of acceptable recreational use density in natural areas considering long term conservation of these natural areas. The concept of recreational carrying capacity coming out in 1960s has had different aspects in the last 50 years by gaining social, physical, ecological and economic characteristics. Some visitor management models have been put forward to provide protection, use and sustainability balance in national parks. The aim of present study is to review development process of recreational carrying capacity, dimensions of recreational carrying capacity and visitor management models. In this study the benefits and challenges of capacity analyses and the factors which is effective in ensuring the success are discussed.",
+      "authors": [
+        "Tendü Hilal Göktuğ",
+        "Nalan Demircioğlu Yıldız",
+        "Metin Demir",
+        "Yakup Bulut"
+      ],
+      "year": 2013,
+      "journal": "",
+      "cited_by_count": 1,
+      "doi": "",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Recreation",
+        "Carrying capacity",
+        "Visitor pattern",
+        "Sustainability",
+        "Business",
+        "Environmental resource management"
+      ],
+      "openalex_url": "https://openalex.org/W2296453310",
+      "ai_analysis": {
+        "title_ko": "국립공원 내 수용력 이론의 형성·발전 및 모델링 과정",
+        "abstract_ko": "자연보호구역 내 레크리에이션 활동으로 인한 영향이 우려할 만한 수준에 이르렀으며, 특히 국립공원의 이용을 일정 수준으로 통제해야 한다는 주장이 제기되고 있습니다. 이를 정의하는 수용력 개념은 자연공원의 장기적인 보전을 고려할 때 허용 가능한 레크리에이션 이용 밀도의 수준을 의미합니다. 1960년대에 등장한 레크리에이션 수용력 개념은 지난 50년 동안 사회적, 물리적, 생태적, 경제적 특성을 획득하며 다양한 측면으로 발전해 왔습니다. 국립공원 내에서 보호, 이용, 지속가능성의 균형을 제공하기 위해 다양한 방문객 관리 모델들이 제안되었습니다. 본 연구의 목적은 레크리에이션 수용력의 발전 과정, 차원, 그리고 방문객 관리 모델들을 검토하는 것입니다. 본 연구에서는 수용력 분석의 이점과 과제, 그리고 성공을 보장하는 데 효과적인 요인들에 대해 논의합니다.",
+        "summary_3lines": [
+          "국립공원 내 레크리에이션 활동 증가에 따른 자연 훼손을 막기 위해 수용력 개념과 방문객 관리 모델의 발전 과정을 고찰하였습니다.",
+          "수용력은 1960년대 이후 생태적, 사회적, 경제적 차원으로 확장되었으며 공원 보호와 이용의 균형을 위한 다양한 관리 모델이 제안되었습니다.",
+          "성공적인 수용력 관리를 위해서는 단순한 이용객 수 제한을 넘어 다차원적인 분석과 체계적인 방문객 관리 기법의 현장 도입이 필요합니다."
+        ],
+        "research_purpose": "본 연구는 국립공원에서 급증하는 탐방 압력에 대응하기 위해 1960년대부터 발전해 온 레크리에이션 수용력(Recreational Carrying Capacity)의 개념적 발전 과정과 다차원적 특성을 검토하는 것을 목적으로 합니다. 아울러 자연보호와 탐방객 이용의 지속가능한 균형을 유지하기 위한 다양한 방문객 관리 모델을 분석하고, 수용력 산정 시 직면하는 한계와 성공 요인을 도출하고자 합니다.",
+        "key_findings": [
+          "레크리에이션 수용력은 단순한 물리적 공간 한계를 넘어 생태적, 사회적, 경제적 요인을 모두 포함하는 다차원적 개념으로 발전했습니다.",
+          "국립공원의 지속가능한 관리를 위해 다양한 방문객 관리 모델(예: LAC, VIM 등)이 수립되어 보호와 이용의 균형을 도모하고 있습니다.",
+          "수용력 분석의 성공을 위해서는 단발성 조사가 아닌 장기적인 생태계 모니터링과 사회적 수용성을 고려한 종합적 접근이 필수적입니다."
+        ],
+        "practical_applications": [
+          "북한산국립공원이나 지리산국립공원 등 탐방객 집중 지역에 생태적·사회적 수용력을 고려한 적정 탐방객 총량제 및 사전예약제 적용을 확대합니다.",
+          "단순 탐방객 수 제한을 넘어 훼손된 탐방로의 생태계 회복력을 실시간으로 평가하는 모니터링 체계를 구축합니다.",
+          "탐방객 밀집에 따른 혼잡도 완화를 위해 시간대별·코스별 분산 유도 프로그램 및 대안 노선을 개발합니다."
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국 국립공원 역시 주말 탐방객 집중으로 인한 생태계 훼손과 탐방객 간 갈등 문제가 심각하므로, 수용력 이론과 방문객 관리 모델을 현장 탐방로 및 자원 관리에 직접 적용할 수 있습니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "탐방객 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제28조",
+          "자연공원법 제37조",
+          "야생생물 보호 및 관리에 관한 법률 제12조"
+        ],
+        "field_checklist": [
+          "탐방로 구간별 일일 최대 방문객 수 및 밀집도 측정",
+          "토양 다짐, 식생 피도 감소 등 생태적 훼손 지표 확인",
+          "탐방객 설문조사를 통한 혼잡도 및 만족도(사회적 수용력) 평가",
+          "주요 거점별 주차장 및 편의시설 수용 용량 초과 여부 점검",
+          "대체 탐방로 및 분산 유도 안내판 설치 상태 점검"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "탐방객 통제에 따른 지역 상인의 반발 및 민원 발생 가능성을 고려해야 합니다.",
+          "계절별, 탐방로별 특성이 다르므로 일률적인 수용력 기준 적용을 지양하고 맞춤형 지표를 개발해야 합니다."
+        ],
+        "tags": [
+          "레크리에이션수용력",
+          "방문객관리",
+          "탐방로관리",
+          "생태계보전",
+          "지속가능탐방"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 주요 탐방로의 생태적·사회적 수용력 산정 기준 마련 연구",
+          "방문객 관리 모델(LAC 등)의 국내 공원 현장 적용성 평가 연구"
+        ],
+        "ai_recommended_topics": [
+          "Recreational carrying capacity in national parks",
+          "Visitor management models in protected areas",
+          "Limits of Acceptable Change (LAC) framework"
+        ],
+        "analyzed_at": "2026-07-29T06:10:32Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2384128017",
+      "source": "openalex",
+      "title": "Study on tourism environment carrying capacity of Jingyuetan national forest park",
+      "abstract": "Based on the territory partition of Jingyuetan national forest park,using the resource-space as restrained-factors,environmental carrying capacity of tourism were calculated by day and by period during which the park were open to tourism.The results indicated that the tourism capacity every day in territory 1 were the most,which was 2 200～6 500 and 3 300～9 700 during April 20 to May 20 and May 21 to October 10.The tourism capacity every day in territory 4 were the least,which was 30～60 and 50～100 during the corresponding periods.The tourism were limited to the winter in territory 8,and the capacity was 6 800.The results can be used as basic data for park management.",
+      "authors": [
+        "Wang Xue-luan"
+      ],
+      "year": 2009,
+      "journal": "Journal of Northeast Normal University",
+      "cited_by_count": 1,
+      "doi": "",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Tourism",
+        "National park",
+        "Carrying capacity",
+        "National forest",
+        "Geography",
+        "Resource (disambiguation)"
+      ],
+      "openalex_url": "https://openalex.org/W2384128017",
+      "ai_analysis": {
+        "title_ko": "징위탄 국가삼림공원의 관광 환경수용력에 관한 연구",
+        "abstract_ko": "징위탄 국가삼림공원의 구역 구분을 바탕으로, 자원-공간을 제약 요인으로 활용하여 공원 개방 기간 동안 일별 및 기간별 관광 환경수용력을 산정했습니다. 연구 결과, 제1구역의 일일 관광수용력이 가장 높았으며, 4월 20일부터 5월 20일까지는 2,200~6,500명, 5월 21일부터 10월 10일까지는 3,300~9,700명으로 나타났습니다. 제4구역의 일일 관광수용력은 가장 낮아 해당 기간 동안 각각 30~60명과 50~100명으로 산정되었습니다. 제8구역은 겨울철에만 관광이 제한적으로 허용되었으며, 수용력은 6,800명이었습니다. 본 연구 결과는 공원 관리를 위한 기초 자료로 활용될 수 있습니다.",
+        "summary_3lines": [
+          "공원 내 구역별 공간 자원을 제약 요인으로 활용하여 시기별 관광 환경수용력을 산정하고자 함.",
+          "구역별 특성과 성수기·비수기 시기에 따라 일일 적정 탐방객 수용력을 구체적인 수치로 도출함.",
+          "도출된 수용력 산정 결과는 과밀 억제와 탐방 환경 관리를 위한 공원 운영 기초 자료로 활용 가능함."
+        ],
+        "research_purpose": "본 연구는 징위탄 국가삼림공원의 구역별 공간 자원과 생태적 특성을 고려하여, 시기별·구역별 관광 환경수용력을 과학적으로 산정하는 것을 목적으로 합니다. 이를 통해 공원 관리자가 탐방객 밀도를 효과적으로 조절하고 자연 자원 훼손을 방지할 수 있는 기준 데이터를 제공하고자 합니다.",
+        "key_findings": [
+          "제1구역은 수용력이 가장 높아 4~5월 2,200~6,500명, 5~10월 3,300~9,700명의 탐방객 수용이 가능함.",
+          "제4구역은 생태적 제약 등으로 수용력이 가장 낮아 해당 기간 각각 30~60명, 50~100명으로 제한됨.",
+          "제8구역은 특정 계절(겨울철)에만 탐방이 허용되며 6,800명의 수용력을 가짐."
+        ],
+        "practical_applications": [
+          "탐방객 밀도가 집중되는 성수기 구역별 일일 최대 입장객 제한 기준 마련",
+          "생태적 민감도가 높은 구역(제4구역 등)에 대한 탐방 허용 인원 축소 및 예약제 도입",
+          "계절별 특화 탐방 구역(겨울철 설경 등) 운영을 통한 탐방객 분산 유도"
+        ],
+        "korea_np_applicability_score": 4,
+        "korea_np_applicability_reason": "한국 국립공원 역시 탐방로 및 구역별 생태 수용력 산정과 성수기 과밀 억제 대책이 필수적이므로, 본 논문의 공간 기반 수용력 산정 방법론을 탐방로 총량제 및 예약제 운영에 직접 적용할 수 있습니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "탐방객 수용력 산정",
+          "공원 구역 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제28조(탐방로의 지정 및 관리)",
+          "자연공원법 제32조의2(탐방예약제)"
+        ],
+        "field_checklist": [
+          "공원 내 구역별 생태·공간적 민감도 조사 및 등급화 여부 확인",
+          "성수기와 비수기 시기별 일일 최대 탐방객 수용력 산정 완료 여부",
+          "수용력을 초과하는 구역에 대한 출입 통제 또는 예약제 시스템 연동 여부",
+          "계절별 특화 탐방 프로그램 운영 시 안전 및 수용 인원 준수 여부 점검",
+          "탐방객 밀집 구역의 모니터링 및 훼손 실태 정기 점검 여부"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "단순 면적 기준 산정 외에 실제 지형과 생태계 민감도를 복합적으로 반영해야 함",
+          "지역 주민의 생계 및 탐방객 반발을 고려한 단계적 인원 통제 정책 수립 필요"
+        ],
+        "tags": [
+          "환경수용력",
+          "탐방객 관리",
+          "구역별 관리",
+          "삼림공원",
+          "탐방 예약제"
+        ],
+        "recommended_followup_research": [
+          "기후변화와 탐방객 행태 변화를 반영한 동적 환경수용력 산정 모델 연구",
+          "탐방객 수용력 초과가 구역별 식생 및 토양에 미치는 생태적 영향 분석"
+        ],
+        "ai_recommended_topics": [
+          "국립공원 탐방로 수용력 산정",
+          "Tourism Carrying Capacity forest park"
+        ],
+        "analyzed_at": "2026-07-29T06:10:42Z",
         "model": "gemini-flash-lite-latest"
       }
     },
@@ -51797,6 +53106,94 @@
       }
     },
     {
+      "id": "W3027226507",
+      "source": "openalex",
+      "title": "The significance of karst areas in European national parks and geoparks",
+      "abstract": "Abstract Karst terrains have varied abiotic and biotic values. However, due to their unfavourable conditions for human settling, they are relatively sparsely populated areas. Thus, karst terrains merit and are suitable for nature protection. In this paper, partly or mostly karstic European national parks (NP) and geoparks (GP) are studied. We compiled a dataset based on official information and internet sources, and analysed NPs and GPs by location, morphology and timeline. Nowadays, there are 106 partly or mostly karstic NPs in Europe, that means 23% of all NPs. Many of the karst terrains became protected before the terms of geotourism and geopark came into being. 49% of all GPs contain karst terrains, which means that karsts are key issues in the study of geoheritage and geotourism. Tourism into karstic NPs and GPs can be considered sensu lato geotourism, since tourists travelling to these locations generally visit caves, gorges, travertine lakes and other karst features. Adventure tourism is also significant in karstic NPs and GPs. The most popular NPs host several millions of visitors a year, that implies economic benefits, but also poses environmental problems, thus certain parks already reached their carrying capacity, while other parks plan to increase their visitor numbers.",
+      "authors": [
+        "Tamás Telbisz",
+        "László Mari"
+      ],
+      "year": 2020,
+      "journal": "Open Geosciences",
+      "cited_by_count": 34,
+      "doi": "https://doi.org/10.1515/geo-2020-0008",
+      "is_oa": true,
+      "oa_url": "https://www.degruyter.com/downloadpdf/journals/geo/12/1/article-p117.pdf",
+      "concepts": [
+        "Karst",
+        "Geotourism",
+        "Tourism",
+        "Geopark",
+        "Cave",
+        "Geography"
+      ],
+      "openalex_url": "https://openalex.org/W3027226507",
+      "ai_analysis": {
+        "title_ko": "유럽 국립공원 및 지질공원 내 카르스트 지역의 중요성",
+        "abstract_ko": "카르스트 지형은 다양한 무생물적 및 생물적 가치를 지니고 있습니다. 그러나 인간이 정주하기에 불리한 환경적 특성 때문에 상대적으로 인구 밀도가 낮아, 자연보호 구역으로 지정되기에 매우 적합하며 그 가치를 인정받고 있습니다. 본 연구에서는 유럽 전역에 걸쳐 카르스트 지형을 일부 혹은 대부분 포함하고 있는 국립공원과 지질공원을 대상으로 현황을 분석하였습니다. 공식 자료와 인터넷 정보를 바탕으로 데이터셋을 구축하여 위치, 지형 형태, 지정 시기 등을 분석한 결과, 현재 유럽 내 106개소의 국립공원이 카르스트 지형을 포함하고 있으며 이는 전체 국립공원의 23%에 달합니다. 많은 카르스트 지역은 지오투어리즘이나 지질공원이라는 개념이 생기기도 전에 이미 보호지역으로 지정되었습니다. 전체 지질공원의 49%가 카르스트 지형을 포함하고 있어, 지질유산과 지오투어리즘 연구에서 카르스트가 핵심적인 사안임을 보여줍니다. 카르스트 지역의 국립공원과 지질공원을 찾는 관광은 광의의 지오투어리즘으로 볼 수 있는데, 관광객들이 주로 동굴, 협곡, 석회화 호수 등 다양한 카르스트 지형 경관을 방문하기 때문입니다. 또한 이 지역들에서는 모험 관광(어드벤처 투어리즘) 역시 매우 활발합니다. 가장 인기 있는 국립공원에는 연간 수백만 명의 방문객이 찾아와 경제적 이익을 창출하는 동시에 환경적 문제를 야기하고 있으며, 일부 공원은 이미 수용력을 초과한 반면 다른 공원들은 방문객 수를 더욱 늘릴 계획을 세우고 있습니다.",
+        "summary_3lines": [
+          "유럽 국립공원과 지질공원 내 카르스트 지형의 분포 현황과 생태·관광적 중요성을 분석하고자 함.",
+          "유럽 국립공원의 23%와 지질공원의 49%가 카르스트 지형을 포함하고 있으며, 높은 탐방 수요로 인해 환경적 압박과 수용력 초과 문제가 발생하고 있음을 확인함.",
+          "카르스트 공원의 지속가능한 관리를 위해 경제적 이익과 환경 수용력을 고려한 탐방객 총량 관리 및 지오투어리즘 전략 도입이 시급함."
+        ],
+        "research_purpose": "본 연구는 유럽 내 국립공원과 지질공원에 분포하는 카르스트 지형의 지리적·지형적 현황을 파악하고, 이 지역들이 지닌 자연보호적 가치와 관광 자원으로서의 중요성을 분석하여 향후 보호지역 관리 및 지오투어리즘 정책 수립에 필요한 기초 자료를 제공하는 것을 목적으로 합니다.",
+        "key_findings": [
+          "유럽 전체 국립공원의 23%(106개소)가 카르스트 지형을 포함하고 있음",
+          "유럽 지질공원의 49%가 카르스트 지형을 포함하여 지오투어리즘의 핵심 대상지로 자리잡고 있음",
+          "인기 카르스트 공원은 연간 수백만 명의 방문객으로 인해 환경 수용력(Carrying capacity) 한계에 도달했거나 초과 문제를 겪고 있음"
+        ],
+        "practical_applications": [
+          "국립공원 내 카르스트 지형(동굴, 돌리네, 협곡 등)의 정확한 분포 지도 구축 및 정밀 생태·지형 모니터링 실시",
+          "탐방객 집중으로 인한 훼손을 방지하기 위한 카르스트 지역 탐방객 수용력(Carrying capacity) 산정 및 총량제 도입",
+          "단순 탐방을 넘어 지형의 가치를 교육하는 고품격 지오투어리즘(Geotourism) 프로그램 및 탐방 해설 체계 마련"
+        ],
+        "korea_np_applicability_score": 3,
+        "korea_np_applicability_reason": "한국의 국립공원(예: 단양, 정선 등 일부 석회암 지대 및 동굴 분포 지역)에도 카르스트 지형이 국지적으로 존재하며, 탐방객 집중으로 인한 훼손 우려가 유사하므로 지형 보호 및 수용력 관리 측면에서 적용 가치가 있음.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "생태계 모니터링",
+          "자원 보전",
+          "탐방객 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제2조(정의) 및 제18조(공원자연보존지구등의 지정)",
+          "문화재보호법 제25조(천연기념물)",
+          "환경영향평가법 제9조"
+        ],
+        "field_checklist": [
+          "카르스트 지형(돌리네, 우발라, 동굴 입구 등) 주변의 지반 침하 및 토양 유실 흔적 확인",
+          "탐방로 이탈로 인한 식생 훼손 및 지표면 노출 여부 점검",
+          "동굴 내부 및 카르스트 지표부의 오염 물질 유입 여부 모니터링",
+          "일일 최대 탐방객 수 대비 실제 방문객 수의 초과 여부 집계",
+          "지오투어리즘 안내판 및 탐방객 계도 시설의 파손 상태 확인"
+        ],
+        "practical_utility_score": 4,
+        "cautions": [
+          "카르스트 지형은 지하수 오염과 지반 함몰(싱크홀) 취약성이 높으므로 인프라 설치 시 정밀 지질조사가 선행되어야 함",
+          "지역 주민의 경제적 이해관계와 관광 활성화 요구가 상충될 수 있어 탐방객 통제 시 민원 발생에 주의 필요"
+        ],
+        "tags": [
+          "카르스트",
+          "지오투어리즘",
+          "지질공원",
+          "수용력",
+          "탐방객 관리"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 내 카르스트 지형의 생태·관광적 가치 평가 및 유형화 연구",
+          "카르스트 탐방 지역의 적정 수용력 산정 기법 개발에 관한 연구"
+        ],
+        "ai_recommended_topics": [
+          "Karst geomorphology conservation in national parks",
+          "Geotourism carrying capacity management",
+          "Protected area management in limestone terrains"
+        ],
+        "analyzed_at": "2026-07-29T06:11:30Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
       "id": "W1838711299",
       "source": "openalex",
       "title": "Monitoring considerations for a dynamic dune restoration project: Pacific Rim National Park Reserve, British Columbia, Canada.",
@@ -53289,6 +54686,92 @@
           "Ecological role of wildfire in national parks"
         ],
         "analyzed_at": "2026-07-27T10:00:07Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2043883478",
+      "source": "openalex",
+      "title": "Promotion of the Cycling of Diet-Enhancing Nutrients by African Grazers",
+      "abstract": "Experiments in Serengeti National Park, Tanzania, provide direct evidence that large, free-ranging mammalian grazers accelerate nutrient cycling in a natural ecosystem in a way that enhances their own carrying capacity. Both nitrogen and sodium were at considerably higher plant-available levels in soils of highly grazed sites than in soils of nearby areas where animal density is sparse. Fencing that uncoupled grazers and soils indicated that the animals promote nitrogen availability on soils of inherently similar fertility and select sites of higher sodium availability as well as enhancing that availability.",
+      "authors": [
+        "S. J. McNaughton",
+        "Feetham F. Banyikwa",
+        "M. M. McNaughton"
+      ],
+      "year": 1997,
+      "journal": "Science",
+      "cited_by_count": 600,
+      "doi": "https://doi.org/10.1126/science.278.5344.1798",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Fencing",
+        "Nutrient cycle",
+        "Cycling",
+        "Soil water",
+        "Nutrient",
+        "Ecosystem"
+      ],
+      "openalex_url": "https://openalex.org/W2043883478",
+      "ai_analysis": {
+        "title_ko": "아프리카 초식동물에 의한 식단 개선 영양소 순환 촉진",
+        "abstract_ko": "탄자니아 세렌게티 국립공원에서 진행된 실험을 통해, 대형 야생 포유류 초식동물들이 자연 생태계 내에서 영양소 순환을 가속화하여 자신들의 서식 수용력을 스스로 증대시킨다는 직접적인 증거가 확인되었다. 질소와 나트륨 모두 동물이 밀집해 섭식하는 지역의 토양에서 식물 이용 가능 수준이 인근의 동물 밀도가 낮은 지역보다 훨씬 높았다. 초식동물과 토양을 격리하는 펜스 실험 결과, 동물들은 본래 비옥도가 유사한 토양에서도 질소 가용성을 높이며, 나트륨 가용성이 높은 지역을 선호할 뿐만 아니라 그 가용성 자체를 향상시키는 것으로 나타났다.",
+        "summary_3lines": [
+          "대형 초식동물이 자연 생태계 내에서 영양소 순환을 가속화하여 서식지 수용력을 높이는지 규명하고자 함.",
+          "세렌게티 국립공원 실험 결과, 초식동물 밀집 지역의 토양에서 식물이 이용할 수 있는 질소와 나트륨 가용성이 현저히 높게 나타남.",
+          "야생동물의 서식 활동이 토양 영양소 순환에 긍정적 피드백을 제공하므로, 야생동물과 서식지 환경을 통합적으로 관리해야 함."
+        ],
+        "research_purpose": "본 연구는 대형 야생 초식동물이 자연 생태계의 영양소 순환에 미치는 영향을 파악하고, 이것이 동물의 서식 수용력에 어떻게 기여하는지 검증하기 위해 수행되었습니다. 초식동물의 섭식 활동이 토양 내 질소와 나트륨 등 주요 영양소의 가용성에 미치는 실증적 인과관계를 밝히고자 했습니다.",
+        "key_findings": [
+          "초식동물이 밀집해 섭식하는 지역의 토양은 동물 밀도가 낮은 지역에 비해 식물이 이용 가능한 질소와 나트륨 농도가 훨씬 높았습니다.",
+          "펜스를 설치하여 초식동물과 토양의 상호작용을 차단한 결과, 동물이 토양의 질소 가용성을 직접적으로 증대시키는 것으로 확인되었습니다.",
+          "초식동물은 영양소가 풍부한 나트륨 가용 지역을 선호하여 이용할 뿐만 아니라, 섭식과 배설 활동을 통해 해당 지역의 영양소 가용성을 더욱 향상시켰습니다."
+        ],
+        "practical_applications": [
+          "국립공원 내 야생동물 서식지 복원 시, 식생과 토양 영양소 순환을 연계한 통합 관리 계획을 수립합니다.",
+          "초식동물(고라니, 산양 등)의 주요 활동 구역과 토양 영양 상태를 주기적으로 모니터링하여 서식 환경 평가에 활용합니다.",
+          "야생동물 보호구역 지정 및 탐방객 출입 통제 구역 설정 시, 야생동물의 영양 공급원(염분 지대 등) 주변의 생태적 중요성을 반영합니다."
+        ],
+        "korea_np_applicability_score": 3,
+        "korea_np_applicability_reason": "한국 국립공원은 아프리카와 같은 대형 초식동물 생태계는 아니나, 산양, 고라니, 멧돼지 등 중대형 초식·잡식성 포유류가 서식하고 있습니다. 이들 동물의 배설과 활동이 토양 영양소 순환 및 식생에 미치는 영향은 국내 공원 생태계 관리에도 유사하게 적용될 수 있습니다.",
+        "related_work_areas": [
+          "생태계 모니터링",
+          "자원 보전 및 복원",
+          "서식지 관리"
+        ],
+        "related_laws": [
+          "자연공원법 제18조(공원자존보전지구 등)",
+          "야생생물 보호 및 관리에 관한 법률 제12조(멸종위기 야생생물의 보호)"
+        ],
+        "field_checklist": [
+          "공원 내 주요 초식동물(산양, 고라니 등)의 서식 밀도 및 이동 경로 파악 여부",
+          "초식동물 밀집 지역과 비집밀 지역 간 식생 상태 차이 모니터링 실시 여부",
+          "야생동물 출현 지역의 토양 영양성분(질소, 염분 등) 분석 시행 여부",
+          "초식동물에 의한 식생 훼손 및 재생 과정에 대한 현장 관찰 여부",
+          "야생동물 보호를 위한 인위적 차단 시설(펜스 등) 주변 생태계 변화 추적 여부"
+        ],
+        "practical_utility_score": 3,
+        "cautions": [
+          "아프리카 생태계와 국내 산악형 국립공원의 생태적 특성 및 종 구성에 차이가 있으므로 직접 대입에 주의해야 합니다.",
+          "야생동물 유인 물질(염분 등) 배치 시 불필요한 로드킬이나 탐방객과의 마찰 등 부작용을 검토해야 합니다."
+        ],
+        "tags": [
+          "영양소순환",
+          "초식동물",
+          "토양가용성",
+          "서식지수용력",
+          "생태계피드백"
+        ],
+        "recommended_followup_research": [
+          "국내 산악형 국립공원 내 산양 및 고라니 배설물이 토양 영양소 순환에 미치는 영향 연구",
+          "야생동물 서식 밀도 변화에 따른 토양 미생물 군집 및 식생 회복력 분석"
+        ],
+        "ai_recommended_topics": [
+          "Herbivore nutrient recycling national park",
+          "Wildlife soil nutrient feedback"
+        ],
+        "analyzed_at": "2026-07-29T06:08:08Z",
         "model": "gemini-flash-lite-latest"
       }
     },
@@ -59842,6 +61325,93 @@
       }
     },
     {
+      "id": "W2076985501",
+      "source": "openalex",
+      "title": "Closing the gates: A study of backcountry use‐limitation at Mount McKinley National Park",
+      "abstract": "Abstract Findings are reported from a study of recreational carrying capacity at Mount McKinley National Park, Alaska. Hikers in the park were questioned about: (1) their expectations and preferences for sightings of other parties in the backcountry, (2) the number of parties seen daily, (3) sightings of human‐use impacts upon the environment, and (4) trip satisfaction. Whether or not hikers felt crowded was found to be a function of their expectations and preferences for contact, the frequency of their contacts with other parties, and their sightings of human‐use impacts. Consistent with previous research, crowding was not shown to be important to the hikers’ overall satisfaction with their backcountry trips. The data suggest that the extant backcountry capacity levels in Mount McKinley National Park could be increased somewhat without compromising the quality of most visitors’ experiences.",
+      "authors": [
+        "Gordon L. Bultena",
+        "Donald R. Field",
+        "Peter Womble",
+        "Don E. Albrecht"
+      ],
+      "year": 1981,
+      "journal": "Leisure Sciences",
+      "cited_by_count": 47,
+      "doi": "https://doi.org/10.1080/01490408109512966",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "National park",
+        "Recreation",
+        "Mount",
+        "Closing (real estate)",
+        "Geography",
+        "Crowding"
+      ],
+      "openalex_url": "https://openalex.org/W2076985501",
+      "ai_analysis": {
+        "title_ko": "출입 통제: 매킨리 국립공원의 오지 탐방객 수용력 제한 연구",
+        "abstract_ko": "알래스카 매킨리 국립공원의 휴양 수용력에 대한 연구 결과가 보고되었습니다. 공원 내 탐방객들을 대상으로 (1) 오지에서 다른 탐방객을 마주칠 것에 대한 기대와 선호도, (2) 하루 동안 목격한 탐방객 팀 수, (3) 환경에 미친 인간의 이용 흔적 목격 여부, (4) 여행 만족도에 대해 설문조사를 실시했습니다. 탐방객들이 혼잡함을 느끼는지는 다른 탐방객과의 접촉에 대한 기대와 선호도, 접촉 빈도, 그리고 인간의 이용 흔적 목격 여부에 따라 결정되는 것으로 나타났습니다. 선행 연구와 일치하게도, 혼잡도는 탐방객들의 전체적인 오지 탐방 만족도에는 큰 영향을 미치지 않는 것으로 나타났습니다. 데이터에 따르면 매킨리 국립공원의 현행 오지 수용력 기준은 대부분 방문객의 경험 질을 저해하지 않으면서도 다소 상향 조정될 수 있음을 시사합니다.",
+        "summary_3lines": [
+          "알래스카 매킨리 국립공원을 대상으로 탐방객의 오지 수용력과 혼잡도 인식을 조사하여 적정 탐방객 허용 규모를 파악하고자 했다.",
+          "설문조사 결과, 탐방객이 느끼는 혼잡도는 접촉 빈도나 환경 훼손 흔적과 연관이 있으나, 놀랍게도 전체적인 탐방 만족도에는 직접적인 영향을 미치지 않는 것으로 나타났다.",
+          "이를 통해 방문객의 경험 질을 해치지 않으면서도 오지 탐방객 수용 한도를 다소 상향 조정할 여유가 있음을 확인했다."
+        ],
+        "research_purpose": "본 연구는 대규모 자연공원인 매킨리 국립공원에서 오지 탐방객의 이용 행태와 수용력(Carrying Capacity)의 한계를 분석하기 위해 수행되었습니다. 탐방객들이 기대하는 타인과의 접촉 빈도, 실제 목격한 탐방객 수, 환경 훼손 흔적 인지가 탐방 만족도에 미치는 영향을 파악하여 적정 탐방 인원 제한 정책의 타당성을 검증하고자 하였습니다.",
+        "key_findings": [
+          "혼잡도 체감은 탐방객의 사전 기대치, 실제 타 탐방객과의 접촉 빈도, 환경 훼손 흔적 목격 정도에 의해 결정된다.",
+          "탐방객들이 오지에서 느끼는 혼잡도는 의외로 전체적인 탐방 만족도에 큰 결정 요인으로 작용하지 않는다.",
+          "현행 오지 탐방 수용력 기준은 방문객의 경험 질을 심각하게 훼손하지 않는 범위 내에서 다소 상향 조정할 여지가 있다."
+        ],
+        "practical_applications": [
+          "국립공원 오지 탐방로 및 대피소 예약 인원 산정 시, 단순 혼잡도 수치 외에 환경 영향과 탐방객의 실제 만족도를 복합적으로 고려하여 수용력을 재조정합니다.",
+          "탐방객 밀집도가 높더라도 환경 훼손 흔적(쓰레기, 샛길 조성 등)을 철저히 관리한다면 탐방 만족도를 유지할 수 있으므로 환경 정화 및 훼손지 복원에 집중합니다.",
+          "탐방객 사전 예약제 운영 시, 타인과의 접촉에 대한 기대치를 관리할 수 있는 안내판 및 가이드라인을 제공합니다."
+        ],
+        "korea_np_applicability_score": 3,
+        "korea_np_applicability_reason": "한국 국립공원은 오지(Backcountry) 개념보다는 정규 탐방로와 대피소 중심의 탐방 시스템이 주를 이루고 있으나, 탐방객 수용력(Carrying Capacity) 산정 및 탐방 예약제 운영, 체류 만족도 분석 방법론은 설악산, 지리산 등 주요 국립공원 오지 및 종주 코스 관리 실무에 직접적으로 응용할 수 있습니다.",
+        "related_work_areas": [
+          "탐방로 관리",
+          "탐방객 수용력 산정",
+          "예약제 및 출입 통제"
+        ],
+        "related_laws": [
+          "자연공원법 제28조(탐방로의 지정 및 관리)",
+          "자연공원법 제32조(출입의 금지 또는 제한)"
+        ],
+        "field_checklist": [
+          "오지 및 종주 코스의 일일 최대 탐방객 접촉 빈도 모니터링",
+          "탐방로 주변 인위적 훼손 흔적(쓰레기, 훼손된 식생) 정기 점검",
+          "탐방객 대상 만족도 및 혼잡도 체감 설문 정기 실시",
+          "현행 탐방 예약 인원과 실제 수용 가능 생태용량 간의 격차 분석",
+          "탐방객 기대치 조율을 위한 사전 안내 및 홍보물 비치 여부 확인"
+        ],
+        "practical_utility_score": 3,
+        "cautions": [
+          "한국 국립공원은 매킨리 공원에 비해 면적이 좁고 탐방객 밀도가 훨씬 높으므로 수용력 단순 상향 조정에는 신중해야 합니다.",
+          "탐방 만족도가 높다고 하더라도 생태계가 받는 물리적 훼손(토양 침식, 야생동물 교란 등)은 별도로 평가되어야 합니다."
+        ],
+        "tags": [
+          "탐방객수용력",
+          "오지탐방",
+          "혼잡도",
+          "탐방만족도",
+          "출입통제"
+        ],
+        "recommended_followup_research": [
+          "한국 국립공원 고지대 대피소 및 종주 코스의 생태적 수용력과 사회적 수용력의 괴리 연구",
+          "탐방객 밀도와 실제 자연환경 훼손 간의 상관관계 분석"
+        ],
+        "ai_recommended_topics": [
+          "Recreational carrying capacity in national parks",
+          "Backcountry visitor management and crowding"
+        ],
+        "analyzed_at": "2026-07-29T06:07:58Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
       "id": "W2992343791",
       "source": "openalex",
       "title": "Community‐based wildlife management area supports similar mammal species richness and densities compared to a national park",
@@ -65601,6 +67171,93 @@
       }
     },
     {
+      "id": "W30884817",
+      "source": "openalex",
+      "title": "Modeling elk and bison carrying capacity for Great Sand Dunes National Park, Baca National Wildlife Refuge, and The Nature Conservancy's Medano Ranch, Colorado",
+      "abstract": "Great Sand Dunes National Park and Preserve and the neighboring Baca National Wildlife Refuge constitute an extraordinary setting that offers a variety of opportunities for outdoor recreation and natural resource preservation in the San Luis Valley of Colorado. Adjacent to these federal lands, the Nature Conservancy (TNC) manages the historic Medano Ranch. The total land area of these three conservation properties is roughly 121,500 hectares (ha). It is a remote and rugged area in which resource managers must balance the protection of natural resources with recreation and neighboring land uses. The management of wild ungulates in this setting presents challenges, as wild ungulates move freely across public and private landscapes. The San Luis Valley was historically used for irrigated agriculture and ranching. Historically, livestock, including sheep (Ovis aries) and cattle (Bos taurus), were grazed throughout the valley. The former Luis Marie “Baca” Ranch, which makes up the northern part of Great Sand Dunes National Park (hereafter “Park”) and all of the Baca National Wildlife Refuge (hereafter “Refuge”), was actively grazed by cattle until 2004. Bison (Bison bison), elk (Cervus elaphus), mule deer (Odocoileus hemionus), and pronghorn (Antilocapra americana) were native to the area until about the 1840s, when bison, elk, and pronghorn were extirpated. Elk and pronghorn likely moved back into the area from surrounding populations to the north and south, and mule deer populations have varied through time. A population of 4,400 elk currently inhabits the area. The current bison population was established in 1986 for meat production. In 1999 TNC purchased the ranch and established a bison conservation herd, and eventually subcontracted management to a private rancher in 2005. A population of bison ranging in size from 1,200–2,000 ranges freely within the 16,100 ha Medano Ranch. Ungulate populations in the valley are regulated by hunting, with the exception of bison, which are rounded up and culled annually to maintain population levels. In an effort to create and form the basis of a multi-agency ungulate management plan for the region, the Park sought the development of an elk and bison ecological carrying capacity model to provide guidance to resource managers.",
+      "authors": [
+        "Gary Wockner",
+        "Randall B. Boone",
+        "Kathryn A. Schoenecker",
+        "Linda C. Zeigenfuss"
+      ],
+      "year": 2015,
+      "journal": "Antarctica A Keystone in a Changing World",
+      "cited_by_count": 3,
+      "doi": "https://doi.org/10.3133/ofr20141200",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "National park",
+        "Geography",
+        "Wildlife",
+        "Wildlife refuge",
+        "Odocoileus",
+        "Population"
+      ],
+      "openalex_url": "https://openalex.org/W30884817",
+      "ai_analysis": {
+        "title_ko": "미국 콜로라도주 그레이트샌드듄스 국립공원, 바카 국립야생동물보호구역 및 메다노 목장의 엘크와 들소 수용력 모델링",
+        "abstract_ko": "그레이트샌드듄스 국립공원 및 보호구역과 인접한 바카 국립야생동물보호구역은 콜로라도주 샌루이스 밸리에서 야외 레크리에이션과 천연자원 보전을 위한 다양한 기회를 제공하는 특별한 환경을 조성합니다. 이 연방 소유지 인근에서 자연보호협회(TNC)는 역사적인 메다노 목장을 관리하고 있습니다. 이 세 곳의 보전 지역 총 면적은 약 12만 1,500헥타르(ha)에 달합니다. 이곳은 자원 관리자가 자연자원 보호와 레크리에이션, 그리고 인근 토지 이용 사이의 균형을 유지해야 하는 원격의 험난한 지역입니다. 이 지역에서 야생 유제류의 관리는 야생 유제류가 공공 토지와 사유지를 자유롭게 이동하기 때문에 어려움을 야기합니다. 샌루이스 밸리는 역사적으로 관개 농업과 목축에 이용되었습니다. 역사적으로 양과 소를 포함한 가축이 계곡 전체에서 방목되었습니다. 그레이트샌드듄스 국립공원의 북부와 바카 국립야생동물보호구역 전체를 이루는 과거 루이스 마리 '바카' 목장은 2004년까지 소가 적극적으로 방목되었습니다. 들소, 엘크, 노루, 그리고 가지뿔영양은 1840년대경 들소, 엘크, 가지뿔영양 등이 지역 절멸될 때까지 이 지역의 토종이었습니다. 엘크와 가지뿔영양은 북쪽과 남쪽의 주변 개체군에서 이 지역으로 다시 유입되었을 가능성이 높으며, 노루 개체군은 시간에 따라 변동해 왔습니다. 현재 4,400마리의 엘크 개체군이 이 지역에 서식하고 있습니다. 현재의 들소 개체군은 1986년 식육 생산을 위해 조성되었습니다. 1999년 TNC가 이 목장을 매입하여 들소 보전우군을 조성하였고, 결국 2005년에 민간 목장주에게 관리를 위탁하였습니다. 1,200~2,000마리 규모의 들소가 1만 6,100ha의 메다노 목장 내에서 자유롭게 방목되고 있습니다. 계곡 내 유제류 개체군은 수렵을 통해 개체수가 조절되지만, 포획되어 매년 개체수 조절을 위해 도태되는 들소는 예외입니다. 이 지역을 위한 다기관 유제류 관리 계획의 수립 및 기초를 마련하기 위해 국립공원은 자원 관리자에게 지침을 제공할 엘크와 들소 생태적 수용력 모델 개발을 추진했습니다.",
+        "summary_3lines": [
+          "공공 및 사유지가 인접한 국립공원 일대에서 자유롭게 이동하는 대형 유제류(엘크와 들소)의 체계적인 관리를 위해 생태적 수용력 모델을 개발하고자 하였다.",
+          "사방으로 이동하는 4,400마리의 엘크와 1,200~2,000마리의 들소 개체군 현황을 분석하고 수렵 및 도태를 통한 개체수 조절 방안을 검토했다.",
+          "다기관 협력을 바탕으로 한 수용력 모델은 보호지역과 인근 토지 간의 갈등을 줄이고 야생동물 서식지 관리를 위한 실효성 있는 지침을 제공한다."
+        ],
+        "research_purpose": "국립공원과 인접 보호구역, 사유 목장에 걸쳐 자유롭게 이동하는 대형 유제류(엘크, 들소)의 서식 실태를 파악하고, 자연자원 보호와 인근 토지 이용의 조화를 위해 다기관이 공동으로 활용할 수 있는 생태적 수용력 평가 모델을 개발하는 것이다.",
+        "key_findings": [
+          "대상 지역 내에 약 4,400마리의 엘크와 1,200~2,000마리의 들소가 서식하며 공공 및 사유지를 자유롭게 이동하고 있음",
+          "엘크는 수렵을 통해 개체수가 조절되며, 들소는 연간 포획 및 도태(culling) 방식을 통해 개체수 수준이 유지됨",
+          "공원, 야생동물보호구역, 민간 목장 등 다기관이 관리하는 토지에 걸쳐 통합적인 유제류 개체군 관리 계획의 기초 자료를 마련함"
+        ],
+        "practical_applications": [
+          "지자체 및 인접 토지 소유자와 협력하여 국립공원 경계를 넘나드는 대형 야생동물의 통합 관리 협의체 구성",
+          "서식지 식생 훼손을 방지하기 위한 유제류 적정 생태 수용력 산정 모델 도입",
+          "개체수 조절이 필요한 야생동물에 대해 수렵 및 인위적 도태 등 과학적이고 현실적인 관리 기법 적용"
+        ],
+        "korea_np_applicability_score": 3,
+        "korea_np_applicability_reason": "한국 국립공원은 대규모 사유 목장이나 방목 들소는 없으나, 산악 지역과 인접 농경지·마을을 오가는 멧돼지, 고라니, 산양 등 야생동물의 개체군 조절 및 서식지 수용력 평가에 직접적인 시사점을 제공함.",
+        "related_work_areas": [
+          "생태계 모니터링",
+          "야생동물 보호 및 관리",
+          "탐방로 및 공원경계 관리"
+        ],
+        "related_laws": [
+          "야생생물 보호 및 관리에 관한 법률 제19조",
+          "자연공원법 제23조"
+        ],
+        "field_checklist": [
+          "공원 경계 주변 야생동물(유제류 등)의 출현 빈도 및 이동 경로 파악 여부",
+          "서식지 내 식생 피도 및 훼손 상태 조사 실시 여부",
+          "인접 농경지 및 지역사회와의 야생동물 상충(피해) 현황 기록 여부",
+          "적정 개체수 유지를 위한 과학적 모니터링 데이터 확보 여부",
+          "관계 기관(지자체 등)과의 공동 관리 체계 구축 여부"
+        ],
+        "practical_utility_score": 3,
+        "cautions": [
+          "국내 국립공원의 경우 총기 수렵이나 대규모 도태 방식 적용 시 동물 보호 단체 및 지역 사회와의 갈등 소지 있음",
+          "지형 및 생태계 여건이 미국의 광활한 초원·목장 지역과 다르므로 수용력 모델 적용 시 국내 실정에 맞는 보정이 필수적임"
+        ],
+        "tags": [
+          "유제류",
+          "생태적 수용력",
+          "엘크",
+          "들소",
+          "서식지 관리"
+        ],
+        "recommended_followup_research": [
+          "국내 국립공원 주요 유제류의 서식 밀도와 식생 수용력의 상관관계 분석",
+          "보호지역 경계를 넘나드는 야생동물 행동권 및 이동 통로에 관한 연구"
+        ],
+        "ai_recommended_topics": [
+          "Wildlife carrying capacity model",
+          "Ungulate management in national parks"
+        ],
+        "analyzed_at": "2026-07-29T06:09:04Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
       "id": "W2997321321",
       "source": "openalex",
       "title": "THE PROPOSED U.S.-MEXICO BORDER BARRIER: THE WRITING IS ON THE WALL",
@@ -65688,6 +67345,92 @@
           "border wall ecological impacts"
         ],
         "analyzed_at": "2026-07-26T10:32:54Z",
+        "model": "gemini-flash-lite-latest"
+      }
+    },
+    {
+      "id": "W2334488285",
+      "source": "openalex",
+      "title": "The Assessment of Carrying-Capacity of Persian Gazelle in Sorkh-E-Hesar National Park, Iran",
+      "abstract": "Introduction: Understanding food resources of large herbivores and their interactions with habitat is crucial for effective wildlife conservation in arid environments. However, the carrying capacity (CC) value may be influenced by a variety of human-induced perturbations, e.g., habitat fragmentation and potential competitors. The goitered gazelle (Gazella subgutturosa) inhabits a wide range of semi-desert and desert habitats in Iran. Materials and Methods: To estimate the CC of the species in Sorkh-e-Hesar National Park (SHNP), four different habitats were surveyed during the winter period in 2011-2012. The grazing behavior was recorded by direct observations. The grazing spots were identified and studied for vegetation types in 6 sites. In total, 80 plots and 10 T-square random points were sampled. Results: About 15 herbal species were identified in gazelle diet, with the main contribution of the family Poaceae. Dry weight and density of herbal species preferred by the gazelle were estimated. Moreover, the nutritional CC of the habitats and available forage during the winter period was determined using the cutting-weighting technique. The CC value of the goitered gazelle population was estimated as 56-107 individuals over 91.68 km 2 (0.62-1.17 individuals/km 2 ), which was estimated with the inclusion and exclusion of competitive herbivorous species, respectively.",
+      "authors": [
+        "ElmiraKazemi Jahandizi",
+        "Mohammad Kaboli",
+        "Mahmoud Karami",
+        "Mahmoud Soufi"
+      ],
+      "year": 2015,
+      "journal": "Journal of Earth Environment and Health Sciences",
+      "cited_by_count": 2,
+      "doi": "https://doi.org/10.4103/2423-7752.170590",
+      "is_oa": false,
+      "oa_url": "",
+      "concepts": [
+        "Persian",
+        "National park",
+        "Geography",
+        "Forestry",
+        "Archaeology",
+        "Philosophy"
+      ],
+      "openalex_url": "https://openalex.org/W2334488285",
+      "ai_analysis": {
+        "title_ko": "이란 소르케 헤사르 국립공원 내 페르시아 가젤의 수용력 평가",
+        "abstract_ko": "서식지 환경에서 대형 초식동물의 먹이 자원과 서식지 상호작용을 이해하는 것은 효과적인 야생동물 보전에 매우 중요합니다. 그러나 수용력(CC)은 서식지 단절 및 잠재적 경쟁자와 같은 다양한 인위적 교란 요인의 영향을 받을 수 있습니다. 콧수염가젤(Gazella subgutturosa)은 이란 전역의 다양한 준사막 및 사막 서식지에 서식합니다. 소르케 헤사르 국립공원(SHNP)에서의 종별 수용력을 추정하기 위해 2011~2012년 겨울철 동안 4개의 서로 다른 서식지를 조사했습니다. 직접 관찰을 통해 방목 행동을 기록하였고, 6개 지역에서 방목지를 확인하여 식생 유형을 조사했습니다. 총 80개의 방형구와 10개의 T자형 무작위 표본점이 조사되었습니다. 가젤의 식단에서 약 15종의 초본 식물이 확인되었으며, 벼과(Poaceae) 식물이 주를 이뤘습니다. 가젤이 선호하는 초본 식물의 건조 중량과 밀도를 추정하였으며, 절단-중량법을 사용하여 겨울철 서식지의 영양적 수용력과 가용한 먹이량을 산정했습니다. 콧수염가젤 개체군의 수용력은 경쟁 초식동물의 포함 및 배제 여부에 따라 91.68 km² 면적당 각각 56~107마리(0.62~1.17마리/km²)로 추정되었습니다.",
+        "summary_3lines": [
+          "건조 및 반건조 환경에서 대형 초식동물의 효율적인 보전을 위해 서식지 내 먹이 자원과 수용력을 산정하고자 연구를 수행함.",
+          "겨울철 식생 조사를 바탕으로 절단-중량법을 적용하여 가젤의 선호 먹이량과 경쟁 종 유무에 따른 서식지 수용력을 구체적으로 추정함.",
+          "경쟁 초식종을 고려한 정확한 서식지 수용력 평가는 멸종위기 야생생물 복원 및 적정 개체군 유지 관리 실무에 직접 활용될 수 있음."
+        ],
+        "research_purpose": "본 연구의 목적은 이란 소르케 헤사르 국립공원에 서식하는 콧수염가젤의 겨울철 먹이 자원을 분석하고, 경쟁 초식동물의 존재 여부를 고려하여 서식지의 영양적 수용력을 과학적으로 산정하는 것입니다. 이를 통해 야생동물 서식지 관리와 적정 개체군 유지에 필요한 기초 자료를 제공하고자 합니다.",
+        "key_findings": [
+          "가젤의 식단은 총 15종의 초본으로 구성되며, 특히 벼과(Poaceae) 식물의 기여도가 가장 높음.",
+          "절단-중량법을 통해 겨울철 가용한 선호 초본 식물의 건조 중량과 밀도를 파악함.",
+          "경쟁 초식동물을 배제했을 때 수용력은 91.68 km²당 107마리, 포함했을 때는 56마리로 산정됨."
+        ],
+        "practical_applications": [
+          "국내 멸종위기 초식동물(예: 산양 등) 복원 지역의 동절기 가용 먹이량 및 서식지 수용력 산정 시 절단-중량법 적용",
+          "타 초식동물과의 경쟁 관계를 고려한 종합적인 서식지 적정 개체수 관리 계획 수립",
+          "겨울철 먹이 부족 시기에 대비한 주요 섭식 식물 군락지 보호 및 인공급이 구역 설정"
+        ],
+        "korea_np_applicability_score": 3,
+        "korea_np_applicability_reason": "한국 국립공원은 사막 환경과 다르나, 산양 등 초식동물의 서식지 수용력 산정 및 겨울철 먹이자원 평가 방법론을 현장 모니터링에 응용할 수 있음.",
+        "related_work_areas": [
+          "생태계 모니터링",
+          "자원보전 관리"
+        ],
+        "related_laws": [
+          "야생생물 보호 및 관리에 관한 법률 제16조(멸종위기야생생물의 보호)",
+          "자연공원법 제23조(공원구역에서의 행위제한)"
+        ],
+        "field_checklist": [
+          "목표 초식동물의 주요 겨울철 섭식 식물 종(벼과 등) 파악 여부",
+          "서식지 내 방형구 및 표본점을 활용한 식생 밀도와 건조 중량 조사 실시 여부",
+          "타 초식동물(경쟁종)의 서식 밀도 및 먹이 중복 이용 실태 확인 여부",
+          "계절별(특히 동절기) 가용 먹이량 대비 개체군 수용력 한계 초과 여부 모니터링",
+          "초식동물 방목 행동 및 선호 취식지에 대한 직접 관찰 기록 유지 여부"
+        ],
+        "practical_utility_score": 3,
+        "cautions": [
+          "지형과 식생 유형이 다른 국내 산악형 국립공원 적용 시 현지 식생 특성에 맞춘 보정이 필요함",
+          "절단-중량법 등 현장 식생 조사는 많은 인력과 시간이 소요되므로 인력 배분에 유의해야 함"
+        ],
+        "tags": [
+          "서식지수용력",
+          "초식동물",
+          "먹이자원",
+          "절단중량법",
+          "야생생물보전"
+        ],
+        "recommended_followup_research": [
+          "국내 주요 멸종위기 초식동물 서식지의 계절별 영양공급원 및 섭식 선호도 분석",
+          "경쟁 종과의 서식지 겹침 현상이 개체군 건강성에 미치는 영향 연구"
+        ],
+        "ai_recommended_topics": [
+          "Wildlife carrying capacity estimation in national parks",
+          "Herbivore diet analysis and forage biomass assessment"
+        ],
+        "analyzed_at": "2026-07-29T06:07:37Z",
         "model": "gemini-flash-lite-latest"
       }
     },
@@ -68492,33 +70235,6 @@
         "Marine conservation"
       ],
       "openalex_url": "https://openalex.org/W2104863350",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2043883478",
-      "source": "openalex",
-      "title": "Promotion of the Cycling of Diet-Enhancing Nutrients by African Grazers",
-      "abstract": "Experiments in Serengeti National Park, Tanzania, provide direct evidence that large, free-ranging mammalian grazers accelerate nutrient cycling in a natural ecosystem in a way that enhances their own carrying capacity. Both nitrogen and sodium were at considerably higher plant-available levels in soils of highly grazed sites than in soils of nearby areas where animal density is sparse. Fencing that uncoupled grazers and soils indicated that the animals promote nitrogen availability on soils of inherently similar fertility and select sites of higher sodium availability as well as enhancing that availability.",
-      "authors": [
-        "S. J. McNaughton",
-        "Feetham F. Banyikwa",
-        "M. M. McNaughton"
-      ],
-      "year": 1997,
-      "journal": "Science",
-      "cited_by_count": 600,
-      "doi": "https://doi.org/10.1126/science.278.5344.1798",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Fencing",
-        "Nutrient cycle",
-        "Cycling",
-        "Soil water",
-        "Nutrient",
-        "Ecosystem"
-      ],
-      "openalex_url": "https://openalex.org/W2043883478",
       "ai_analysis": null
     },
     {
@@ -75804,34 +77520,6 @@
       "ai_analysis": null
     },
     {
-      "id": "W1984782007",
-      "source": "openalex",
-      "title": "Nature‐based rural tourism and its economic benefits: a case study of Kinabalu National Park",
-      "abstract": "Purpose It has been acknowledged that tourism can play a role in employment creation and in raising the rural community's standard of living. This paper aims to examine the economic benefits emanating from tourism development for a local community in the area of Kinabalu National Park, Sabah. Design/methodology/approach Qualitative data was used to provide an in‐depth analysis of the findings on willingness of residents to participate in tourism activities. Findings The local community of Kinabalu National Park perceive the tourism sector to have greatly contributed to their economic growth. However, the community has raised other issues in ensuring the sustainability of the park, especially in terms of the provision of facilities. Practical implications The relevant stakeholders need to carefully plan appropriate policies and regulations to ensure maximum economic benefit is gained by local community participation in tourism development within the limited carrying capacity of Kinabalu National Park. Originality/value This study provides an understanding of the economic impact of tourism on the local community in Kinabalu National Park. It calls for government action to look into the carrying capacity of the Kinabalu National Park in the near future.",
-      "authors": [
-        "Mastura Jaafar",
-        "Kalsom Kayat",
-        "Tania Maria Tangit",
-        "Mohd Firdous Yacob"
-      ],
-      "year": 2013,
-      "journal": "Worldwide Hospitality and Tourism Themes",
-      "cited_by_count": 50,
-      "doi": "https://doi.org/10.1108/whatt-03-2013-0016",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Tourism",
-        "National park",
-        "Sustainability",
-        "Local community",
-        "Originality",
-        "Business"
-      ],
-      "openalex_url": "https://openalex.org/W1984782007",
-      "ai_analysis": null
-    },
-    {
       "id": "W2063625759",
       "source": "openalex",
       "title": "EXPERIMENTALLY INDUCED COLONY EXPANSION BY BLACK-TAILED PRAIRIE DOGS (CYNOMYS LUDOVICIANUS) AND IMPLICATIONS FOR CONSERVATION",
@@ -76121,60 +77809,6 @@
         "Agriculture"
       ],
       "openalex_url": "https://openalex.org/W1996494735",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2095305475",
-      "source": "openalex",
-      "title": "A Tourism Carrying Capacity Indicator for Protected Areas",
-      "abstract": "ABSTRACT The aim of this article is to develop a tourism (Carrying Capacity Indicator) for protected areas that could assist regional planners and park managers to promote an equitable form of the spatial distribution of visitors environmentally sensitive area, various indicators have been proposed, with regard to ecologically sustainable tourism. In this paper, we examine the unequal distribution of visitors to a protected area that causes significant additional environmental pressure on some sub-areas. This additional pressure, which may exceed the landscape's carrying capacity, cannot be measured by the commonly used indices that represent an average for the whole area. Our objective is to depict the variability of pressure intensity within a protected area. For this purpose we introduce an indicator adjusted to the Gini co-efficient resulting from the Lorenz curve, used by economists to measure the unequal distribution of income. The proposed indicator is applied to the Mount Olympus National Park, Greece.",
-      "authors": [
-        "Stella Kostopoulou",
-        "I. Kyritsis"
-      ],
-      "year": 2006,
-      "journal": "Anatolia",
-      "cited_by_count": 47,
-      "doi": "https://doi.org/10.1080/13032917.2006.9687024",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Carrying capacity",
-        "Tourism",
-        "Distribution (mathematics)",
-        "Environmental resource management",
-        "Geography",
-        "Sustainable development"
-      ],
-      "openalex_url": "https://openalex.org/W2095305475",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2076985501",
-      "source": "openalex",
-      "title": "Closing the gates: A study of backcountry use‐limitation at Mount McKinley National Park",
-      "abstract": "Abstract Findings are reported from a study of recreational carrying capacity at Mount McKinley National Park, Alaska. Hikers in the park were questioned about: (1) their expectations and preferences for sightings of other parties in the backcountry, (2) the number of parties seen daily, (3) sightings of human‐use impacts upon the environment, and (4) trip satisfaction. Whether or not hikers felt crowded was found to be a function of their expectations and preferences for contact, the frequency of their contacts with other parties, and their sightings of human‐use impacts. Consistent with previous research, crowding was not shown to be important to the hikers’ overall satisfaction with their backcountry trips. The data suggest that the extant backcountry capacity levels in Mount McKinley National Park could be increased somewhat without compromising the quality of most visitors’ experiences.",
-      "authors": [
-        "Gordon L. Bultena",
-        "Donald R. Field",
-        "Peter Womble",
-        "Don E. Albrecht"
-      ],
-      "year": 1981,
-      "journal": "Leisure Sciences",
-      "cited_by_count": 47,
-      "doi": "https://doi.org/10.1080/01490408109512966",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "National park",
-        "Recreation",
-        "Mount",
-        "Closing (real estate)",
-        "Geography",
-        "Crowding"
-      ],
-      "openalex_url": "https://openalex.org/W2076985501",
       "ai_analysis": null
     },
     {
@@ -76498,34 +78132,6 @@
         "Biology"
       ],
       "openalex_url": "https://openalex.org/W2065730548",
-      "ai_analysis": null
-    },
-    {
-      "id": "W4205779574",
-      "source": "openalex",
-      "title": "Estimation of Ecotourism Carrying Capacity for Sustainable Development of Protected Areas in Iran",
-      "abstract": "Estimating the ecotourism carrying capacity (ETCC) in protected areas (PAs) is essential for minimizing the negative impacts of ecotourism and sustainable environmental management. PAs are one of the prominent ecotourism locations and many of these areas have been created to protect biodiversity and improve human wellbeing. This study has identified and prioritized negative impacts of ecotourism in Lar national park, the Jajrud protected area with the sustainable use of natural resources, and Tangeh Vashi national natural monument. For this purpose, physical carrying capacity (PCC), real carrying capacity (RCC), and effective carrying capacity (ECC) were estimated using the ETCC model. The results indicated that due to these areas' ecological sensitivity, the most negative impacts of ecotourism are related to the environmental-physical dimensions. In contrast, the lowest impacts have been observed in the economic-institutional dimensions. Moreover, the results revealed that the highest PCC is related to Lar national park, and the lowest PCC is associated with Tangeh Vashi natural monument. There are more tourists in the Jajrud protected area with the sustainable use of natural resources than other areas in RCC and ECC due to low levels of restrictions and legal instructions. In contrast, in Lar national park and Tangeh Vashi natural monument, due to the short duration of ecotourism in these areas (from June to October), high level of restrictions, and ecological sensitivity, the number of tourists is less than the RCC and ECC. As these areas have a limited ability to attract visitors and ecotourism, the protection of these areas requires the implementation of sustainable management to control the negative impacts of ecotourism and estimate the number of visitors.",
-      "authors": [
-        "Parvaneh Sobhani",
-        "Hassan Esmaeilzadeh",
-        "Seyed Mohammad Moein Sadeghi",
-        "Marina Viorela Marcu"
-      ],
-      "year": 2022,
-      "journal": "International Journal of Environmental Research and Public Health",
-      "cited_by_count": 45,
-      "doi": "https://doi.org/10.3390/ijerph19031059",
-      "is_oa": true,
-      "oa_url": "https://www.mdpi.com/1660-4601/19/3/1059/pdf?version=1642588850",
-      "concepts": [
-        "Ecotourism",
-        "Carrying capacity",
-        "National park",
-        "Sustainable development",
-        "Natural resource",
-        "Environmental resource management"
-      ],
-      "openalex_url": "https://openalex.org/W4205779574",
       "ai_analysis": null
     },
     {
@@ -78956,32 +80562,6 @@
         "Exposure assessment"
       ],
       "openalex_url": "https://openalex.org/W4241191496",
-      "ai_analysis": null
-    },
-    {
-      "id": "W3027226507",
-      "source": "openalex",
-      "title": "The significance of karst areas in European national parks and geoparks",
-      "abstract": "Abstract Karst terrains have varied abiotic and biotic values. However, due to their unfavourable conditions for human settling, they are relatively sparsely populated areas. Thus, karst terrains merit and are suitable for nature protection. In this paper, partly or mostly karstic European national parks (NP) and geoparks (GP) are studied. We compiled a dataset based on official information and internet sources, and analysed NPs and GPs by location, morphology and timeline. Nowadays, there are 106 partly or mostly karstic NPs in Europe, that means 23% of all NPs. Many of the karst terrains became protected before the terms of geotourism and geopark came into being. 49% of all GPs contain karst terrains, which means that karsts are key issues in the study of geoheritage and geotourism. Tourism into karstic NPs and GPs can be considered sensu lato geotourism, since tourists travelling to these locations generally visit caves, gorges, travertine lakes and other karst features. Adventure tourism is also significant in karstic NPs and GPs. The most popular NPs host several millions of visitors a year, that implies economic benefits, but also poses environmental problems, thus certain parks already reached their carrying capacity, while other parks plan to increase their visitor numbers.",
-      "authors": [
-        "Tamás Telbisz",
-        "László Mari"
-      ],
-      "year": 2020,
-      "journal": "Open Geosciences",
-      "cited_by_count": 34,
-      "doi": "https://doi.org/10.1515/geo-2020-0008",
-      "is_oa": true,
-      "oa_url": "https://www.degruyter.com/downloadpdf/journals/geo/12/1/article-p117.pdf",
-      "concepts": [
-        "Karst",
-        "Geotourism",
-        "Tourism",
-        "Geopark",
-        "Cave",
-        "Geography"
-      ],
-      "openalex_url": "https://openalex.org/W3027226507",
       "ai_analysis": null
     },
     {
@@ -94836,31 +96416,31 @@
       "ai_analysis": null
     },
     {
-      "id": "W30884817",
+      "id": "W4411241424",
       "source": "openalex",
-      "title": "Modeling elk and bison carrying capacity for Great Sand Dunes National Park, Baca National Wildlife Refuge, and The Nature Conservancy's Medano Ranch, Colorado",
-      "abstract": "Great Sand Dunes National Park and Preserve and the neighboring Baca National Wildlife Refuge constitute an extraordinary setting that offers a variety of opportunities for outdoor recreation and natural resource preservation in the San Luis Valley of Colorado. Adjacent to these federal lands, the Nature Conservancy (TNC) manages the historic Medano Ranch. The total land area of these three conservation properties is roughly 121,500 hectares (ha). It is a remote and rugged area in which resource managers must balance the protection of natural resources with recreation and neighboring land uses. The management of wild ungulates in this setting presents challenges, as wild ungulates move freely across public and private landscapes. The San Luis Valley was historically used for irrigated agriculture and ranching. Historically, livestock, including sheep (Ovis aries) and cattle (Bos taurus), were grazed throughout the valley. The former Luis Marie “Baca” Ranch, which makes up the northern part of Great Sand Dunes National Park (hereafter “Park”) and all of the Baca National Wildlife Refuge (hereafter “Refuge”), was actively grazed by cattle until 2004. Bison (Bison bison), elk (Cervus elaphus), mule deer (Odocoileus hemionus), and pronghorn (Antilocapra americana) were native to the area until about the 1840s, when bison, elk, and pronghorn were extirpated. Elk and pronghorn likely moved back into the area from surrounding populations to the north and south, and mule deer populations have varied through time. A population of 4,400 elk currently inhabits the area. The current bison population was established in 1986 for meat production. In 1999 TNC purchased the ranch and established a bison conservation herd, and eventually subcontracted management to a private rancher in 2005. A population of bison ranging in size from 1,200–2,000 ranges freely within the 16,100 ha Medano Ranch. Ungulate populations in the valley are regulated by hunting, with the exception of bison, which are rounded up and culled annually to maintain population levels. In an effort to create and form the basis of a multi-agency ungulate management plan for the region, the Park sought the development of an elk and bison ecological carrying capacity model to provide guidance to resource managers.",
+      "title": "Governance challenges and opportunities for multifunctional marine and coastal landscapes: A comparative case study of Nämdö national park and Nämdö biosphere reserve in Sweden",
+      "abstract": "Against a backdrop of increasing pressures from biodiversity loss, climate change and competing stakeholder interests, this paper examines factors influencing the implementation of marine and coastal governance approaches and their implications for achieving multifunctional marine and coastal landscapes. Based on a comparative case study of the temporally and spatially overlapping implementation of a state-driven National Park (NP) and a community-led Biosphere Reserve (BR) in the Nämdö Archipelago, Sweden, we conducted semi-structured interviews with differently positioned stakeholders to explore the dynamics shaping these initiatives. Deploying the Institutional Analysis and Development framework as an analytical framework in conjunction with a complex systems approach, the study identifies the interplay of key institutional and socio-ecological factors driving implementation processes and influencing outcomes. Results concerning the NP implementation reveal persistent disagreements between local residents and authorities, due to rigid institutional structures, limited integration of local knowledge, poor communication and competing priorities. In contrast, the BR approach is generally viewed more positively, attributed to its flexible governance and proactive integration of local socioeconomic and cultural values. This study highlights the importance of adaptive, inclusive governance that can address the trade-offs and synergies inherent in multifunctional sustainability efforts in coastal regions. By combining the stability and enforcement capabilities of the NP model with the flexibility and inclusivity of the BR approach, the paper suggests that a hybrid governance model could better balance ecological, social and economic objectives. It advocates for marine governance structures that prioritise inclusive decision-making and the integration of diverse values to better align ecological and community goals.",
       "authors": [
-        "Gary Wockner",
-        "Randall B. Boone",
-        "Kathryn A. Schoenecker",
-        "Linda C. Zeigenfuss"
+        "Charles Westerberg",
+        "Michael Gilek",
+        "Ralph Tafon",
+        "Lucas Dawson"
       ],
-      "year": 2015,
-      "journal": "Antarctica A Keystone in a Changing World",
-      "cited_by_count": 3,
-      "doi": "https://doi.org/10.3133/ofr20141200",
-      "is_oa": false,
-      "oa_url": "",
+      "year": 2025,
+      "journal": "Ocean & Coastal Management",
+      "cited_by_count": 4,
+      "doi": "https://doi.org/10.1016/j.ocecoaman.2025.107787",
+      "is_oa": true,
+      "oa_url": "https://doi.org/10.1016/j.ocecoaman.2025.107787",
       "concepts": [
+        "Biosphere",
+        "Corporate governance",
+        "Environmental resource management",
         "National park",
         "Geography",
-        "Wildlife",
-        "Wildlife refuge",
-        "Odocoileus",
-        "Population"
+        "Environmental planning"
       ],
-      "openalex_url": "https://openalex.org/W30884817",
+      "openalex_url": "https://openalex.org/W4411241424",
       "ai_analysis": null
     },
     {
@@ -96386,164 +97966,6 @@
         "Wind direction"
       ],
       "openalex_url": "https://openalex.org/W4390268987",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2921757370",
-      "source": "openalex",
-      "title": "Sustainable planning of outdoor recreation in the Triglav National Park with emphasis on social carrying capacity",
-      "abstract": "The article presents the aspects of sustainable planning of outdoor recreation in the protected areas with the emphasis on social carrying capacity. The starting points for the design of measures in the process of sustainable planning of outdoor recreation are presented and promote regular monitoring and directing of outdoor recreation in the protected areas in Slovenia and abroad, especially on the example of Triglav National Park. In the article we are trying to define which forms of outdoor recreation are from the local‘s and visitor‘s perspective recognised as sustainable.",
-      "authors": [
-        "Renata Mavri"
-      ],
-      "year": 2018,
-      "journal": "Dela",
-      "cited_by_count": 2,
-      "doi": "https://doi.org/10.4312/dela.50.129-148",
-      "is_oa": true,
-      "oa_url": "https://revije.ff.uni-lj.si/Dela/article/download/8422/8529",
-      "concepts": [
-        "Recreation",
-        "Visitor pattern",
-        "Environmental planning",
-        "Sustainable development",
-        "Environmental resource management",
-        "National park"
-      ],
-      "openalex_url": "https://openalex.org/W2921757370",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2334488285",
-      "source": "openalex",
-      "title": "The Assessment of Carrying-Capacity of Persian Gazelle in Sorkh-E-Hesar National Park, Iran",
-      "abstract": "Introduction: Understanding food resources of large herbivores and their interactions with habitat is crucial for effective wildlife conservation in arid environments. However, the carrying capacity (CC) value may be influenced by a variety of human-induced perturbations, e.g., habitat fragmentation and potential competitors. The goitered gazelle (Gazella subgutturosa) inhabits a wide range of semi-desert and desert habitats in Iran. Materials and Methods: To estimate the CC of the species in Sorkh-e-Hesar National Park (SHNP), four different habitats were surveyed during the winter period in 2011-2012. The grazing behavior was recorded by direct observations. The grazing spots were identified and studied for vegetation types in 6 sites. In total, 80 plots and 10 T-square random points were sampled. Results: About 15 herbal species were identified in gazelle diet, with the main contribution of the family Poaceae. Dry weight and density of herbal species preferred by the gazelle were estimated. Moreover, the nutritional CC of the habitats and available forage during the winter period was determined using the cutting-weighting technique. The CC value of the goitered gazelle population was estimated as 56-107 individuals over 91.68 km 2 (0.62-1.17 individuals/km 2 ), which was estimated with the inclusion and exclusion of competitive herbivorous species, respectively.",
-      "authors": [
-        "ElmiraKazemi Jahandizi",
-        "Mohammad Kaboli",
-        "Mahmoud Karami",
-        "Mahmoud Soufi"
-      ],
-      "year": 2015,
-      "journal": "Journal of Earth Environment and Health Sciences",
-      "cited_by_count": 2,
-      "doi": "https://doi.org/10.4103/2423-7752.170590",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Persian",
-        "National park",
-        "Geography",
-        "Forestry",
-        "Archaeology",
-        "Philosophy"
-      ],
-      "openalex_url": "https://openalex.org/W2334488285",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2969573601",
-      "source": "openalex",
-      "title": "VISITOR CARRYING CAPACITY FOR RECREATION TREKKING ROUTES IN PROTECTED SITES: ULUDAĞ NATIONAL PARK SAMPLE",
-      "abstract": "This paper suggests an approach for calculating the visitor carrying capacity in protected sites with the example of Uludağ National Park (UNP) which is one of the major touristic and recreation destination in Turkey. First phase of the approach includes landscape character analysis and assessment work. Secondly, visitor carrying capacity calculation was carried on an ecological basis.<br> Bursa city was founded on the mountainside of Uludağ, with a height of 2543 m., which was declared as a national park in 1961. There are numerous projects with the aim developing touristic activities in Uludağ implemented by local and central administration in recent years. These projects have been initiated with the idea of opening UNP to use not only in winter, but throughout the year. Also there is a long term protection plan of the UNP with three different protection categories such as absolute protection zone, limited development zone and controlled development zone; and trekking routes are within the limited development zone area. The present study examines the use of one of the eight different trekking routes (TG-2.Sarıçayır Peak - German Meadow Location- Çobankaya - Softaboğan Location) defined in long term development plan. The result shows that real visitor carrying capacity of the studied trekking route is 38% less than actual physical carrying capacity due to the limitations indicated by the landscapes characteristics. It can be assumed that the studied 4.5 km trekking route is faced with landscape deterioration problems due to trekking activities in future, and requires landscape management and monitoring resolutions. This paper contributes that, the estimations for visitor carrying capacity should be based on landscape character analysis and assessment with the purpose of preventing ecological deteriorations in trekking routes used for recreation.",
-      "authors": [
-        "Gül Atanur",
-        "Şükran Şahin",
-        "Volkan Müftüoğlu",
-        "Öner Demirel"
-      ],
-      "year": 2019,
-      "journal": "Zenodo (CERN European Organization for Nuclear Research)",
-      "cited_by_count": 2,
-      "doi": "https://doi.org/10.5281/zenodo.3360341",
-      "is_oa": true,
-      "oa_url": "https://zenodo.org/record/3360341",
-      "concepts": [
-        "Visitor pattern",
-        "Recreation",
-        "National park",
-        "Sample (material)",
-        "Geography",
-        "Environmental planning"
-      ],
-      "openalex_url": "https://openalex.org/W2969573601",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2796469463",
-      "source": "openalex",
-      "title": "The Determination of Recreational Canoe Carrying Capacity of Lake Mert within Igneada Floodplain National Park Boundaries",
-      "abstract": "Certain limitations have been imposed on the use of these areas in order to reveal the adverse effects of increasing recreational activity on the protected areas, to minimize these effects and to benefit from these areas in a sustainable way. Various activities take place in the lakes within the protected areas and it is necessary to control the effects of the pressures created by these activities. The aim of this study is to determine the ideal transport capacity for canoe tours to be carried out at Mert Lake in the İğneada Longoz Forests National Park with the least pressure of the lake. In this context, many factors have been considered together to form standards and the canoe carrying capacity of the lake has been determined.",
-      "authors": [
-        "Cansu DUMLU",
-        "Filiz İHTİYAR"
-      ],
-      "year": 2017,
-      "journal": "TURKISH JOURNAL OF FOREST SCIENCE",
-      "cited_by_count": 2,
-      "doi": "https://doi.org/10.32328/turkjforsci.319045",
-      "is_oa": true,
-      "oa_url": "https://dergipark.org.tr/en/download/article-file/357216",
-      "concepts": [
-        "Recreation",
-        "Floodplain",
-        "National park",
-        "Context (archaeology)",
-        "Carrying capacity",
-        "Geography"
-      ],
-      "openalex_url": "https://openalex.org/W2796469463",
-      "ai_analysis": null
-    },
-    {
-      "id": "W3164885129",
-      "source": "openalex",
-      "title": "Potential carrying capacity of marine ecotourism in Sub-region III of Seribu Islands Marine National Park",
-      "abstract": "Abstract The carrying capacity analysis needs to be approved to control the impacts caused by marine tourism activities. Before the management related to limiting the number of tourists is carried out, an analysis of the carrying capacity potential is accepted to determine the maximum number of tourists who can conduct marine ecotourism. This paper aimed to analyze the potential carrying capacity and allocation of marine tourism tourists in sub-region III, the Taman Nasional Laut Kepulauan Seribu (TNLKpS – Seribu Islands Marine National Park). The research method used is tourism suitability analysis, carrying capacity analysis and Geographic Information System (GIS) analysis. Marine ecotourism in sub-region III TNLKpS is divided into two activities based on the distribution of coral reef resources used; snorkeling and diving. The area of coral reefs for snorkeling activities is 1,008,433.24 m 2 , while the area of coral reefs for diving activities is 2,766,593.80 m 2 scattered in the waters of sub-region III TNLKpS. The potential carrying capacity for snorkeling and diving tourism activities is 3,752 and 9,814 people/day, respectively. This paper concludes that marine ecotourism in sub-region III TNLKpS can still be developed by applying the carrying capacity principle and setting spot tourism allocation per trip per day.",
-      "authors": [
-        "Fredinan Yulianda",
-        "Amalia Febryane Adhani Mazaya"
-      ],
-      "year": 2021,
-      "journal": "IOP Conference Series Earth and Environmental Science",
-      "cited_by_count": 2,
-      "doi": "https://doi.org/10.1088/1755-1315/744/1/012106",
-      "is_oa": true,
-      "oa_url": "https://iopscience.iop.org/article/10.1088/1755-1315/744/1/012106/pdf",
-      "concepts": [
-        "Carrying capacity",
-        "Ecotourism",
-        "Tourism",
-        "Coral reef",
-        "Geography",
-        "Limiting"
-      ],
-      "openalex_url": "https://openalex.org/W3164885129",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2365745184",
-      "source": "openalex",
-      "title": "ASSESSMENT OF THE FOREST PARK'S TOURISM ENVIRONMENTAL CARRYING CAPACITY——A Case Study of Chongqing Huangshui National Forest Park",
-      "abstract": "Assessment of the forest park's tourism environmental carrying capacity is of crucial importance for its efficient operation.On the one hand estimate of tourism carrying capacity is a complex systematic matter which is affected by many factors such as natural environmental characteristics,composition structure,economic social background,the behavior characteristics of tourists and demographic features,and at the same time researchers must put the influence caused by seasonal fluctuation of forest park into consideration,on the other hand,only reasonable assessment of the forest park's tourism environmental carrying capacity can help to provide theoretical support and policy guidance for the forest park's planning design and management.Selecting Chongqing Huangshui National Forest Park as a typical case for empirical research,this paper firstly makes analysis and assessment of single constraint index,and then screens out some index which maybe restrict Huangshui national forest park's tourism environmental carrying capacity by questionnaire and interviews in this area.Secondly,with the method of ADIHP,this paper confirms the influence weight which can exhibit how the different single carrying capacity press on the whole tourism environmental carrying capacity and then makes comprehensive analysis of the forest park's tourism environmental carrying capacity by taking the structuring of carrying capacity index,the division of forest park's space and seasonal fluctuation of forest park into account.This paper finally provides not only specific optimized design scheme,but also comparatively accurate data scientifically,and practical reference value for the forest park's optimized design and development,and entirely promotion of forest park's leisure and recreational function.",
-      "authors": [
-        "Lei Ying"
-      ],
-      "year": 2013,
-      "journal": "",
-      "cited_by_count": 2,
-      "doi": "",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Carrying capacity",
-        "Tourism",
-        "National park",
-        "Environmental resource management",
-        "Index (typography)",
-        "Promotion (chess)"
-      ],
-      "openalex_url": "https://openalex.org/W2365745184",
       "ai_analysis": null
     },
     {
@@ -98990,194 +100412,6 @@
         "Vegetation (pathology)"
       ],
       "openalex_url": "https://openalex.org/W4313596311",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2739626376",
-      "source": "openalex",
-      "title": "Social carrying capacity of ecotourism National Park Kuala Tahan",
-      "abstract": "Increasing recreational activities in National Park potentially affect the recreational quality. Carrying capacities for protected area such as National Park are highly essential factor for tourism management.The use of carrying capacity as predominant method synthetically presented in this study is focused on National Park Kuala Tahan, Pahang (NPKT).This study explores the concept of social carrying capacity (SCC) where concentration on the factors of individuals which park visitors becomes uncomfortable - satisfaction perception. For the SCC, 300 interviews were conducted at the study area exploring social attributes of tourism development and collected data subjected to a series of descriptive analysis methods.Output from factor analysis and mean scores confirmed that the ecotourism potentially provides a sustainable approach to tourism development in Malaysia. This study identifies the positives and negatives social effects of ecotourism development in NPKT from the perspectives of tourist’s satisfaction.",
-      "authors": [
-        "Mohd Muzzammil Ismail",
-        "Mastura Jaafar",
-        "Diana Mohamad",
-        "Mohd Amirul Nizam Paijo"
-      ],
-      "year": 2016,
-      "journal": "Universiti Utara Malaysia Institutional Repository (Universiti Utara Malaysia)",
-      "cited_by_count": 1,
-      "doi": "",
-      "is_oa": true,
-      "oa_url": "http://repo.uum.edu.my/20355/1/ICOGPA%202016%201%205%20A.pdf",
-      "concepts": [
-        "Recreation",
-        "National park",
-        "Ecotourism",
-        "Tourism",
-        "Environmental planning",
-        "Geography"
-      ],
-      "openalex_url": "https://openalex.org/W2739626376",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2276457906",
-      "source": "openalex",
-      "title": "Transportation planning and social carrying capacity in the national parks",
-      "abstract": "The U.S. national park system accommodates nearly 300 million visits annually. Most visitors come to the national parks in automobiles, and this poses several management challenges. Delays at national park entrances caused by traffic congestion detract from the visitor experience. Inadequate parking facilities further compromise the visitor experience and lead people to park along roadsides, damaging park resources and causing traffic hazards. At times, visitors must be turned away from some national park areas because transportation infrastructure is not sufficient to meet visitor demand.",
-      "authors": [
-        "William Valliere",
-        "Robert E. Manning",
-        "Megha Budruk",
-        "Steven R. Lawson",
-        "Benjamin Wang"
-      ],
-      "year": 2002,
-      "journal": "",
-      "cited_by_count": 1,
-      "doi": "",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Visitor pattern",
-        "National park",
-        "Business",
-        "Environmental planning",
-        "Compromise",
-        "Traffic congestion"
-      ],
-      "openalex_url": "https://openalex.org/W2276457906",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2639159191",
-      "source": "openalex",
-      "title": "Recreational Carrying Capacity of Khao Chamao Khao Wong National Park",
-      "abstract": "This research studies the character of recreation use at Khao Chamao - Khao Wong National Park and assesses the Park’s physical and psychological carrying capacities. Data collection, in the form of questionnaire survey, was gathered from a sample population of 400 who were visitors to the National Park. The number of visitors to the site was also recorded: on weekdays once a day and at weekends once a month. The research was carried out between April and June, 2007. The results from the questionnaire survey on recreation use found that the majority of visitors to Khao Chamao - Khao Wong National Park were day trippers wanting to swim and sightsee, relax in a quiet environment, and take photographs at 73.3 percent, 67.3 percent, and 53.3 percent respectively; while actual activities were swimming (82.5 percent), sightseeing (75.8 percent), and relaxing in a quiet environment (64.8 percent). Most visitors’ recreational experience was ‘high’ (mean = 3.41). Evaluation of management practices and services found that both were appropriate at ‘moderate’. Physical carrying capacities were attained from level of use compared with carrying capacity at four levels: ‘Below CC’, ‘At & Approaching CC’, ‘Exceeding CC’, and ‘Over CC’. The results showed that recreational areas, the visitors’ centre, and shower rooms were over their carrying capacity. The food shop exceeded its carrying capacity, but restrooms were at and approaching carrying capacity. Other facilities such as nature trails, picnic areas, car parks, and garbage bins were below carrying capacity. Study of psychological carrying capacities found that below carrying capacity is desirable for recreational areas and an acceptable number of visitors is 100. The results of this study can be used for the administration and management of protected areas of Khao Chamao - Khao Wong National Park. They can also be applied to the study of the carrying capacity of other protected areas throughout Thailand.",
-      "authors": [
-        "บรรลือศักด์ิ วงษ์ภักดี",
-        "สมนิมิตร พุกงาม",
-        "นภวรรณ ฐานะกาญจน์"
-      ],
-      "year": 2009,
-      "journal": "",
-      "cited_by_count": 1,
-      "doi": "",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Recreation",
-        "National park",
-        "Carrying capacity",
-        "Geography",
-        "Population",
-        "Environmental protection"
-      ],
-      "openalex_url": "https://openalex.org/W2639159191",
-      "ai_analysis": null
-    },
-    {
-      "id": "W4403435139",
-      "source": "openalex",
-      "title": "Mathematical Modeling and Enhancing the Carrying Capacity of National Parks in the United States",
-      "abstract": "A rapid growth in the number of visitors has been observed for many national parks in the United States, examples include Yellowstone National Park, Yosemite National Park, Rocky Mountain National Park and Arches National Park. As a result, public transit and parking resources have been stretched closer and closer to their capacities in these parks. In response, some National Park Services (NPS) have started to implement crowd control measurements, such as the timed entry reservation systems, where visitors have to reserve their slots to visit the park during certain time periods of the year. However, such policy does not touch on the fundamental issue of the subject, that is, the carrying capacity of the park. In this paper, we demonstrate that there will be even greater growth in the number of visitors in the near future, which means that a capacity boost is inevitable. Fortunately, we also observe that if we can fix some key bottlenecks, then we can dramatically increase the capacity of the park without destroying more natural land.",
-      "authors": [
-        "Qichuan Xia"
-      ],
-      "year": 2024,
-      "journal": "Journal of Biosensors and Bioelectronics Research",
-      "cited_by_count": 1,
-      "doi": "https://doi.org/10.47363/jbber/2024(2)125",
-      "is_oa": true,
-      "oa_url": "https://doi.org/10.47363/jbber/2024(2)125",
-      "concepts": [
-        "Carrying capacity",
-        "Geography",
-        "Environmental science",
-        "Ecology",
-        "Biology"
-      ],
-      "openalex_url": "https://openalex.org/W4403435139",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2296453310",
-      "source": "openalex",
-      "title": "Formation-development and modelling process of carrying capacity theory in the national parks.",
-      "abstract": "Impacts of recreational activities on natural reserves have reached a worrying level. As the result of this worrisome, it is suggested that use of these reserves, especially national parks, should not go beyond a certain level. Carrying capacity defining this situation is stated as the degree of acceptable recreational use density in natural areas considering long term conservation of these natural areas. The concept of recreational carrying capacity coming out in 1960s has had different aspects in the last 50 years by gaining social, physical, ecological and economic characteristics. Some visitor management models have been put forward to provide protection, use and sustainability balance in national parks. The aim of present study is to review development process of recreational carrying capacity, dimensions of recreational carrying capacity and visitor management models. In this study the benefits and challenges of capacity analyses and the factors which is effective in ensuring the success are discussed.",
-      "authors": [
-        "Tendü Hilal Göktuğ",
-        "Nalan Demircioğlu Yıldız",
-        "Metin Demir",
-        "Yakup Bulut"
-      ],
-      "year": 2013,
-      "journal": "",
-      "cited_by_count": 1,
-      "doi": "",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Recreation",
-        "Carrying capacity",
-        "Visitor pattern",
-        "Sustainability",
-        "Business",
-        "Environmental resource management"
-      ],
-      "openalex_url": "https://openalex.org/W2296453310",
-      "ai_analysis": null
-    },
-    {
-      "id": "W2384128017",
-      "source": "openalex",
-      "title": "Study on tourism environment carrying capacity of Jingyuetan national forest park",
-      "abstract": "Based on the territory partition of Jingyuetan national forest park,using the resource-space as restrained-factors,environmental carrying capacity of tourism were calculated by day and by period during which the park were open to tourism.The results indicated that the tourism capacity every day in territory 1 were the most,which was 2 200～6 500 and 3 300～9 700 during April 20 to May 20 and May 21 to October 10.The tourism capacity every day in territory 4 were the least,which was 30～60 and 50～100 during the corresponding periods.The tourism were limited to the winter in territory 8,and the capacity was 6 800.The results can be used as basic data for park management.",
-      "authors": [
-        "Wang Xue-luan"
-      ],
-      "year": 2009,
-      "journal": "Journal of Northeast Normal University",
-      "cited_by_count": 1,
-      "doi": "",
-      "is_oa": false,
-      "oa_url": "",
-      "concepts": [
-        "Tourism",
-        "National park",
-        "Carrying capacity",
-        "National forest",
-        "Geography",
-        "Resource (disambiguation)"
-      ],
-      "openalex_url": "https://openalex.org/W2384128017",
-      "ai_analysis": null
-    },
-    {
-      "id": "W3128516377",
-      "source": "openalex",
-      "title": "CARRYING CAPACITY ASSESSMENT OF CIBEUREUM WATERFALLTOURISMINGUNUNG GEDE PANGRANGO NATIONAL PARK",
-      "abstract": "Waterfall has long been a popular tourist attraction with increasing number of visitors. High visitation would increase the risk of environmental damage, especially if the location of the tourism object is in a protected area that is still intact and rich in resources. One strategy to reduce the impact of recreational and nature tourism activities is through carrying capacity (CC) analysis. This study aims to 1) analyze the CC visitors of Cibeureum Waterfall and 2) provide a CC-based waterfall tourism management strategy. The research was conducted in October 2018 in Cibeureum Waterfall, TNGGP of West Java. The CC was estimated using the Cifuentes (1992) approach to calculate physical (PCC), real (RCC), and effective (ECC) CCs, by considering various correction factors. Interviews were also conducted with 100 visitors of Cibeureum Waterfall. In addition, interviews were also conducted with 5 key informants from the management side. The results showed that the daily PCC value was 800, exceeding the RCC (173) and ECC (86) values, indicating overcrowding. On the contrary, on weekdays, the number of visitors is below the RCC. These results indicated potential disturbance in Cibeureum Waterfall and its environment during holidays. Carrying capacity-based management alternatives that were recommended include increasing ticket prices on holidays and implement early booking system. From the managerial aspect, it is recommended to involve the NP partners during holidays for in-kind contributions.&#x0D; Keywords: carrying capacity, waterfall tourism, national park",
-      "authors": [
-        "Anindika Putri Lakspriyanti",
-        "Meti Ekayani",
-        "Arzyana Sunkar"
-      ],
-      "year": 2021,
-      "journal": "Media Konservasi",
-      "cited_by_count": 1,
-      "doi": "https://doi.org/10.29244/medkon.25.3.203-211",
-      "is_oa": true,
-      "oa_url": "https://doi.org/10.29244/medkon.25.3.203-211",
-      "concepts": [
-        "Waterfall",
-        "Waterfall model",
-        "Tourism",
-        "Recreation",
-        "Business",
-        "Overcrowding"
-      ],
-      "openalex_url": "https://openalex.org/W3128516377",
       "ai_analysis": null
     },
     {
@@ -104983,6 +106217,31 @@
         "Biology"
       ],
       "openalex_url": "https://openalex.org/W4393117378",
+      "ai_analysis": null
+    },
+    {
+      "id": "W50129299",
+      "source": "openalex",
+      "title": "Developing a sustainable financing of protected areas : watershed-based payment for ecosystems services in Madagascar",
+      "abstract": "In order to address its severe environmental degradation, the government of Madagascar adopted the creation of protected areas as the most important conservation strategies. According to the Foundation of protected areas, Madagascar has about 108 protected areas for a total cover of about 6 million ha. Although this strategy has helped to slow deforestation, protected areas are still under pressures from the surrounding communities. Slash-and-burn agriculture is the primary cause of deforestation around protected areas. However, persuading farmers to abandon slash-and-burn has remained challenging over the years. Farmers living in the peripheral zone of a protected area are already compensated by receiving 50% of the park entrance fees through ecotourism, but this is insufficient to eliminate all pressures. In addition, the national park service, called Madagascar National Park, is highly dependent on foreign aid and faces a financial gap to manage effectively the national park network. However, the USAID Bureau for Africa pointed out in its report after the political coup in 2009 that the scarcity of resources might lead donors to re-think about their priorities and invest in more urgent issues or other countries where their investments have more chance to bear fruits. Therefore, it is more than ever urgent to develop a more cost-effective way to tackle the persistent threat from slash-and-burn agriculture on protected areas and seek a financial sustainability if it is to save and protect the remaining and highly threatened biodiversity and forests. In this perspective, Payments for Ecosystems Services (or PES) were proposed by academics in 1995 as a possibly more cost-effective way of meeting rural needs around protected area compared to traditional and indirect conservation policy tools (Ferraro, 2001; Wendland, K.J., et al., 2009; Wunder, 2005; Pagiola et al., 2005). In fact, such direct payment is specifically targeted at project outcomes which will defray the costs of managing protected areas by strengthening the links between local communities` well-being, their actions and habitat conservation (Dudley, N. and Stolton, S., 2003, Ferraro, 2001). Despite its promising potential to address more efficiently and effectively environmental issues, PES is still at its nascent phase in African countries due to certain barriers which hinder its development. This research aims at assessing the potential of payment for ecosystem services as a sustainable financial tool for environmental conservation and poverty alleviation in Madagascar, and, at designing a payment scheme adapted to the local context. There are different types of ecosystems services but our research focus is on watershed-based services of forests for the following reasons: ・Payment for watershed-based services (or PWS) is rare in the country as all initiatives remain at the planning stage due to multiple barriers hindering their development (Ferraro, 2009). ・PWS have deserved less attention compared to carbon services. In contrast with carbon services, markets for watershed services are largely unexplored. ・Due to time and resources constraints, assessing a payment for watershed services is more feasible technically since it has a local setting. The Ranomafana National Park was chosen as a case study. Data were collected from existing publications and a fieldwork conducted in Madagascar from September to mid-October 2010. The fieldwork objectives were to understand the situation on the ground and interview key stakeholders to the development of the PWS mechanism, ranging from public to private institutions and individuals. Based on a holistic analysis, it is concluded that a PWS mechanism can be put in place in Ranomafana for the following reasons: (a). The demand for the watershed services is clear and financially valuable to a potential buyer, namely the existing hydroelectric company (b). The provision of this watershed service is threatened by slash-and-burn practices, but abandoning this unsustainable land use has the potential to address the problem. (c). NGOs are active in the Ranomafana region and can serve as intermediaries to assist the villagers and the potential buyer in developing negotiations and sharing expertise on PES (d). Villagers have a clear land title (e). Existing policies and laws do not forbid the market-based mechanism under a PES scheme. Two possible PWS scenarios could be suggested: (1) The PWS scheme is integrated with the National Fund for Water Resources or (2) the hydroelectric company could directly pay upland farmers.",
+      "authors": [
+        "Razafimahefa, Hasina Miarintsoa"
+      ],
+      "year": 2011,
+      "journal": "Institutional Repositories DataBase (IRDB)",
+      "cited_by_count": 0,
+      "doi": "",
+      "is_oa": true,
+      "oa_url": "https://repository.dl.itc.u-tokyo.ac.jp/record/2049/files/K-03086.pdf",
+      "concepts": [
+        "Ecosystem services",
+        "Payment",
+        "Business",
+        "Watershed",
+        "Developing country",
+        "Watershed management"
+      ],
+      "openalex_url": "https://openalex.org/W50129299",
       "ai_analysis": null
     }
   ]
