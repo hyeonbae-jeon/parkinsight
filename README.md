@@ -27,8 +27,32 @@ OpenAlex API ──▶ collector.py ──▶ raw_papers.json
 | `papers.json` | 최종 데이터 (자동 생성) |
 | `raw_papers.json` | 수집 원본 데이터 (자동 생성) |
 | `enrich_state.json` | 일일 AI 요청 사용량 기록 (자동 생성) |
+| `progress.json` | 검색어별 수집 완료 체크포인트 (자동 생성) |
 
 ## 배포 방법
+
+### 검색어 체크포인트 (progress.json)
+`collector.py`는 검색어를 하나씩 처리하면서, **검색어 텍스트 자체**를 기준으로 완료 여부를
+`progress.json`에 기록합니다(순서·인덱스 기준이 아니라서 검색어를 추가하거나 순서를 바꿔도
+안전합니다). OpenAlex가 429를 계속 반환하거나 실행 시간 한도(12분)에 걸리면, 그 시점까지
+완료한 검색어는 그대로 두고 다음 실행 때 **미완료 검색어부터 이어서** 진행합니다. 이 상황에서도
+프로그램은 정상 종료(exit code 0)해서 Actions가 실패로 표시되지 않고, 그때까지 모은
+`raw_papers.json`도 그대로 유지됩니다. 검색어 하나를 처리할 때마다 `raw_papers.json`을 즉시
+저장하므로, 중간에 멈춰도 데이터 유실이 없습니다.
+
+### 검색어를 코드 수정 없이 추가하기 (EXTRA_KEYWORDS)
+`collector.py`의 `QUERIES` 목록을 직접 고치지 않고도 검색어를 추가할 수 있습니다.
+
+- **한 번만 테스트해보고 싶을 때**: Actions 탭 → `Run workflow` 클릭 시 나오는
+  `extra_keywords` 입력란에 쉼표로 구분해서 입력합니다.
+  예: `national park drought impact, national park snow tourism`
+- **계속 검색어로 남겨두고 싶을 때(스케줄 자동 실행에도 적용)**: 저장소
+  Settings → Secrets and variables → Actions → **Variables** 탭 → New repository variable →
+  이름 `EXTRA_KEYWORDS`, 값에 위와 같이 쉼표(또는 줄바꿈)로 구분해서 등록합니다.
+
+`extra_keywords` 입력값을 채워서 수동 실행하면 그 값이 우선 적용되고, 비워두면 저장소
+Variable(`EXTRA_KEYWORDS`)이 적용됩니다. 추가한 검색어도 동일하게 체크포인트가 적용되어,
+한 번 완료되면 다시 검색하지 않습니다.
 
 ### 1. 저장소 생성 및 Push
 ```bash

@@ -4,13 +4,22 @@ Collector
 ---------
 OpenAlex REST API에서 해외 국립공원 관리·연구 관련 논문을 수집합니다.
 역할: 검색 → 정규화 → raw_papers.json에 누적 저장
+
+체크포인트(progress.json): 검색어 단위로 "완료" 여부를 기록합니다.
+- 검색어 텍스트 자체를 키로 사용하므로(=index 기반 아님), QUERIES 순서를 바꾸거나
+  새 검색어를 추가해도 이미 완료한 검색어는 건드리지 않고 새 것만 처리합니다.
+- 한 검색어를 끝까지(결과 소진 또는 limit 도달) 가져오지 못하고 429/시간초과로
+  중단되면 그 검색어는 "미완료"로 남겨 다음 실행 때 처음부터 다시 시도합니다.
+- 429 등으로 중단되어도 프로그램은 정상 종료(exit code 0)해서 Actions가
+  실패로 표시되지 않게 하고, 그때까지 모은 데이터는 그대로 유지합니다.
 """
 import requests, json, os, time
 from datetime import datetime
 
 OPENALEX = "https://api.openalex.org"
-RAW_FILE  = "raw_papers.json"
-STATE_FILE = "fetch_state.json"
+RAW_FILE      = "raw_papers.json"
+STATE_FILE    = "fetch_state.json"
+PROGRESS_FILE = "progress.json"   # 검색어 단위 완료 체크포인트
 
 # 국립공원 실무(탐방로 관리, 생태계 모니터링, 방문객 관리 등) 관련 검색어
 # "national park"이 모든 검색어에 들어가도록 해서, 결과가 국립공원과 무관한
@@ -41,7 +50,55 @@ QUERIES = [
     "national park signage interpretation",
     "national park camping impact",
     "national park air quality monitoring",
+    "national park water quality monitoring",
+    "national park soil erosion control",
+    "national park economic valuation",
+    "national park community engagement",
+    "national park drone remote sensing",
+    "national park citizen science monitoring",
+    "national park wetland management",
+    "national park landscape connectivity corridor",
+    "national park disaster risk management",
+    "national park accessibility disability",
+    "national park volunteer program",
+    "national park noise light pollution",
 ]
+
+
+def load_progress() -> set:
+    """완료된 검색어 집합을 불러옵니다. 파일이 없으면 빈 집합."""
+    if not os.path.exists(PROGRESS_FILE):
+        return set()
+    try:
+        with open(PROGRESS_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        return set(data.get("completed_keywords", []))
+    except Exception as exc:
+        print(f"[Collector] progress.json 읽기 실패({exc}) — 처음부터 다시 진행합니다.")
+        return set()
+
+
+def save_progress(completed: set) -> None:
+    with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
+        json.dump({
+            "completed_keywords": sorted(completed),
+            "updated_at": datetime.now().isoformat(),
+        }, f, ensure_ascii=False, indent=2)
+
+
+def load_extra_keywords() -> list:
+    """EXTRA_KEYWORDS 환경변수(쉼표 또는 줄바꿈으로 구분)에서 추가 검색어를 읽습니다.
+    Actions의 workflow_dispatch 입력값이나 저장소 Variable로 코드 수정 없이 검색어를 추가할 수 있습니다."""
+    raw = os.getenv("EXTRA_KEYWORDS", "")
+    if not raw.strip():
+        return []
+    parts = [p.strip() for chunk in raw.split("\n") for p in chunk.split(",")]
+    return [p for p in parts if p]
+
+
+def save_raw(existing: dict) -> None:
+    with open(RAW_FILE, "w", encoding="utf-8") as f:
+        json.dump(list(existing.values()), f, ensure_ascii=False, indent=2)
 
 
 def reconstruct_abstract(inv: dict) -> str:
@@ -82,7 +139,10 @@ def normalize(raw: dict) -> dict:
     }
 
 
-def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float | None = None) -> list:
+def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float | None = None):
+    """반환값: (papers, completed).
+    completed=True  → 결과를 소진했거나 limit에 도달해 이 검색어를 끝까지 처리함
+    completed=False → 429/오류/시간초과로 중간에 중단됨 (다음 실행에서 이 검색어를 처음부터 재시도)"""
     papers, cursor = [], "*"
     select = (
         "id,title,abstract_inverted_index,authorships,"
@@ -92,7 +152,7 @@ def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float |
     while len(papers) < limit:
         if deadline is not None and time.time() > deadline:
             print(f"[Collector] 실행 시간 한도 도달 — '{query[:30]}' 검색을 중단합니다.")
-            break
+            return papers, False
         batch  = min(25, limit - len(papers))
         params = {
             "filter":   f"title_and_abstract.search:{query},has_abstract:true",
@@ -131,26 +191,27 @@ def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float |
                 time.sleep(wait)
                 r = None
         if r is None or r.status_code != 200:
-            print(f"[Collector] 포기 ({query[:30]}): 재시도 5회 모두 실패")
-            break
+            print(f"[Collector] 포기 ({query[:30]}): 재시도 5회 모두 실패 — 이 검색어는 다음 실행에서 재시도")
+            return papers, False
 
         try:
             data    = r.json()
             results = data.get("results", [])
             if not results:
-                break
+                return papers, True   # 결과 소진 → 완료
             for item in results:
                 n = normalize(item)
                 if n["title"]:
                     papers.append(n)
             cursor = data.get("meta", {}).get("next_cursor")
             if not cursor:
-                break
+                return papers, True   # 다음 페이지 없음 → 완료
             time.sleep(0.5)   # 요청 사이 간격을 조금 더 넉넉하게
         except Exception as exc:
-            print(f"[Collector] 파싱 오류 ({query[:30]}): {exc}")
-            break
-    return papers
+            print(f"[Collector] 파싱 오류 ({query[:30]}): {exc} — 이 검색어는 다음 실행에서 재시도")
+            return papers, False
+
+    return papers, True   # limit 도달 → 완료
 
 
 def run():
@@ -176,20 +237,61 @@ def run():
     print(f"[Collector] 이번 실행 시작 시점 기존 데이터: 논문 {before}건 "
           f"(그중 AI 분석 완료 {before_analyzed}건) — 이 값이 매 실행마다 유지·증가해야 정상 누적입니다.")
 
-    for q in QUERIES:
+    # ── 체크포인트: 검색어 텍스트 기준으로 완료 여부 관리 (순서 변경/추가에 안전) ──
+    completed_keywords = load_progress()
+    save_progress(completed_keywords)   # git add 대상 파일이 항상 존재하도록 즉시 기록
+    extra = load_extra_keywords()
+    if extra:
+        print(f"[Collector] EXTRA_KEYWORDS로 추가된 검색어 {len(extra)}개: {', '.join(extra)}")
+
+    # 순서를 유지하면서 중복 제거 (기본 검색어 + 추가 검색어)
+    seen = set()
+    all_queries = []
+    for q in QUERIES + extra:
+        if q not in seen:
+            seen.add(q)
+            all_queries.append(q)
+
+    pending = [q for q in all_queries if q not in completed_keywords]
+    print(f"[Collector] 전체 검색어 {len(all_queries)}개 중 완료 {len(completed_keywords & seen)}개, "
+          f"남은 검색어 {len(pending)}개")
+
+    stopped_early = False
+    for q in pending:
         if time.time() - start_time > TIME_BUDGET_SEC:
             print(f"[Collector] 실행 시간 한도({TIME_BUDGET_SEC//60}분) 도달 — "
                   f"남은 검색어는 다음 실행에서 이어서 처리합니다.")
+            stopped_early = True
             break
+
         print(f"[Collector] 검색: {q}")
-        for p in fetch_query(q, email=email, deadline=start_time + TIME_BUDGET_SEC):
+        papers, completed = fetch_query(q, email=email, deadline=start_time + TIME_BUDGET_SEC)
+
+        new_count = 0
+        for p in papers:
             if p["id"] not in existing:
                 existing[p["id"]] = p
+                new_count += 1
+
+        # 검색어 하나 처리할 때마다 즉시 저장 — 중간에 중단돼도 데이터 유실 없음
+        save_raw(existing)
+
+        if completed:
+            completed_keywords.add(q)
+            save_progress(completed_keywords)
+            print(f"  → 완료 (신규 {new_count}건)")
+        else:
+            print(f"  → 미완료 — 이번엔 {new_count}건 확보, 다음 실행에서 '{q[:30]}'부터 재시도합니다.")
+            stopped_early = True
+            break
+
         time.sleep(1)
 
+    if not stopped_early and pending:
+        print("[Collector] 모든 검색어를 완료했습니다. 다음 실행부터는 새로 추가된 검색어만 처리합니다.")
+
     papers = list(existing.values())
-    with open(RAW_FILE, "w", encoding="utf-8") as f:
-        json.dump(papers, f, ensure_ascii=False, indent=2)
+    save_raw(existing)
 
     state = {
         "last_run":    datetime.now().isoformat(),
@@ -203,4 +305,9 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    try:
+        run()
+    except Exception as exc:
+        # 예상 못한 오류가 나도 Actions를 실패로 표시하지 않고 정상 종료합니다.
+        # (그때까지의 raw_papers.json/progress.json은 이미 저장되어 있음)
+        print(f"[Collector] 처리 중 예외 발생(무시하고 정상 종료): {exc}")

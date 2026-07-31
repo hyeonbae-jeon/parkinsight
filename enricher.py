@@ -26,7 +26,7 @@ LIST_MODELS_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 # RPD는 실제 한도(500)보다 훨씬 낮게 잡아 여유를 둡니다. 필요하면 GEMINI_RPD_LIMIT/
 # ENRICH_LIMIT 환경변수(또는 워크플로 limit 입력값)로 언제든 더 올릴 수 있습니다.
 GEMINI_RPM_LIMIT = 15
-GEMINI_RPD_LIMIT = int(os.getenv("GEMINI_RPD_LIMIT") or 200)
+GEMINI_RPD_LIMIT = int(os.getenv("GEMINI_RPD_LIMIT") or 100)
 MAX_OUTPUT_TOKENS = 4096   # 스키마가 크고(제목·초록 번역 포함) 2000으로는 응답이 중간에 잘렸음.
                             # 15건/분 기준으로도 TPM 250k에는 여전히 크게 못 미침
 REQUEST_INTERVAL_SEC = (60 / GEMINI_RPM_LIMIT) + 1   # ≈ 5초, 분당 15건 이하로 유지
