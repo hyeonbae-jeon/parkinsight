@@ -6,9 +6,13 @@ on:
   workflow_dispatch:        # 수동 실행 버튼
     inputs:
       limit:
-        description: '이번 실행에서 AI 분석할 논문 건수 (일일 한도 이하로 자동 조정됨, 기본 200)'
+        description: '이번 실행에서 AI 분석할 논문 건수 (일일 한도 이하로 자동 조정됨, 기본 100)'
         required: false
-        default: '200'
+        default: '100'
+      extra_keywords:
+        description: '이번 실행에서 추가로 검색할 키워드 (쉼표로 구분, 예: national park drought impact, national park snow tourism). 계속 쓰고 싶으면 코드 수정 없이 저장소 Variables에 EXTRA_KEYWORDS로 등록하세요.'
+        required: false
+        default: ''
 
 jobs:
   pipeline:
@@ -36,6 +40,7 @@ jobs:
         run: python collector.py
         env:
           OPENALEX_EMAIL: ${{ secrets.OPENALEX_EMAIL }}
+          EXTRA_KEYWORDS: ${{ github.event.inputs.extra_keywords || vars.EXTRA_KEYWORDS }}
 
       # ── Step 2: Enrich with AI analysis (Gemini) ──
       - name: Run Enricher
@@ -45,7 +50,7 @@ jobs:
           GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
           GEMINI_RPD_LIMIT: ${{ secrets.GEMINI_RPD_LIMIT }}
           LAW_API_OC: ${{ secrets.LAW_API_OC }}
-          ENRICH_LIMIT: ${{ github.event.inputs.limit || '200' }}
+          ENRICH_LIMIT: ${{ github.event.inputs.limit || '100' }}
 
       # ── Step 3: Build index ──
       - name: Run Indexer
@@ -56,7 +61,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add papers.json raw_papers.json fetch_state.json enrich_state.json
+          git add papers.json raw_papers.json fetch_state.json enrich_state.json progress.json
           if git diff --staged --quiet; then
             echo "변경 사항 없음 — 커밋 생략"
             exit 0
