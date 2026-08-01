@@ -5,11 +5,16 @@ Collector
 OpenAlex REST API에서 해외 국립공원 관리·연구 관련 논문을 수집합니다.
 역할: 검색 → 정규화 → raw_papers.json에 누적 저장
 
-체크포인트(progress.json): 검색어 단위로 "완료" 여부를 기록합니다.
+체크포인트(progress.json): 검색어 단위로 "완료" 여부와 "실패 횟수"를 기록합니다.
 - 검색어 텍스트 자체를 키로 사용하므로(=index 기반 아님), QUERIES 순서를 바꾸거나
   새 검색어를 추가해도 이미 완료한 검색어는 건드리지 않고 새 것만 처리합니다.
 - 한 검색어를 끝까지(결과 소진 또는 limit 도달) 가져오지 못하고 429/시간초과로
-  중단되면 그 검색어는 "미완료"로 남겨 다음 실행 때 처음부터 다시 시도합니다.
+  중단되면 그 검색어는 "미완료"로 남고 실패 횟수가 1 증가합니다. 이때 전체 실행을
+  멈추지 않고 바로 다음 검색어로 넘어갑니다 — 한 단어가 계속 막혀도 그 뒤에 있는
+  아직 시도 안 한 새 단어들이 영영 처리되지 못하는 일이 없도록 하기 위함입니다.
+- 매 실행마다 남은 검색어를 "실패 횟수가 적은 순"으로 정렬해서 처리합니다. 즉
+  아직 한 번도 실패하지 않은(또는 새로 추가된) 검색어가 항상 먼저 시도되고,
+  반복해서 실패해온 검색어는 뒤로 계속 밀려납니다.
 - 429 등으로 중단되어도 프로그램은 정상 종료(exit code 0)해서 Actions가
   실패로 표시되지 않게 하고, 그때까지 모은 데이터는 그대로 유지합니다.
 """
@@ -65,23 +70,24 @@ QUERIES = [
 ]
 
 
-def load_progress() -> set:
-    """완료된 검색어 집합을 불러옵니다. 파일이 없으면 빈 집합."""
+def load_progress() -> tuple[set, dict]:
+    """완료된 검색어 집합과 검색어별 실패 횟수를 불러옵니다. 파일이 없으면 빈 값."""
     if not os.path.exists(PROGRESS_FILE):
-        return set()
+        return set(), {}
     try:
         with open(PROGRESS_FILE, encoding="utf-8") as f:
             data = json.load(f)
-        return set(data.get("completed_keywords", []))
+        return set(data.get("completed_keywords", [])), dict(data.get("fail_counts", {}))
     except Exception as exc:
         print(f"[Collector] progress.json 읽기 실패({exc}) — 처음부터 다시 진행합니다.")
-        return set()
+        return set(), {}
 
 
-def save_progress(completed: set) -> None:
+def save_progress(completed: set, fail_counts: dict) -> None:
     with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
         json.dump({
             "completed_keywords": sorted(completed),
+            "fail_counts": fail_counts,
             "updated_at": datetime.now().isoformat(),
         }, f, ensure_ascii=False, indent=2)
 
@@ -164,7 +170,9 @@ def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float |
             params["mailto"] = email
 
         r = None
-        for attempt in range(5):
+        MAX_ATTEMPTS = 8
+        WAIT_CAP = 30
+        for attempt in range(MAX_ATTEMPTS):
             if deadline is not None and time.time() > deadline:
                 print(f"[Collector] 실행 시간 한도 도달 — '{query[:30]}' 재시도를 중단합니다.")
                 r = None
@@ -174,24 +182,24 @@ def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float |
                 if r.status_code == 429:
                     # Retry-After 값이 비정상적으로 크게 와도 최대 20초까지만 대기
                     raw_wait = int(r.headers.get("Retry-After", 0)) or (2 ** attempt) * 3
-                    wait = min(raw_wait, 20)
+                    wait = min(raw_wait, WAIT_CAP)
                     if deadline is not None:
                         wait = min(wait, max(0, deadline - time.time()))
                     print(f"[Collector] 429 (요청 과다) — {wait:.0f}초 대기 후 재시도 "
-                          f"({attempt+1}/5) [{query[:30]}]")
+                          f"({attempt+1}/{MAX_ATTEMPTS}) [{query[:30]}]")
                     time.sleep(wait)
                     continue
                 r.raise_for_status()
                 break
             except requests.exceptions.RequestException as exc:
-                wait = min(2 ** attempt, 20)
+                wait = min(2 ** attempt, WAIT_CAP)
                 if deadline is not None:
                     wait = min(wait, max(0, deadline - time.time()))
                 print(f"[Collector] 오류 ({query[:30]}): {exc} — {wait:.0f}초 후 재시도")
                 time.sleep(wait)
                 r = None
         if r is None or r.status_code != 200:
-            print(f"[Collector] 포기 ({query[:30]}): 재시도 5회 모두 실패 — 이 검색어는 다음 실행에서 재시도")
+            print(f"[Collector] 포기 ({query[:30]}): 재시도 {MAX_ATTEMPTS}회 모두 실패 — 이 검색어는 다음 실행에서 재시도")
             return papers, False
 
         try:
@@ -238,8 +246,8 @@ def run():
           f"(그중 AI 분석 완료 {before_analyzed}건) — 이 값이 매 실행마다 유지·증가해야 정상 누적입니다.")
 
     # ── 체크포인트: 검색어 텍스트 기준으로 완료 여부 관리 (순서 변경/추가에 안전) ──
-    completed_keywords = load_progress()
-    save_progress(completed_keywords)   # git add 대상 파일이 항상 존재하도록 즉시 기록
+    completed_keywords, fail_counts = load_progress()
+    save_progress(completed_keywords, fail_counts)   # git add 대상 파일이 항상 존재하도록 즉시 기록
     extra = load_extra_keywords()
     if extra:
         print(f"[Collector] EXTRA_KEYWORDS로 추가된 검색어 {len(extra)}개: {', '.join(extra)}")
@@ -253,8 +261,14 @@ def run():
             all_queries.append(q)
 
     pending = [q for q in all_queries if q not in completed_keywords]
+    # 실패 횟수가 적은(=0인, 즉 아직 시도 안 했거나 새로 추가된) 검색어를 먼저,
+    # 계속 실패해온 검색어는 뒤로 미룹니다. (동률이면 QUERIES에 정의된 원래 순서 유지)
+    pending.sort(key=lambda q: fail_counts.get(q, 0))
     print(f"[Collector] 전체 검색어 {len(all_queries)}개 중 완료 {len(completed_keywords & seen)}개, "
           f"남은 검색어 {len(pending)}개")
+    if pending:
+        preview = ", ".join(f"{q[:25]}({fail_counts.get(q, 0)}회 실패)" for q in pending[:5])
+        print(f"[Collector] 이번 실행 처리 순서(앞 5개): {preview}")
 
     stopped_early = False
     for q in pending:
@@ -264,7 +278,7 @@ def run():
             stopped_early = True
             break
 
-        print(f"[Collector] 검색: {q}")
+        print(f"[Collector] 검색: {q} (이전 실패 {fail_counts.get(q, 0)}회)")
         papers, completed = fetch_query(q, email=email, deadline=start_time + TIME_BUDGET_SEC)
 
         new_count = 0
@@ -278,12 +292,19 @@ def run():
 
         if completed:
             completed_keywords.add(q)
-            save_progress(completed_keywords)
+            fail_counts.pop(q, None)
+            save_progress(completed_keywords, fail_counts)
             print(f"  → 완료 (신규 {new_count}건)")
         else:
-            print(f"  → 미완료 — 이번엔 {new_count}건 확보, 다음 실행에서 '{q[:30]}'부터 재시도합니다.")
+            fail_counts[q] = fail_counts.get(q, 0) + 1
+            save_progress(completed_keywords, fail_counts)
+            print(f"  → 미완료 — 이번엔 {new_count}건 확보, 이 단어는 이번 실행에서 건너뛰고 "
+                  f"다음 단어로 넘어갑니다. (누적 실패 {fail_counts[q]}회, 다음 실행에서 뒤 순서로 재시도)")
             stopped_early = True
-            break
+            # break 하지 않고 계속 진행 — 실패한 단어 때문에 뒤에 남은
+            # 새 단어들까지 영영 시도되지 못하는 것을 방지합니다.
+            time.sleep(1)
+            continue
 
         time.sleep(1)
 
