@@ -1,5 +1,29 @@
 {
   "completed_keywords": [
+    "Bukhansan",
+    "Byeonsanbando",
+    "Chiaksan",
+    "Dadohaehaesang",
+    "Deogyusan",
+    "Gayasan",
+    "Geumjeongsan",
+    "Gyeongju",
+    "Gyeryongsan",
+    "Hallasan",
+    "Hallyeohaesang",
+    "Jirisan",
+    "Juwangsan",
+    "Mudeungsan",
+    "Naejangsan",
+    "Odaesan",
+    "Palgongsan",
+    "Seoraksan",
+    "Sobaeksan",
+    "Songnisan",
+    "Taeanhaean",
+    "Taebaeksan",
+    "Wolchulsan",
+    "Woraksan",
     "bukhansan",
     "national park accessibility disability",
     "national park air quality monitoring",
@@ -40,5 +64,5 @@
     "national park zoning planning"
   ],
   "fail_counts": {},
-  "updated_at": "2026-08-01T10:12:14.716393"
+  "updated_at": "2026-08-02T08:46:18.237949"
 }

@@ -36,6 +36,29 @@ SYSTEM = """당신은 국립공원(한국 국립공원 포함) 관리 실무 전
 바로 업무에 적용할 수 있는 구체적인 정보를 JSON으로 제공합니다.
 또한 초록 전체를 자연스러운 한국어로 번역합니다. 학술 언어를 실무 언어로 바꿔 서술하세요."""
 
+# 관련 업무 분야 고정 카테고리 (필터·통계용 — AI가 이 안에서만 고르도록 프롬프트에서 강제)
+WORK_AREAS = [
+    "생태계 모니터링·조사", "야생생물·서식지 관리", "자원보전·복원", "탐방로·탐방객 관리",
+    "탐방객 서비스·안전", "시설·인프라 관리", "재난·안전 관리", "기후변화 대응",
+    "환경질 모니터링", "공원계획·구역관리", "지역사회·거버넌스", "관광·경제 정책",
+]
+
+
+def sanitize_work_areas(areas) -> list[str]:
+    """AI가 12개 목록 밖의 표현을 반환하는 경우를 대비한 안전장치.
+    목록에 없는 값은 버리고, 결과가 하나도 없으면 기본값 하나를 채웁니다."""
+    if not isinstance(areas, list):
+        return ["공원계획·구역관리"]
+    valid = [a for a in areas if a in WORK_AREAS]
+    if not valid:
+        return ["공원계획·구역관리"]
+    # 중복 제거, 최대 3개
+    seen = []
+    for a in valid:
+        if a not in seen:
+            seen.append(a)
+    return seen[:3]
+
 USER_TMPL = """다음 해외 국립공원 관련 논문을 분석하세요.
 
 제목: {title}
@@ -62,7 +85,7 @@ USER_TMPL = """다음 해외 국립공원 관련 논문을 분석하세요.
   ],
   "korea_np_applicability_score": 4,
   "korea_np_applicability_reason": "한국 국립공원의 지형·생태·탐방 특성을 근거로 적용 가능한 이유 서술",
-  "related_work_areas": ["탐방로 관리", "생태계 모니터링"],
+  "related_work_areas": ["탐방로·탐방객 관리", "생태계 모니터링·조사"],
   "related_laws": ["자연공원법 제00조", "야생생물 보호 및 관리에 관한 법률 제00조"],
   "field_checklist": [
     "체크항목 1 (측정·확인 가능한 수준으로)",
@@ -81,6 +104,13 @@ USER_TMPL = """다음 해외 국립공원 관련 논문을 분석하세요.
 점수 기준
 - korea_np_applicability_score: 1(무관)~5(직접 관련)
 - practical_utility_score: 1(활용 어려움)~5(즉시 적용 가능)
+
+related_work_areas 선택 규칙
+- 반드시 아래 12개 목록 중에서만 1~3개를 골라 그대로(토씨 하나 안 틀리고) 반환하세요.
+  새로운 표현을 만들어내지 마세요.
+  ["생태계 모니터링·조사", "야생생물·서식지 관리", "자원보전·복원", "탐방로·탐방객 관리",
+   "탐방객 서비스·안전", "시설·인프라 관리", "재난·안전 관리", "기후변화 대응",
+   "환경질 모니터링", "공원계획·구역관리", "지역사회·거버넌스", "관광·경제 정책"]
 
 참고 법령: 자연공원법, 국립공원공단법, 문화재보호법, 야생생물 보호 및 관리에 관한 법률,
 산림자원의 조성 및 관리에 관한 법률, 백두대간 보호에 관한 법률, 환경영향평가법"""
@@ -190,6 +220,7 @@ def analyze(api_key: str, paper: dict) -> dict | str | None:
         result = extract_json(text)
         result["analyzed_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         result["model"]       = GEMINI_MODEL
+        result["related_work_areas"] = sanitize_work_areas(result.get("related_work_areas"))
 
         # LAW_API_OC가 설정되어 있으면 관련 법령을 실제 현행 법령과 대조합니다.
         law_oc = os.getenv("LAW_API_OC")
