@@ -6,9 +6,9 @@ on:
   workflow_dispatch:        # 수동 실행 버튼
     inputs:
       limit:
-        description: '이번 실행에서 AI 분석할 논문 건수 (일일 한도 이하로 자동 조정됨, 기본 100)'
+        description: '이번 실행에서 AI 분석할 논문 건수 (비워두면 모델별 하루 한도 합산값이 자동 적용됨)'
         required: false
-        default: '100'
+        default: ''
       extra_keywords:
         description: '이번 실행에서 추가로 검색할 키워드 (쉼표로 구분, 예: national park drought impact, national park snow tourism). 계속 쓰고 싶으면 코드 수정 없이 저장소 Variables에 EXTRA_KEYWORDS로 등록하세요.'
         required: false
@@ -42,15 +42,23 @@ jobs:
           OPENALEX_EMAIL: ${{ secrets.OPENALEX_EMAIL }}
           EXTRA_KEYWORDS: ${{ github.event.inputs.extra_keywords || vars.EXTRA_KEYWORDS }}
 
-      # ── Step 2: Enrich with AI analysis (Gemini) ──
+      # ── Step 2: Enrich with AI analysis (Gemini, flash-lite → flash → pro 자동 폴백) ──
       - name: Run Enricher
         run: python enricher.py
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
-          GEMINI_RPD_LIMIT: ${{ secrets.GEMINI_RPD_LIMIT }}
           LAW_API_OC: ${{ secrets.LAW_API_OC }}
-          ENRICH_LIMIT: ${{ github.event.inputs.limit || '100' }}
+          ENRICH_LIMIT: ${{ github.event.inputs.limit }}
+          # 모델별 세부 조정이 필요할 때만 저장소 Variables에 등록하세요 (선택, 기본값으로 충분함)
+          GEMINI_MODEL_1_ID:  ${{ vars.GEMINI_MODEL_1_ID }}
+          GEMINI_MODEL_1_RPM: ${{ vars.GEMINI_MODEL_1_RPM }}
+          GEMINI_MODEL_1_RPD: ${{ vars.GEMINI_MODEL_1_RPD }}
+          GEMINI_MODEL_2_ID:  ${{ vars.GEMINI_MODEL_2_ID }}
+          GEMINI_MODEL_2_RPM: ${{ vars.GEMINI_MODEL_2_RPM }}
+          GEMINI_MODEL_2_RPD: ${{ vars.GEMINI_MODEL_2_RPD }}
+          GEMINI_MODEL_3_ID:  ${{ vars.GEMINI_MODEL_3_ID }}
+          GEMINI_MODEL_3_RPM: ${{ vars.GEMINI_MODEL_3_RPM }}
+          GEMINI_MODEL_3_RPD: ${{ vars.GEMINI_MODEL_3_RPD }}
 
       # ── Step 3: Build index ──
       - name: Run Indexer
