@@ -278,7 +278,9 @@ def run():
 
     pending = [p for p in papers
                if p.get("ai_analysis") is None and len(p.get("abstract", "")) > 100]
-    print(f"[Enricher] 분석 대상: {len(pending)}건 / 전체 {len(papers)}건")
+    # 최신 논문부터 분석 — year가 없는 경우(이론상 없어야 하지만 방어적으로) 가장 뒤로
+    pending.sort(key=lambda p: p.get("year") or 0, reverse=True)
+    print(f"[Enricher] 분석 대상: {len(pending)}건 / 전체 {len(papers)}건 (최신 발행연도부터 분석)")
 
     requested_limit = int(os.getenv("ENRICH_LIMIT") or sum(m["rpd"] for m in models))
 
@@ -286,14 +288,10 @@ def run():
     fail_streak = 0
     model_idx = 0   # 한 번 다음 모델로 넘어가면 이번 실행 동안은 되돌아가지 않음(품질 우선 순서 유지)
 
-    for paper in papers:
+    for paper in pending:
         if done >= requested_limit:
             print(f"[Enricher] 이번 실행 한도({requested_limit}건) 도달 — 나머지는 다음 실행에서 처리")
             break
-        if paper.get("ai_analysis") is not None:
-            continue
-        if len(paper.get("abstract", "")) < 100:
-            continue
 
         # ── 현재 논문 하나를, 오늘 한도가 남은 모델을 찾아가며 시도 ──
         result = None

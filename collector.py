@@ -5,16 +5,21 @@ Collector
 OpenAlex REST API에서 해외 국립공원 관리·연구 관련 논문을 수집합니다.
 역할: 검색 → 정규화 → raw_papers.json에 누적 저장
 
-체크포인트(progress.json): 검색어 단위로 "완료" 여부와 "실패 횟수"를 기록합니다.
+체크포인트(progress.json): 검색어 단위로 "완료 일자"와 "실패 횟수"를 기록합니다.
 - 검색어 텍스트 자체를 키로 사용하므로(=index 기반 아님), QUERIES 순서를 바꾸거나
   새 검색어를 추가해도 이미 완료한 검색어는 건드리지 않고 새 것만 처리합니다.
 - 한 검색어를 끝까지(결과 소진 또는 limit 도달) 가져오지 못하고 429/시간초과로
   중단되면 그 검색어는 "미완료"로 남고 실패 횟수가 1 증가합니다. 이때 전체 실행을
   멈추지 않고 바로 다음 검색어로 넘어갑니다 — 한 단어가 계속 막혀도 그 뒤에 있는
   아직 시도 안 한 새 단어들이 영영 처리되지 못하는 일이 없도록 하기 위함입니다.
-- 매 실행마다 남은 검색어를 "실패 횟수가 적은 순"으로 정렬해서 처리합니다. 즉
-  아직 한 번도 실패하지 않은(또는 새로 추가된) 검색어가 항상 먼저 시도되고,
-  반복해서 실패해온 검색어는 뒤로 계속 밀려납니다.
+- 완료된 검색어도 REFRESH_INTERVAL_DAYS(기본 14일)가 지나면 자동으로 다시 검색
+  대상에 포함됩니다. OpenAlex는 계속 새 논문이 추가되는 살아있는 DB라서, 한 번
+  다 모았다고 영원히 손 놓으면 그 뒤에 나온 신규 논문을 놓치기 때문입니다. 이미
+  가지고 있는 논문은 id 기준으로 자동 스킵되므로 중복 없이 새로 늘어난 것만
+  추가됩니다.
+- 매 실행마다 (1) 한 번도 안 해본 새 검색어 → (2) 재검색 주기가 된 검색어 순으로
+  처리하고, 각 그룹 안에서는 "실패 횟수가 적은 순"으로 정렬합니다. 즉 새 검색어가
+  항상 최우선이고, 반복해서 실패해온 검색어는 그 그룹 안에서 계속 뒤로 밀려납니다.
 - 429 등으로 중단되어도 프로그램은 정상 종료(exit code 0)해서 Actions가
   실패로 표시되지 않게 하고, 그때까지 모은 데이터는 그대로 유지합니다.
 """
@@ -70,26 +75,54 @@ QUERIES = [
 ]
 
 
-def load_progress() -> tuple[set, dict]:
-    """완료된 검색어 집합과 검색어별 실패 횟수를 불러옵니다. 파일이 없으면 빈 값."""
+REFRESH_INTERVAL_DAYS = int(os.getenv("COLLECTOR_REFRESH_DAYS") or 14)
+# 완료된 검색어도 이 일수가 지나면 다시 검색 대상에 포함시킵니다.
+# OpenAlex는 계속 새 논문이 추가되는 살아있는 DB라서, 한 번 다 모았다고 영원히
+# 손 놓으면 그 뒤로 나온 신규 논문을 놓치게 됩니다. (완전 재수집이 아니라 페이지를
+# 다시 훑는 것뿐이라 이미 있는 논문은 그대로 스킵되고, 새로 늘어난 것만 추가됩니다.)
+
+
+def load_progress() -> tuple[dict, dict]:
+    """완료된 검색어 → 완료 일자(YYYY-MM-DD) 매핑과, 검색어별 실패 횟수를 불러옵니다.
+    옛 형식(completed_keywords가 리스트)이면 오늘 날짜로 완료된 것으로 간주해 변환합니다."""
     if not os.path.exists(PROGRESS_FILE):
-        return set(), {}
+        return {}, {}
     try:
         with open(PROGRESS_FILE, encoding="utf-8") as f:
             data = json.load(f)
-        return set(data.get("completed_keywords", [])), dict(data.get("fail_counts", {}))
+        raw = data.get("completed_keywords", {})
+        if isinstance(raw, list):
+            # 옛 형식 마이그레이션: 완료 시점을 알 수 없으니 오늘 날짜로 기록해
+            # 갑자기 61개가 한꺼번에 재검색 대상이 되는 것을 방지합니다.
+            today = today_str()
+            completed = {q: today for q in raw}
+        else:
+            completed = dict(raw)
+        return completed, dict(data.get("fail_counts", {}))
     except Exception as exc:
         print(f"[Collector] progress.json 읽기 실패({exc}) — 처음부터 다시 진행합니다.")
-        return set(), {}
+        return {}, {}
 
 
-def save_progress(completed: set, fail_counts: dict) -> None:
+def save_progress(completed: dict, fail_counts: dict) -> None:
     with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
         json.dump({
-            "completed_keywords": sorted(completed),
+            "completed_keywords": completed,
             "fail_counts": fail_counts,
             "updated_at": datetime.now().isoformat(),
         }, f, ensure_ascii=False, indent=2)
+
+
+def today_str() -> str:
+    return datetime.now().strftime("%Y-%m-%d")
+
+
+def days_since(date_str: str) -> float:
+    try:
+        d = datetime.strptime(date_str, "%Y-%m-%d")
+    except Exception:
+        return REFRESH_INTERVAL_DAYS + 1   # 날짜 파싱 실패 시 즉시 재검색 대상으로 취급
+    return (datetime.now() - d).total_seconds() / 86400
 
 
 def load_extra_keywords() -> list:
@@ -260,12 +293,18 @@ def run():
             seen.add(q)
             all_queries.append(q)
 
-    pending = [q for q in all_queries if q not in completed_keywords]
-    # 실패 횟수가 적은(=0인, 즉 아직 시도 안 했거나 새로 추가된) 검색어를 먼저,
-    # 계속 실패해온 검색어는 뒤로 미룹니다. (동률이면 QUERIES에 정의된 원래 순서 유지)
-    pending.sort(key=lambda q: fail_counts.get(q, 0))
-    print(f"[Collector] 전체 검색어 {len(all_queries)}개 중 완료 {len(completed_keywords & seen)}개, "
-          f"남은 검색어 {len(pending)}개")
+    pending_new = [q for q in all_queries if q not in completed_keywords]
+    pending_refresh = [q for q in all_queries
+                       if q in completed_keywords and days_since(completed_keywords[q]) >= REFRESH_INTERVAL_DAYS]
+    # 한 번도 안 해본 새 검색어를 항상 먼저 처리하고, 그다음 재검색 주기가 된 것들을 처리합니다.
+    # 각 그룹 내에서는 실패 횟수가 적은 순으로 정렬합니다.
+    pending_new.sort(key=lambda q: fail_counts.get(q, 0))
+    pending_refresh.sort(key=lambda q: fail_counts.get(q, 0))
+    pending = pending_new + pending_refresh
+
+    print(f"[Collector] 전체 검색어 {len(all_queries)}개 중 완료 {len(completed_keywords.keys() & seen)}개, "
+          f"신규 대기 {len(pending_new)}개, 재검색 주기 도래 {len(pending_refresh)}개 "
+          f"(재검색 주기: {REFRESH_INTERVAL_DAYS}일)")
     if pending:
         preview = ", ".join(f"{q[:25]}({fail_counts.get(q, 0)}회 실패)" for q in pending[:5])
         print(f"[Collector] 이번 실행 처리 순서(앞 5개): {preview}")
@@ -278,7 +317,8 @@ def run():
             stopped_early = True
             break
 
-        print(f"[Collector] 검색: {q} (이전 실패 {fail_counts.get(q, 0)}회)")
+        is_refresh = q in completed_keywords
+        print(f"[Collector] 검색: {q} ({'재검색' if is_refresh else '신규'}, 이전 실패 {fail_counts.get(q, 0)}회)")
         papers, completed = fetch_query(q, email=email, deadline=start_time + TIME_BUDGET_SEC)
 
         new_count = 0
@@ -291,10 +331,10 @@ def run():
         save_raw(existing)
 
         if completed:
-            completed_keywords.add(q)
+            completed_keywords[q] = today_str()
             fail_counts.pop(q, None)
             save_progress(completed_keywords, fail_counts)
-            print(f"  → 완료 (신규 {new_count}건)")
+            print(f"  → 완료 (신규 {new_count}건, 다음 재검색은 {REFRESH_INTERVAL_DAYS}일 후)")
         else:
             fail_counts[q] = fail_counts.get(q, 0) + 1
             save_progress(completed_keywords, fail_counts)
@@ -309,7 +349,8 @@ def run():
         time.sleep(1)
 
     if not stopped_early and pending:
-        print("[Collector] 모든 검색어를 완료했습니다. 다음 실행부터는 새로 추가된 검색어만 처리합니다.")
+        print(f"[Collector] 이번 실행 대상 검색어를 모두 처리했습니다. "
+              f"완료된 검색어는 {REFRESH_INTERVAL_DAYS}일 후 자동으로 재검색 대상이 됩니다.")
 
     papers = list(existing.values())
     save_raw(existing)
