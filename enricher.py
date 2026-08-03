@@ -2,34 +2,46 @@
 """
 Enricher
 --------
-Google Gemini API(기본 모델: gemini-flash-lite-latest)로 논문 초록을 분석해
+Google Gemini API로 논문 초록을 분석해
 1) 초록 한글 번역(abstract_ko)
 2) 국립공원 실무 정보(ai_analysis)
 를 함께 생성합니다.
 역할: raw_papers.json 읽기 → AI 번역·분석 → raw_papers.json 업데이트
 
-무료/제한 등급 기준(실측: RPM 15 / TPM 250,000 / RPD 500)에 맞춰
-요청 간격·건당 토큰·일일 요청 수를 모두 제한합니다.
+모델 자동 폴백: 무료 등급 모델 하나만 쓰면 하루 한도가 금방 차므로, 품질이 좋아지는
+순서(flash-lite → flash → pro)로 여러 모델을 자동으로 돌아가며 씁니다. Google의 요청
+한도(RPM/RPD)는 모델별로 완전히 별도 집계되므로, 한 모델의 한도를 다 쓰면 다음 모델로
+넘어가는 방식이 안전하고(불이익 없음) 처리량도 늘어납니다. 모델명은 특정 버전을 못박지
+않고 `-latest` 별칭(예: gemini-flash-lite-latest)을 써서, Google이 내부적으로 모델을
+교체해도(예: 2.5 → 3.x) 코드 수정 없이 항상 그 등급의 최신 모델을 자동으로 씁니다.
 """
 import json, os, time, re
 import requests
 import law_matcher
 
 RAW_FILE   = "raw_papers.json"
-STATE_FILE = "enrich_state.json"   # 일일 요청 수 누적 기록 (git에 커밋되어야 날짜가 바뀌기 전까지 유지됨)
+STATE_FILE = "enrich_state.json"   # 일일 요청 수 누적 기록(모델별) — git에 커밋되어야 날짜가 바뀌기 전까지 유지됨
 
-GEMINI_MODEL = os.getenv("GEMINI_MODEL") or "gemini-flash-lite-latest"
-GEMINI_URL   = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
 LIST_MODELS_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
-# ── 요청 한도 (실측: RPM 15 / TPM 250,000 / RPD 500) ────────────────
-# RPD는 실제 한도(500)보다 훨씬 낮게 잡아 여유를 둡니다. 필요하면 GEMINI_RPD_LIMIT/
-# ENRICH_LIMIT 환경변수(또는 워크플로 limit 입력값)로 언제든 더 올릴 수 있습니다.
-GEMINI_RPM_LIMIT = 15
-GEMINI_RPD_LIMIT = int(os.getenv("GEMINI_RPD_LIMIT") or 100)
+# ── 모델 자동 폴백 순서: 품질이 좋아지는 순서로(속도 우선이 아니라 결과 품질 우선) ──
+# 각 모델의 rpd(하루 한도)는 무료 등급 실측치보다 여유 있게 낮춰 잡은 자체 안전 마진입니다.
+# 실제 429가 뜨면 그 시점에 바로 다음 모델로 넘어가므로, 아래 숫자가 실제 한도와 다소
+# 달라도 낭비되는 요청은 최소화됩니다. 필요하면 GEMINI_MODEL_1_RPD 등 환경변수로 개별 조정 가능.
+def _model_cfg(idx: int, model_id: str, rpm: int, rpd: int) -> dict:
+    return {
+        "id":  os.getenv(f"GEMINI_MODEL_{idx}_ID")  or model_id,
+        "rpm": int(os.getenv(f"GEMINI_MODEL_{idx}_RPM") or rpm),
+        "rpd": int(os.getenv(f"GEMINI_MODEL_{idx}_RPD") or rpd),
+    }
+
+FALLBACK_MODELS = [
+    _model_cfg(1, "gemini-flash-lite-latest", rpm=15, rpd=100),   # 1순위: 가장 가볍고 한도가 넉넉함
+    _model_cfg(2, "gemini-flash-latest",      rpm=8,  rpd=40),    # 2순위: flash-lite 소진 시
+    _model_cfg(3, "gemini-pro-latest",        rpm=4,  rpd=15),    # 3순위: 최상위 품질, 한도는 가장 적음
+]
+
 MAX_OUTPUT_TOKENS = 4096   # 스키마가 크고(제목·초록 번역 포함) 2000으로는 응답이 중간에 잘렸음.
-                            # 15건/분 기준으로도 TPM 250k에는 여전히 크게 못 미침
-REQUEST_INTERVAL_SEC = (60 / GEMINI_RPM_LIMIT) + 1   # ≈ 5초, 분당 15건 이하로 유지
 
 SYSTEM = """당신은 국립공원(한국 국립공원 포함) 관리 실무 전문가입니다.
 해외 학술논문의 초록을 분석해 한국 국립공원 현장 실무자가 논문을 읽지 않아도
@@ -40,7 +52,7 @@ SYSTEM = """당신은 국립공원(한국 국립공원 포함) 관리 실무 전
 WORK_AREAS = [
     "생태계 모니터링·조사", "야생생물·서식지 관리", "자원보전·복원", "탐방로·탐방객 관리",
     "탐방객 서비스·안전", "시설·인프라 관리", "재난·안전 관리", "기후변화 대응",
-    "환경질 모니터링", "공원계획·구역관리", "지역사회·거버넌스", "관광·경제 정책",
+    "환경 모니터링", "공원계획·구역관리", "지역사회·거버넌스", "관광·경제 정책",
 ]
 
 
@@ -110,7 +122,7 @@ related_work_areas 선택 규칙
   새로운 표현을 만들어내지 마세요.
   ["생태계 모니터링·조사", "야생생물·서식지 관리", "자원보전·복원", "탐방로·탐방객 관리",
    "탐방객 서비스·안전", "시설·인프라 관리", "재난·안전 관리", "기후변화 대응",
-   "환경질 모니터링", "공원계획·구역관리", "지역사회·거버넌스", "관광·경제 정책"]
+   "환경 모니터링", "공원계획·구역관리", "지역사회·거버넌스", "관광·경제 정책"]
 
 참고 법령: 자연공원법, 국립공원공단법, 문화재보호법, 야생생물 보호 및 관리에 관한 법률,
 산림자원의 조성 및 관리에 관한 법률, 백두대간 보호에 관한 법률, 환경영향평가법"""
@@ -131,7 +143,7 @@ def today_str() -> str:
 
 
 def load_daily_state() -> dict:
-    """오늘 이미 사용한 요청 수를 읽어옵니다. 날짜가 바뀌었으면 0으로 초기화합니다."""
+    """오늘 이미 모델별로 사용한 요청 수를 읽어옵니다. 날짜가 바뀌었으면 0으로 초기화합니다."""
     state = {}
     if os.path.exists(STATE_FILE):
         try:
@@ -139,8 +151,8 @@ def load_daily_state() -> dict:
                 state = json.load(f)
         except Exception:
             state = {}
-    if state.get("date") != today_str():
-        state = {"date": today_str(), "requests_today": 0}
+    if state.get("date") != today_str() or not isinstance(state.get("requests_today"), dict):
+        state = {"date": today_str(), "requests_today": {}}
     return state
 
 
@@ -170,7 +182,7 @@ def list_generate_content_models(api_key: str) -> list[str] | None:
         return None
 
 
-def analyze(api_key: str, paper: dict) -> dict | str | None:
+def analyze(api_key: str, paper: dict, model_id: str) -> dict | str | None:
     """성공 시 dict, 요청 한도 초과(429) 시 'RATE_LIMIT', 모델을 찾을 수 없으면(404) 'NOT_FOUND',
     그 외 실패 시 None을 반환합니다."""
     abstract = (paper.get("abstract") or "").strip()
@@ -195,18 +207,19 @@ def analyze(api_key: str, paper: dict) -> dict | str | None:
         },
     }
 
+    gemini_url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent"
     try:
         r = requests.post(
-            GEMINI_URL,
+            gemini_url,
             headers={"x-goog-api-key": api_key, "Content-Type": "application/json"},
             json=body,
             timeout=60,
         )
         if r.status_code == 429:
-            print("  [Enricher] 429 요청 한도 초과 (RPM/TPM/RPD)")
+            print(f"  [Enricher] 429 요청 한도 초과 (모델: {model_id})")
             return "RATE_LIMIT"
         if r.status_code == 404:
-            print(f"  [Enricher] 404 모델을 찾을 수 없음: {GEMINI_MODEL}")
+            print(f"  [Enricher] 404 모델을 찾을 수 없음: {model_id}")
             print(f"  [Enricher] 응답 내용: {r.text[:300]}")
             return "NOT_FOUND"
         r.raise_for_status()
@@ -219,7 +232,7 @@ def analyze(api_key: str, paper: dict) -> dict | str | None:
         text = candidate["content"]["parts"][0]["text"]
         result = extract_json(text)
         result["analyzed_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-        result["model"]       = GEMINI_MODEL
+        result["model"]       = model_id
         result["related_work_areas"] = sanitize_work_areas(result.get("related_work_areas"))
 
         # LAW_API_OC가 설정되어 있으면 관련 법령을 실제 현행 법령과 대조합니다.
@@ -243,64 +256,81 @@ def run():
         print("[Enricher] GEMINI_API_KEY 없음 — 건너뜁니다.")
         return
 
-    # ── 모델 사전 점검: 잘못된 모델명으로 요청을 반복해 일일 한도를 낭비하지 않도록 확인 ──
+    # ── 모델 사전 점검: 이 API 키로 실제 사용 가능한 모델만 폴백 목록에 남깁니다 ──
     available = list_generate_content_models(api_key)
-    if available is not None and GEMINI_MODEL not in available:
-        print(f"[Enricher] 설정된 모델 '{GEMINI_MODEL}'을(를) 이 API 키로 사용할 수 없습니다.")
-        print(f"[Enricher] 사용 가능한 모델 목록: {', '.join(available[:15])}"
-              + (" ..." if len(available) > 15 else ""))
-        print("[Enricher] 저장소 Secrets에 GEMINI_MODEL을(를) 위 목록 중 하나로 등록한 뒤 "
-              "다시 실행하세요. (예: gemini-flash-latest)")
+    models = FALLBACK_MODELS
+    if available is not None:
+        models = [m for m in FALLBACK_MODELS if m["id"] in available]
+        skipped = [m["id"] for m in FALLBACK_MODELS if m["id"] not in available]
+        if skipped:
+            print(f"[Enricher] 이 API 키로 사용 불가한 모델(건너뜀): {', '.join(skipped)}")
+    if not models:
+        print(f"[Enricher] 사용 가능한 모델이 하나도 없습니다. 사용 가능 목록: "
+              f"{', '.join((available or [])[:15])}")
+        print("[Enricher] 저장소 Secrets/Variables의 GEMINI_MODEL_1_ID 등으로 직접 지정해보세요.")
         return
 
-    # ── 일일 요청 한도(RPD) 확인 ──
-    remaining_today = GEMINI_RPD_LIMIT - state["requests_today"]
-    if remaining_today <= 0:
-        print(f"[Enricher] 오늘({state['date']}) 일일 요청 한도({GEMINI_RPD_LIMIT}건)를 "
-              f"이미 모두 사용했습니다. 내일(UTC 기준) 다시 시도하세요.")
-        return
-
-    # 한 번 실행당 분석 건수 = min(ENRICH_LIMIT, 오늘 남은 한도)
-    requested_limit = int(os.getenv("ENRICH_LIMIT", str(GEMINI_RPD_LIMIT)))
-    limit = min(requested_limit, remaining_today)
+    print("[Enricher] 오늘 모델별 사용량: " +
+          ", ".join(f"{m['id']}={state['requests_today'].get(m['id'], 0)}/{m['rpd']}" for m in models))
 
     with open(RAW_FILE, encoding="utf-8") as f:
         papers = json.load(f)
 
     pending = [p for p in papers
                if p.get("ai_analysis") is None and len(p.get("abstract", "")) > 100]
-    print(f"[Enricher] 분석 대상: {len(pending)}건 / 전체 {len(papers)}건 "
-          f"(오늘 남은 한도 {remaining_today}건, 이번 실행 최대 {limit}건)")
+    print(f"[Enricher] 분석 대상: {len(pending)}건 / 전체 {len(papers)}건")
+
+    requested_limit = int(os.getenv("ENRICH_LIMIT") or sum(m["rpd"] for m in models))
 
     done = 0
     fail_streak = 0
+    model_idx = 0   # 한 번 다음 모델로 넘어가면 이번 실행 동안은 되돌아가지 않음(품질 우선 순서 유지)
+
     for paper in papers:
-        if done >= limit:
-            print(f"[Enricher] 이번 실행 한도({limit}건) 도달 — 나머지는 다음 실행에서 처리")
+        if done >= requested_limit:
+            print(f"[Enricher] 이번 실행 한도({requested_limit}건) 도달 — 나머지는 다음 실행에서 처리")
             break
         if paper.get("ai_analysis") is not None:
             continue
         if len(paper.get("abstract", "")) < 100:
             continue
 
-        preview = (paper.get("title") or "")[:50]
-        print(f"  [{done+1}/{limit}] {preview}…")
+        # ── 현재 논문 하나를, 오늘 한도가 남은 모델을 찾아가며 시도 ──
+        result = None
+        used_model = None
+        while model_idx < len(models):
+            model = models[model_idx]
+            used_today = state["requests_today"].get(model["id"], 0)
+            if used_today >= model["rpd"]:
+                print(f"[Enricher] {model['id']} 오늘 한도({model['rpd']}건) 소진 — 다음 모델로 전환")
+                model_idx += 1
+                continue
 
-        result = analyze(api_key, paper)
+            preview = (paper.get("title") or "")[:50]
+            print(f"  [{done+1}] ({model['id']}) {preview}…")
+            result = analyze(api_key, paper, model["id"])
 
-        if result == "NOT_FOUND":
-            # 설정 오류(모델명 문제)이지 실제 요청 소비가 아니므로 일일 카운터에는 반영하지 않습니다.
-            print("[Enricher] 모델 설정 오류로 이번 실행을 중단합니다. 일일 한도는 소비되지 않았습니다.")
+            if result == "NOT_FOUND":
+                print(f"[Enricher] {model['id']} 이 API 키로 사용 불가 — 다음 모델로 전환 (한도 소비 없음)")
+                model_idx += 1
+                continue
+
+            # 성공이든 진짜 요청 실패든 요청 1건을 소비한 것으로 간주해 모델별 카운터에 반영
+            state["requests_today"][model["id"]] = used_today + 1
+            save_daily_state(state)
+
+            if result == "RATE_LIMIT":
+                print(f"[Enricher] {model['id']} 요청 한도 초과 — 다음 모델로 전환해 이 논문을 이어서 시도합니다.")
+                model_idx += 1
+                continue
+
+            used_model = model["id"]
+            break   # 성공 또는 진짜 실패(None) — 이 논문 처리는 끝, 다음 논문으로
+
+        if model_idx >= len(models):
+            print("[Enricher] 오늘 사용 가능한 모든 모델의 한도를 소진했습니다 — 실행을 중단합니다.")
             break
 
-        # 성공이든 진짜 요청 실패든 요청 1건을 소비한 것으로 간주해 일일 카운터에 반영
-        state["requests_today"] += 1
-        save_daily_state(state)
-
-        if result == "RATE_LIMIT":
-            print("[Enricher] 요청 한도(RPM/TPM/RPD) 초과로 이번 실행을 중단합니다. "
-                  "다음 실행 때 이어서 시도합니다.")
-            break
         if result:
             paper["ai_analysis"] = result
             done += 1
@@ -315,16 +345,12 @@ def run():
                       "다음 실행 때 이어서 시도합니다.")
                 break
 
-        if state["requests_today"] >= GEMINI_RPD_LIMIT:
-            print(f"[Enricher] 오늘 일일 요청 한도({GEMINI_RPD_LIMIT}건) 도달 — 실행을 중단합니다.")
-            break
-
-        time.sleep(REQUEST_INTERVAL_SEC)   # RPM 한도 준수
+        time.sleep((60 / models[model_idx]["rpm"]) + 1)   # 현재 사용 중인 모델의 RPM 한도 준수
 
     with open(RAW_FILE, "w", encoding="utf-8") as f:
         json.dump(papers, f, ensure_ascii=False, indent=2)
-    print(f"[Enricher] 완료: {done}건 분석됨 "
-          f"(오늘 사용 {state['requests_today']}/{GEMINI_RPD_LIMIT}건, 대기 {len(pending)-done}건 남음)")
+    usage_str = ", ".join(f"{m['id']}={state['requests_today'].get(m['id'], 0)}/{m['rpd']}" for m in models)
+    print(f"[Enricher] 완료: {done}건 분석됨 (오늘 사용 {usage_str}, 대기 {len(pending)-done}건 남음)")
 
 
 if __name__ == "__main__":
