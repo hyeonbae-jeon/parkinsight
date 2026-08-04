@@ -1,7 +1,6 @@
 {
-  "date": "2026-08-03",
+  "date": "2026-08-04",
   "requests_today": {
-    "gemini-flash-lite-latest": 100,
-    "gemini-flash-latest": 17
+    "gemini-flash-lite-latest": 3
   }
 }
