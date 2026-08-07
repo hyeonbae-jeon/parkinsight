@@ -60,6 +60,15 @@ def build_work_area_index(papers: list) -> dict:
     return dict(c.most_common(30))
 
 
+def build_location_index(papers: list) -> dict:
+    c = Counter()
+    for p in papers:
+        loc = (p.get("ai_analysis") or {}).get("study_location")
+        if loc:
+            c[loc] += 1
+    return dict(c)
+
+
 def run():
     if not os.path.exists(RAW_FILE):
         print(f"[Indexer] {RAW_FILE} 없음")
@@ -74,6 +83,7 @@ def run():
         "meta":             build_stats(papers),
         "tag_index":        build_tag_index(papers),
         "work_area_index":  build_work_area_index(papers),
+        "location_index":   build_location_index(papers),
         "papers":           papers,
     }
 

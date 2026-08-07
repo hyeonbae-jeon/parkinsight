@@ -64,6 +64,14 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
   cursor: pointer; color: var(--muted); background: white; margin-left: 2px; }
 .score-btn-reset:hover { background: var(--border-2); }
 
+/* Location filter (연구 대상지) — pill buttons, 점수 원형 버튼과 별도 스타일 */
+.loc-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.loc-chip { font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 999px;
+  border: 1.5px solid var(--border); background: white; color: var(--muted); cursor: pointer;
+  transition: all .15s; line-height: 1.3; }
+.loc-chip:hover { border-color: #93c5fd; color: var(--primary); }
+.loc-chip.active { border-color: var(--primary); background: var(--primary-dim); color: var(--primary); }
+
 /* Checkbox filter */
 .cb-row { display: flex; align-items: center; gap: 7px; padding: 3px 0; cursor: pointer; }
 .cb-row input { cursor: pointer; accent-color: var(--primary); }
@@ -318,6 +326,13 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     <hr class="fl-divider">
 
     <div>
+      <div class="fl-title">연구 대상지</div>
+      <div class="loc-btns" id="loc-btns"></div>
+    </div>
+
+    <hr class="fl-divider">
+
+    <div>
       <div class="fl-title">관련 업무 분야</div>
       <div id="work-fl"></div>
     </div>
@@ -363,8 +378,8 @@ body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
 /* ══════════════════════════════════════
    State
 ══════════════════════════════════════ */
-let ALL = [], FILTERED = [], tagIdx = {}, workIdx = {};
-const F = { q: '', app: new Set(), util: new Set(), work: new Set(), year: new Set(), tags: new Set() };
+let ALL = [], FILTERED = [], tagIdx = {}, workIdx = {}, locIdx = {};
+const F = { q: '', app: new Set(), util: new Set(), loc: new Set(), work: new Set(), year: new Set(), tags: new Set() };
 let selId = null;
 let pageSize = 10;
 let curPage = 1;
@@ -412,6 +427,7 @@ fetch('papers.json?v=' + Date.now(), { cache: 'no-store' })
     ALL     = data.papers || [];
     tagIdx  = data.tag_index || {};
     workIdx = data.work_area_index || {};
+    locIdx  = data.location_index || {};
     renderStats(data.meta || {});
     buildSidebar();
     applyFilter();
@@ -473,9 +489,27 @@ function buildScoreBtns(cid, fset) {
   el.appendChild(rst);
 }
 
+function buildLocationBtns(cid, fset) {
+  const el = document.getElementById(cid);
+  el.innerHTML = '';
+  const order = ['국내', '해외'];
+  order.forEach(loc => {
+    const b = document.createElement('button');
+    b.className = 'loc-chip';
+    b.textContent = `${loc} (${locIdx[loc] || 0})`;
+    b.addEventListener('click', () => {
+      fset.has(loc) ? fset.delete(loc) : fset.add(loc);
+      b.classList.toggle('active', fset.has(loc));
+      applyFilter();
+    });
+    el.appendChild(b);
+  });
+}
+
 function buildSidebar() {
   buildScoreBtns('app-btns',  F.app);
   buildScoreBtns('util-btns', F.util);
+  buildLocationBtns('loc-btns', F.loc);
 
   /* Work areas */
   const wc = document.getElementById('work-fl');
@@ -537,6 +571,7 @@ function applyFilter() {
     }
     if (F.app.size  && !F.app.has(ai.korea_np_applicability_score))  return false;
     if (F.util.size && !F.util.has(ai.practical_utility_score))       return false;
+    if (F.loc.size  && !F.loc.has(ai.study_location))                 return false;
     if (F.work.size && ![...(ai.related_work_areas||[])].some(a => F.work.has(a))) return false;
     if (F.year.size && !F.year.has(p.year)) return false;
     if (F.tags.size && ![...(ai.tags||[])].some(t => F.tags.has(t)))  return false;

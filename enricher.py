@@ -71,6 +71,12 @@ def sanitize_work_areas(areas) -> list[str]:
             seen.append(a)
     return seen[:3]
 
+
+def sanitize_study_location(value) -> str:
+    """AI가 '국내'/'해외' 외의 값을 반환하는 경우를 대비한 안전장치.
+    수집 논문 대부분이 해외 사례이므로, 판단 불가 시 '해외'를 기본값으로 둡니다."""
+    return value if value in ("국내", "해외") else "해외"
+
 USER_TMPL = """다음 해외 국립공원 관련 논문을 분석하세요.
 
 제목: {title}
@@ -97,6 +103,7 @@ USER_TMPL = """다음 해외 국립공원 관련 논문을 분석하세요.
   ],
   "korea_np_applicability_score": 4,
   "korea_np_applicability_reason": "한국 국립공원의 지형·생태·탐방 특성을 근거로 적용 가능한 이유 서술",
+  "study_location": "해외",
   "related_work_areas": ["탐방로·탐방객 관리", "생태계 모니터링·조사"],
   "related_laws": ["자연공원법 제00조", "야생생물 보호 및 관리에 관한 법률 제00조"],
   "field_checklist": [
@@ -116,6 +123,15 @@ USER_TMPL = """다음 해외 국립공원 관련 논문을 분석하세요.
 점수 기준
 - korea_np_applicability_score: 1(무관)~5(직접 관련)
 - practical_utility_score: 1(활용 어려움)~5(즉시 적용 가능)
+
+study_location 판단 규칙
+- 저자 소속기관이나 학술지 발행국과는 무관하게, 논문이 실제로 다루는 "연구 대상지"가
+  어디인지로만 판단하세요.
+- 연구 대상지(조사지·사례지·현장)가 대한민국의 국립공원·자연공원·보호지역이면 "국내",
+  그 외 국가/지역이면 "해외"를 반환하세요.
+- 특정 현장 없이 이론·리뷰·메타분석 위주이거나 여러 나라를 비교하며 한국이 주된
+  대상이 아니면 "해외"로 반환하세요.
+- 반드시 "국내" 또는 "해외" 둘 중 하나만 반환하세요.
 
 related_work_areas 선택 규칙
 - 반드시 아래 12개 목록 중에서만 1~3개를 골라 그대로(토씨 하나 안 틀리고) 반환하세요.
@@ -234,6 +250,7 @@ def analyze(api_key: str, paper: dict, model_id: str) -> dict | str | None:
         result["analyzed_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
         result["model"]       = model_id
         result["related_work_areas"] = sanitize_work_areas(result.get("related_work_areas"))
+        result["study_location"] = sanitize_study_location(result.get("study_location"))
 
         # LAW_API_OC가 설정되어 있으면 관련 법령을 실제 현행 법령과 대조합니다.
         law_oc = os.getenv("LAW_API_OC")
