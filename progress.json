@@ -37,7 +37,7 @@
     "national park cultural heritage management": "2026-08-17",
     "national park disaster risk management": "2026-08-18",
     "national park drone remote sensing": "2026-08-18",
-    "national park economic valuation": "2026-08-03",
+    "national park economic valuation": "2026-08-19",
     "national park ecosystem monitoring": "2026-08-17",
     "national park entrance fee policy": "2026-08-17",
     "national park fire management": "2026-08-17",
@@ -51,7 +51,7 @@
     "national park recreation ecology": "2026-08-17",
     "national park restoration ecology": "2026-08-17",
     "national park signage interpretation": "2026-08-17",
-    "national park soil erosion control": "2026-08-03",
+    "national park soil erosion control": "2026-08-19",
     "national park tourism impact": "2026-08-17",
     "national park trail erosion": "2026-08-17",
     "national park trail management": "2026-08-17",
@@ -63,9 +63,6 @@
     "national park wildlife management": "2026-08-17",
     "national park zoning planning": "2026-08-17"
   },
-  "fail_counts": {
-    "national park soil erosion control": 2,
-    "national park economic valuation": 2
-  },
-  "updated_at": "2026-08-18T03:55:37.489253"
+  "fail_counts": {},
+  "updated_at": "2026-08-19T03:47:38.014570"
 }
