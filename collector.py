@@ -22,6 +22,12 @@ OpenAlex REST API에서 해외 국립공원 관리·연구 관련 논문을 수�
   항상 최우선이고, 반복해서 실패해온 검색어는 그 그룹 안에서 계속 뒤로 밀려납니다.
 - 429 등으로 중단되어도 프로그램은 정상 종료(exit code 0)해서 Actions가
   실패로 표시되지 않게 하고, 그때까지 모은 데이터는 그대로 유지합니다.
+
+검색어당 수집 상한: 기본 300건(COLLECTOR_QUERY_LIMIT 환경변수로 조정 가능).
+이 값을 올려도 이미 "완료"로 기록된 검색어는 재검색 주기가 돌아오기 전까지는
+예전 상한으로 멈춘 상태 그대로입니다 — 상향된 상한을 기존 검색어에도 바로
+적용하려면 progress.json을 비우거나 삭제해 처음부터 다시 훑게 해야 합니다
+(이미 가진 논문은 id로 자동 스킵되니 중복 걱정은 없습니다).
 """
 import requests, json, os, time
 from datetime import datetime
@@ -72,6 +78,26 @@ QUERIES = [
     "national park accessibility disability",
     "national park volunteer program",
     "national park noise light pollution",
+    # ── 여기부터 추가 (수집량 확대용, 2026-08) ──
+    "national park search and rescue",
+    "national park visitor safety management",
+    "national park waste management",
+    "national park sustainable transportation",
+    "national park marine protected area management",
+    "national park coastal erosion management",
+    "national park drought management",
+    "national park budget funding management",
+    "national park visitor crowding management",
+    "national park forest therapy wellbeing",
+    "national park emergency response planning",
+    "national park land acquisition management",
+    "national park public private partnership",
+    "national park artificial intelligence monitoring",
+    "national park geological heritage conservation",
+    "national park social media marketing",
+    "national park dark sky night protection",
+    "national park trail infrastructure design",
+    "national park camping reservation system",
 ]
 
 
@@ -178,10 +204,12 @@ def normalize(raw: dict) -> dict:
     }
 
 
-def fetch_query(query: str, email: str = "", limit: int = 100, deadline: float | None = None):
+def fetch_query(query: str, email: str = "", limit: int | None = None, deadline: float | None = None):
     """반환값: (papers, completed).
     completed=True  → 결과를 소진했거나 limit에 도달해 이 검색어를 끝까지 처리함
     completed=False → 429/오류/시간초과로 중간에 중단됨 (다음 실행에서 이 검색어를 처음부터 재시도)"""
+    if limit is None:
+        limit = int(os.getenv("COLLECTOR_QUERY_LIMIT") or 300)
     papers, cursor = [], "*"
     select = (
         "id,title,abstract_inverted_index,authorships,"
