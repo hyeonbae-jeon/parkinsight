@@ -98,10 +98,22 @@ QUERIES = [
     "national park dark sky night protection",
     "national park trail infrastructure design",
     "national park camping reservation system",
+    # ── 한국 국립공원 개별 명칭 (EXTRA_KEYWORDS로 임시 등록했던 것을 코드에 영구 반영) ──
+    "Gayasan", "Geumjeongsan", "Gyeongju", "Gyeryongsan", "Naejangsan",
+    "Dadohaehaesang", "Deogyusan", "Mudeungsan", "Byeonsanbando", "Bukhansan",
+    "Seoraksan", "Sobaeksan", "Songnisan", "Odaesan", "Woraksan", "Wolchulsan",
+    "Juwangsan", "Jirisan", "Chiaksan", "Taebaeksan", "Taeanhaean", "Palgongsan",
+    "Hallyeohaesang", "Hallasan",
+    "korean national park",
+    # "national park" 단독은 매우 광범위한 검색어라(약 18만 건 매치) 일부러 리스트
+    # 맨 마지막에 둡니다. QUERIES 순서가 그대로 "한 번도 안 해본 새 검색어" 처리
+    # 순서가 되므로, 위의 다른 모든 검색어가 먼저 다 처리된 뒤에야 이 검색어가
+    # 시도됩니다(코드 로직 변경 없이 순서 배치만으로 우선순위 최하위가 됨).
+    "national park",
 ]
 
 
-REFRESH_INTERVAL_DAYS = int(os.getenv("COLLECTOR_REFRESH_DAYS") or 14)
+REFRESH_INTERVAL_DAYS = int(os.getenv("COLLECTOR_REFRESH_DAYS") or 7)
 # 완료된 검색어도 이 일수가 지나면 다시 검색 대상에 포함시킵니다.
 # OpenAlex는 계속 새 논문이 추가되는 살아있는 DB라서, 한 번 다 모았다고 영원히
 # 손 놓으면 그 뒤로 나온 신규 논문을 놓치게 됩니다. (완전 재수집이 아니라 페이지를
