@@ -63,8 +63,24 @@
     "national park wildlife management": "2026-08-31",
     "national park zoning planning": "2026-08-31",
     "national park": "2026-09-10",
-    "korean national park": "2026-09-10"
+    "korean national park": "2026-09-10",
+    "national park search and rescue": "2026-09-12",
+    "national park visitor safety management": "2026-09-12",
+    "national park waste management": "2026-09-12",
+    "national park sustainable transportation": "2026-09-12",
+    "national park marine protected area management": "2026-09-12",
+    "national park coastal erosion management": "2026-09-12",
+    "national park drought management": "2026-09-12",
+    "national park budget funding management": "2026-09-12",
+    "national park visitor crowding management": "2026-09-12",
+    "national park forest therapy wellbeing": "2026-09-12",
+    "national park emergency response planning": "2026-09-12",
+    "national park land acquisition management": "2026-09-12"
   },
-  "fail_counts": {},
-  "updated_at": "2026-09-11T07:51:37.619506"
+  "fail_counts": {
+    "national park public private partnership": 1,
+    "national park artificial intelligence monitoring": 1,
+    "national park geological heritage conservation": 1
+  },
+  "updated_at": "2026-09-12T05:10:40.341843"
 }
