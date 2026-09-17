@@ -63,7 +63,7 @@
     "national park wildlife management": "2026-09-16",
     "national park zoning planning": "2026-09-14",
     "national park": "2026-09-10",
-    "korean national park": "2026-09-10",
+    "korean national park": "2026-09-17",
     "national park search and rescue": "2026-09-12",
     "national park visitor safety management": "2026-09-12",
     "national park waste management": "2026-09-12",
@@ -85,8 +85,9 @@
     "national park geological heritage conservation": "2026-09-12"
   },
   "fail_counts": {
-    "national park wetland management": 2,
-    "Jirisan": 2
+    "national park wetland management": 3,
+    "Jirisan": 2,
+    "national park": 1
   },
-  "updated_at": "2026-09-16T08:31:18.848632"
+  "updated_at": "2026-09-17T08:39:18.615977"
 }
