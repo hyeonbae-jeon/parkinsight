@@ -90,7 +90,12 @@
     "Woraksan": 3,
     "national park management effectiveness": 3,
     "national park carrying capacity": 1,
-    "national park invasive species management": 1
+    "national park invasive species management": 1,
+    "national park fire management": 1,
+    "national park recreation ecology": 1,
+    "national park governance": 1,
+    "national park restoration ecology": 1,
+    "national park human wildlife conflict": 1
   },
-  "updated_at": "2026-09-27T09:12:17.552689"
+  "updated_at": "2026-09-28T09:39:40.744135"
 }
