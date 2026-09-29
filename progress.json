@@ -55,7 +55,7 @@
     "national park tourism impact": "2026-09-24",
     "national park trail erosion": "2026-09-26",
     "national park trail management": "2026-09-26",
-    "national park visitor experience": "2026-09-20",
+    "national park visitor experience": "2026-09-29",
     "national park visitor management": "2026-09-26",
     "national park volunteer program": "2026-09-22",
     "national park water quality monitoring": "2026-09-21",
@@ -95,7 +95,8 @@
     "national park recreation ecology": 1,
     "national park governance": 1,
     "national park restoration ecology": 1,
-    "national park human wildlife conflict": 1
+    "national park human wildlife conflict": 1,
+    "national park zoning planning": 1
   },
-  "updated_at": "2026-09-28T09:39:40.744135"
+  "updated_at": "2026-09-29T09:44:37.606396"
 }
