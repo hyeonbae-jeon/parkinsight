@@ -15,7 +15,7 @@
     "Juwangsan": "2026-10-02",
     "Mudeungsan": "2026-10-02",
     "Naejangsan": "2026-10-02",
-    "Odaesan": "2026-09-15",
+    "Odaesan": "2026-10-06",
     "Palgongsan": "2026-10-03",
     "Seoraksan": "2026-10-02",
     "Sobaeksan": "2026-10-02",
@@ -23,7 +23,7 @@
     "Taeanhaean": "2026-10-03",
     "Taebaeksan": "2026-10-05",
     "Wolchulsan": "2026-10-02",
-    "Woraksan": "2026-09-15",
+    "Woraksan": "2026-10-06",
     "bukhansan": "2026-08-03",
     "national park accessibility disability": "2026-10-05",
     "national park air quality monitoring": "2026-09-30",
@@ -45,7 +45,7 @@
     "national park human wildlife conflict": "2026-10-04",
     "national park invasive species management": "2026-10-04",
     "national park landscape connectivity corridor": "2026-09-30",
-    "national park management effectiveness": "2026-09-16",
+    "national park management effectiveness": "2026-10-06",
     "national park noise light pollution": "2026-10-01",
     "national park ranger management": "2026-10-01",
     "national park recreation ecology": "2026-10-04",
@@ -55,7 +55,7 @@
     "national park tourism impact": "2026-10-01",
     "national park trail erosion": "2026-10-03",
     "national park trail management": "2026-10-03",
-    "national park visitor experience": "2026-09-29",
+    "national park visitor experience": "2026-10-06",
     "national park visitor management": "2026-10-03",
     "national park volunteer program": "2026-10-05",
     "national park water quality monitoring": "2026-09-30",
@@ -68,7 +68,7 @@
     "national park visitor safety management": "2026-10-03",
     "national park waste management": "2026-10-03",
     "national park sustainable transportation": "2026-10-03",
-    "national park marine protected area management": "2026-09-12",
+    "national park marine protected area management": "2026-10-06",
     "national park coastal erosion management": "2026-10-02",
     "national park drought management": "2026-10-02",
     "national park budget funding management": "2026-10-02",
@@ -84,11 +84,6 @@
     "national park artificial intelligence monitoring": "2026-10-01",
     "national park geological heritage conservation": "2026-10-01"
   },
-  "fail_counts": {
-    "national park marine protected area management": 4,
-    "Odaesan": 4,
-    "Woraksan": 3,
-    "national park management effectiveness": 4
-  },
-  "updated_at": "2026-10-05T10:18:31.077832"
+  "fail_counts": {},
+  "updated_at": "2026-10-06T09:51:39.447419"
 }
