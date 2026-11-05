@@ -84,6 +84,11 @@
     "national park artificial intelligence monitoring": "2026-10-08",
     "national park geological heritage conservation": "2026-10-08"
   },
-  "fail_counts": {},
-  "updated_at": "2026-10-10T09:33:59.936149"
+  "fail_counts": {
+    "national park trail management": 1,
+    "national park visitor management": 1,
+    "national park ecosystem monitoring": 1,
+    "national park biodiversity conservation": 1
+  },
+  "updated_at": "2026-11-05T10:39:22.395303"
 }
