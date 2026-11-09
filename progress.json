@@ -88,7 +88,13 @@
     "national park trail management": 1,
     "national park visitor management": 1,
     "national park ecosystem monitoring": 1,
-    "national park biodiversity conservation": 1
+    "national park biodiversity conservation": 1,
+    "national park trail erosion": 1,
+    "national park wildlife management": 1,
+    "national park management effectiveness": 1,
+    "national park climate change adaptation": 1,
+    "national park carrying capacity": 1,
+    "national park invasive species management": 1
   },
-  "updated_at": "2026-11-05T10:39:22.395303"
+  "updated_at": "2026-11-09T11:11:56.571643"
 }
